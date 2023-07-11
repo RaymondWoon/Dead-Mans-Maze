@@ -5,7 +5,7 @@ using UnityEngine;
 public class MapCoordinate
 {
     public int x, z;
-    
+
     public MapCoordinate(int _x, int _z)
     {
         x = _x;
@@ -23,10 +23,9 @@ public class MazeGenerator : MonoBehaviour
         new MapCoordinate(0, -1)
     };
 
-    [SerializeField]
-    private int _width = 20;    // x axis
-    [SerializeField]
-    private int _depth = 20;    // z axis
+    private int _width;     // x-axis
+    private int _depth;     // z axis
+
     [SerializeField]
     private GameObject _mazeContainer;
 
@@ -36,6 +35,9 @@ public class MazeGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _width = UIManager._mazeWidth;
+        _depth = UIManager._mazeDepth;
+
         InitializeMaze();
         GenerateMaze();
     }
@@ -72,5 +74,10 @@ public class MazeGenerator : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void UpdateMazeWidth(int newWidth)
+    {
+        _width = newWidth;
     }
 }
