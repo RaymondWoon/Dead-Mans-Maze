@@ -47,17 +47,13 @@
 An atmospheric difficulty increasing horror first-person shooter in which the player must escape a maze by first finding the keys to the exit and then surviving the path to the exit.
 
 ## 1.2 Summary
-The game consists of having the player inside a randomly generated maze with very limited lighting. The atmosphere will be set mainly through sound where the player will constantly hear moans, steps, and scratching sounds 'coming from' the monsters within, which the player must either avoid or take out. 
-
-The player will have limited ammunition for self-defense which will only increase from randomly placed pickups within the maze or from the keys needed to be collected to exit the maze and complete the level. 
-
-The game has high playability since the mazes are randomly generated, hence making the game increasingly challenging.
+The game consists of having the player inside a randomly generated maze with very limited lighting. The atmosphere will be set mainly through sound where the player will constantly hear moans, steps, and scratching sounds 'coming from' the monsters within, which the player must either avoid or take out.  The player will have limited ammunition for self-defense which will only increase from randomly placed pickups within the maze or from the keys needed to be collected to exit the maze and complete the level. The game has high playability since the mazes are randomly generated, hence making the game increasingly challenging.
 
 
 ## 1.3 Unique Selling Points (USPs)
 - The mazes are randomly generated which means players will theoretically obtain endless variations of the experience.
 - The horror atmosphere will be conveyed by having sound be the most predominant way for the player to immerse themselves.
-- Customizable experience. The player will be able to select how they wish to experience the game. They can make it extremely easy, lengthy or nerve wracking, through selection of preset maze sizes, starting ammo amount and/or enemy difficulty (heath and speed).
+- Customizable experience. The player will be able to select how they wish to experience the game. They can make it extremely easy, lengthy or nerve wracking, through selection of preset maze sizes, starting ammo amount and/or enemy difficulty (health and speed).
 
 # 2. Design
 
