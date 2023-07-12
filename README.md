@@ -44,22 +44,26 @@
 # 1. Game Description
 
 ## 1.1 Elevator Pitch
-An atmospheric difficulty increasing horror first-person shooter in which the player must escape a maze by first finding the keys to the exit and then rushing to the exit.
+An atmospheric difficulty increasing horror first-person shooter in which the player must escape a maze by first finding the keys to the exit and then surviving the path to the exit.
 
 ## 1.2 Summary
-The game consists of having the player inside a randomly generated maze with very limited lighting. The atmosphere will be set mainly through sound where the player will constantly hear moans, steps, and scratching sounds "coming from" the monsters they must either avoid or take out. The player will have limited ammo for self defense which will only refill slightly when grabbing one of the keys they would need to collect to head to the exit and beat the level. The game has high replayability since the mazes are random each time.
+The game consists of having the player inside a randomly generated maze with very limited lighting. The atmosphere will be set mainly through sound where the player will constantly hear moans, steps, and scratching sounds 'coming from' the monsters within, which the player must either avoid or take out. 
+
+The player will have limited ammunition for self-defense which will only increase from randomly placed pickups within the maze or from the keys needed to be collected to exit the maze and complete the level. 
+
+The game has high playability since the mazes are randomly generated, hence making the game increasingly challenging.
 
 
 ## 1.3 Unique Selling Points (USPs)
-- The mazes are randomly generated, which means players will theoretically get endless variations of the experience.
+- The mazes are randomly generated which means players will theoretically obtain endless variations of the experience.
 - The horror atmosphere will be conveyed by having sound be the most predominant way for the player to immerse themselves.
-- Customizable experience: The player will be able to select how they wish to experience the game, they can make it extremely easy, lengthy or nerve wracking. Through selection of preset maze sizes, starting ammo amount and/or enemy difficulty (health and speed).
+- Customizable experience. The player will be able to select how they wish to experience the game. They can make it extremely easy, lengthy or nerve wracking, through selection of preset maze sizes, starting ammo amount and/or enemy difficulty (heath and speed).
 
 # 2. Design
 
 ## 2.1 Key Mechanics
 
-The player controls the main character, and the game is viewed from a first person perspective. The character can move forwards and backwards, strafe to the sides, rotate, look up and down. The player will also have a small set of weapons to fight back the enemies.
+The player controls the main character, and the game is viewed from a first-person perspective. The character can move forwards and backwards, strafe to the sides, rotate, look up and down. The player will also have a small set of weapons to fight back the enemies.
 To achieve the game's goal of getting all the collectables and reaching the exit, the player will navigate the maze, eliminating or avoiding the threats that will populate the environment. Eliminating the threats will require skill, as the player will not have too much ammunition to spare; in case the player runs out of firing power, the only option available will be to avoid combat completely, increasing the difficulty of traversing the maze.
 The most relevant game mechanics will be familiar to most people with gaming experience: navigating new environments to find key items and shooting at enemies. The novelty of this proposal is that the maze is generated at random for each new game. While FPS shooting games and survival horror games are very popular, Dead Man’s Maze will combine elements from both genres, and also remove the certainty of knowing the map. The possibility to quickly start a new game and get a new maze to explore will be appealing to both experienced players that look for a different challenge where they can use their already honed skills, and also deal with many unknowns, and to new players that can start a game and get into it without the need to know too many mechanics or have an understanding of the game's world.
 The game will be an immersive experience where the odds are against the player.
@@ -85,13 +89,13 @@ The player is placed into a random spot in the maze, a screen shows up explainin
 
 ## 4.1 Art Style
 
-The art style will be a 3D polygon style which offers a timeless art style with colorful theme that makes the game unique and convey a playful feel. The game will use 3D polygon assets by Synty as much as possible to provide a consistent art style throughout the entire game including characters, items, building and the environment. Where a specific asset is unavailable, a custom model with texture will be made to resemble the art style as much as possible.
+The art style will be a 3D polygon style which offers a timeless art style with colorful theme that makes the game unique and conveys a playful feel. The game will use 3D polygon assets by Synty as much as possible to provide a consistent art style throughout the entire game including characters, items, building and the environment. Where a specific asset is unavailable, a custom model with texture will be made to resemble the art style as much as possible.
 
 ![art style](images/PolygonAdventure_04.webp)
 
 *Figure 4.1: Polygon Adventure Pack (Campfire) Preview by Synty*
 
-The gameplay style will be similar to POLYGON and , both are tactical first person shooter. The game will feature responsive controls, coupled with fast and fluid animation. The player can control the character to move, sprint, jump, crouch and shoot with polygon weapons to match the game's art style. The game will put heavy emphasis on gunplay with impactful shots at every bullet strike and shells ejecting from the gun, coupled with satisfying reload animations.
+The gameplay style will be similar to POLYGON and , both are tactical first-person shooter. The game will feature responsive controls, coupled with fast and fluid animation. The player can control the character to move, sprint, jump, crouch and shoot with polygon weapons to match the game's art style. The game will put heavy emphasis on gunplay with impactful shots at every bullet strike and shells ejecting from the gun, coupled with satisfying reload animations.
 
 ![POLYGON](images/POLYGON.jpg)
 
@@ -103,20 +107,20 @@ The gameplay style will be similar to POLYGON and , both are tactical first pers
 
 ## 4.2 Audio
 
-On the start menu, the game will play an orchestral music to set the mood of the player to get ready to play, similar to Polyfield. Once in the game, the music will change between 2 states depending on what the player is doing. If the player has encountered an enemy, the music will get louder with fast tempo, otherwise the music will be quite with mellow tone.
+On the start menu, the game will play orchestral music to set the mood of the player to get ready to play, similar to Polyfield. Once in the game, the music will change between 2 states depending on what the player is doing. If the player has encountered an enemy, the music will get louder with fast tempo, otherwise the music will be quite with mellow tone.
 
 As for the environmental sound, the sound will give a isolation settings.
-The game will rely heavily on atmospheric sound giving the player a sense of dread and "stress" that there may be something right around the corner. Most of the sounds will play at random intervals so that the player may not find the audio cues predictable, but with certain spacing between them so that they feel organic and not part of a predictable algorithm
+The game will rely heavily on atmospheric sound, giving the player a sense of dread and "stress" that there may be something right around the corner. Most of the sounds will play at random intervals so that the player may not find the audio cues predictable, but with certain spacing between them so that they feel organic and not part of a predictable algorithm
 
 ## 4.3 Front End
 
-Upon starting the game, the player will be greeted with the start menu and a beautiful artwork in the background to invite the player to play the game. The menu UI will consists of a 'Start', 'Settings' and 'Exit buttons and leads to another menu page as shown in the wireframe below:
+Upon starting the game, the player will be greeted with the start menu and beautiful artwork in the background to invite the player to play the game. The menu UI will consists of a 'Start', 'Settings' and 'Exit' buttons and leads to another menu page as shown in the wireframe below:
 
 ![Dead Man's Maze - Start Menu](images/Dead_Man's_Maze_-_Start_Menu.png)
 
 *Figure 4.4: Start Menu Wireframe*
 
-The game will feature a simple HUD system with slight transparency to allow the player immersive themselves in the gameplay without being distracted by complicated HUD. It consists of the health bar, ammo bar and gun selection slots as shown in the illustration below: 
+The game will feature a simple HUD system with slight transparency to allow the players to immerse themselves in the gameplay without being distracted by complicated HUD. It consists of the health bar, ammo bar and gun selection slots as shown in the illustration below: 
 
 ![Dead Man's Maze - HUD](images/Dead_Man's_Maze_-_HUD.png)
 
@@ -159,11 +163,11 @@ The game will feature a simple HUD system with slight transparency to allow the 
 | Script        | Enemy Spawner       | Creates new enemies.                                   |
 | Script        | Enemy Controller    | Handles enemy behaviour.                               |
 | Prefab        | Enemy               | Enemy's appearance, behaviour.                         |
-| Prefab        | Weapons             | Enemy's appearance, behaviour.                         |
-| Prefab        | Maze components     | Enemy's appearance, behaviour.                         |
+| Prefab        | Weapons             | Bundle of weapon's appearance, animation, sound.       |
+| Prefab        | Maze components     | Pieces the maze is made of.                            |
 | Prefab        | Key                 | Enemy's appearance, behaviour.                         |
 | Art           | Sounds              | Environment sounds, enemies' sounds and weapons.       |
-| Art           | Textures            | Materials to add texture to ground and walls.          |
+| Art           | Textures            | Materials to add texture to ground, ceiling and walls. |
 | Art           | Music               | Music for the main menu.                               |
 | Prefab        | Light               | Enemy's appearance, behaviour.                         |
 | Prefab        | Light               | Enemy's appearance, behaviour.                         |
