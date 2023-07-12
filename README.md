@@ -165,14 +165,10 @@ The game will feature a simple HUD system with slight transparency to allow the 
 | Prefab        | Enemy               | Enemy's appearance, behaviour.                         |
 | Prefab        | Weapons             | Bundle of weapon's appearance, animation, sound.       |
 | Prefab        | Maze components     | Pieces the maze is made of.                            |
-| Prefab        | Key                 | Enemy's appearance, behaviour.                         |
-| Art           | Sounds              | Environment sounds, enemies' sounds and weapons.       |
+| Prefab        | Key                 | Keys's appearance, behaviour.                          |
+| Art           | Sounds              | Environment, enemies' and weapons' sounds.             |
 | Art           | Textures            | Materials to add texture to ground, ceiling and walls. |
 | Art           | Music               | Music for the main menu.                               |
-| Prefab        | Light               | Enemy's appearance, behaviour.                         |
-| Prefab        | Light               | Enemy's appearance, behaviour.                         |
-| Prefab        | Light               | Enemy's appearance, behaviour.                         |
-
 
 
 # 8. The Team
