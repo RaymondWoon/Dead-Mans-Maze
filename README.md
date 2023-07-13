@@ -47,7 +47,9 @@
 An atmospheric difficulty increasing horror first-person shooter in which the player must escape a maze by first finding the keys to the exit and then surviving the path to the exit.
 
 ## 1.2 Summary
-The game consists of having the player inside a randomly generated maze with very limited lighting. The atmosphere will be set mainly through sound where the player will constantly hear moans, steps, and scratching sounds 'coming from' the monsters within, which the player must either avoid or take out.  The player will have limited ammunition for self-defense which will only increase from randomly placed pickups within the maze or from the keys needed to be collected to exit the maze and complete the level. The game has high playability since the mazes are randomly generated, hence making the game increasingly challenging.
+The game consists of having the player inside a randomly generated maze with very limited lighting. The atmosphere will be set mainly through sound where the player will constantly hear moans, steps, and scratching sounds 'coming from' the monsters within, which the player must either avoid or take out.  
+
+The player will have limited ammunition for self-defense which will only increase from randomly placed pickups within the maze or from the keys needed to be collected to exit the maze and complete the level. The game has high playability since the mazes are randomly generated, hence making the game increasingly challenging.
 
 
 ## 1.3 Unique Selling Points (USPs)
@@ -159,11 +161,21 @@ The following SWOT analysis will offer a snapshot of our game's potential, highl
 
 3. **Team Inexperience**: As our team does not have prior experience in game development, there could potentially be unforeseen difficulties.
 
-
 ## 5.2 Production Schedule
 
+For the development of our game we created a high level production schedule covering project management, programming, art, design, and quality assurance, we will virtually meet every Wednesday to discuss progress and adjust tasks as needed besides that we will keep the communication via Slack.
+The following timeline provides a roadmap, but we're prepared to adapt as needed in case of unexpected issues or necessary changes after feedbacks.
 
-
+| Week Starting | Isabela Louli | Raymond Woon | Alwin Wong  | Ernesto Arakaki | Daniel Rodriguez |
+|---------------|---------------------------------------|-----------------------|---------------------------|-------------------------------|---------------------------|
+| Week 1 (July 24)| Project Planning | Project Planning | Project Planning | Project Planning | Project Planning |
+| Week 2 (July 31)       | Shooter | Maze Generation Programming | Concept Art/Design | Concept Art/Design | Guns & Keys Mechanics |
+| Week 3 (Aug 7)         | Gameplay Programming | Gameplay Programming | Menu Design | Level Design | Testing & Feedback |
+| Week 4 (Aug 14)        | Improve Shooter Mechanics | Enemies Generation | Level Design | Sounds | Continue Guns & Keys Mechanics  |
+| Week 5 (Aug 21)        | Buffer/Rest Week | Buffer/Rest Week | Buffer/Rest Week | Buffer/Rest Week | Buffer/Rest Week |
+| Week 6 (Aug 28)        | Feedback and Iteration | Feedback and Iteration | Feedback and Iteration | Feedback and Iteration | Feedback and Iteration |
+| Week 7 (Sept 4)        | Finalize Game Mechanics | Finalize Game Mechanics | Finalize Game Design or Mechanics   | Finalize Game Design or Mechanics | Finalize Gameplay Mechanics |
+| Week 8 (Sept 11)       | Final Polish and Testing| Final Polish and Testing | Final Polish and Testing | Final Polish and Testing | Final Polish and Testing |
 
 
 # 6. Prototyping
