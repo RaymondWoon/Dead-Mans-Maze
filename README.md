@@ -168,13 +168,13 @@ The following timeline provides a roadmap, but we're prepared to adapt as needed
 
 | Week Starting | Isabela Louli | Raymond Woon | Alwin Wong  | Ernesto Arakaki | Daniel Rodriguez |
 |---------------|---------------------------------------|-----------------------|---------------------------|-------------------------------|---------------------------|
-| Week 1 (July 24)| Project Planning | Project Planning | Project Planning | Project Planning | Project Planning |
-| Week 2 (July 31)       | Shooter | Maze Generation Programming | Concept Art/Design | Concept Art/Design | Guns & Keys Mechanics |
-| Week 3 (Aug 7)         | Gameplay Programming | Gameplay Programming | Menu Design | Level Design | Testing & Feedback |
-| Week 4 (Aug 14)        | Improve Shooter Mechanics | Enemies Generation | Level Design | Sounds | Continue Guns & Keys Mechanics  |
+| Week 1 (July 24)| Project Planning | Project Planning | Concept Art/Design | Concept Art/Design | Project Planning |
+| Week 2 (July 31)       | Player | Maze Generation Programming | Enemies Generation | Maze components | Weapons |
+| Week 3 (Aug 7)         | Player interactions | Level design | Texture and assets | Menu | Bullets |
+| Week 4 (Aug 14)        | Game sounds | Gameplay Programming  | Lights and atmosphere | Inventory | Weapons and Bullets interactions  |
 | Week 5 (Aug 21)        | Buffer/Rest Week | Buffer/Rest Week | Buffer/Rest Week | Buffer/Rest Week | Buffer/Rest Week |
 | Week 6 (Aug 28)        | Feedback and Iteration | Feedback and Iteration | Feedback and Iteration | Feedback and Iteration | Feedback and Iteration |
-| Week 7 (Sept 4)        | Finalize Game Mechanics | Finalize Game Mechanics | Finalize Game Design or Mechanics   | Finalize Game Design or Mechanics | Finalize Gameplay Mechanics |
+| Week 7 (Sept 4)        | Finalize Game Mechanics | Finalize Game Mechanics | Finalize Game Mechanics   | Finalize Game Mechanics | Finalize Game Mechanics |
 | Week 8 (Sept 11)       | Final Polish and Testing| Final Polish and Testing | Final Polish and Testing | Final Polish and Testing | Final Polish and Testing |
 
 
