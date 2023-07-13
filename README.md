@@ -139,7 +139,7 @@ The following SWOT analysis will offer a snapshot of our game's potential, highl
 
 #### Weaknesses
 
-1. **Potential for Repetitiveness**: Despite the random maze generation, if gameplay mechanics and enemy encounters don't provide enough variety, players may find the experience monotonous over time.
+1. **Potential for Repetitiveness**: Despite the random maze generation, if gameplay mechanics and enemy encounters don't provide enough variety, players may find the experience monotonous over time so we will introduce diferent types of zombies that can be easy or hard to kill and as a possible improvement would be puzzles in the maze or power ups to keep the game enganging.
 
 2. **Niche Market**: Not everyone’s a fan of horror, and not everyone loves first-person shooters so the combination of the horror genre with a first-person shooter may limit the game's appeal.
 
@@ -201,7 +201,7 @@ The following SWOT analysis will offer a snapshot of our game's potential, highl
 
 | Role                   | Name                | ID        |
 | ---------------------- | ------------------- | --------- |
-| Project Manager        | Isabela de Oliveira |           |
+| Project Manager        | Isabela Louli       | 200400264 |
 | Programming            | Raymond Woon        | 190126210 |
 | Art                    | Alwin Wong          | 200195717 |
 | Design                 | Ernesto Arakaki     | 210168615 |
