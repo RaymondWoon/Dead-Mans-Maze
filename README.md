@@ -141,7 +141,7 @@ The following SWOT analysis will offer a snapshot of our game's potential, highl
 
 #### Weaknesses
 
-1. **Potential for Repetitiveness**: Despite the random maze generation, if gameplay mechanics and enemy encounters don't provide enough variety, players may find the experience monotonous over time.
+1. **Potential for Repetitiveness**: Despite the random maze generation, if gameplay mechanics and enemy encounters don't provide enough variety, players may find the experience monotonous over time we are considering what could avoid this some of our ideas are multiple kind of zombies, power ups and multiple kind of guns.
 
 2. **Niche Market**: Not everyone’s a fan of horror, and not everyone loves first-person shooters so the combination of the horror genre with a first-person shooter may limit the game's appeal.
 
