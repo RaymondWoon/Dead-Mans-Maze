@@ -147,6 +147,9 @@ The game will feature a simple HUD system with slight transparency to allow the 
 
 | Type          | Name                | Description                                            |
 | ------------- | ------------------- | ------------------------------------------------------ |
+| Scene         | GameScene           | Main scene that contains the game logic.               |
+| Scene         | MenuScene           | Main menu scene.                                       |
+| Scene         | OptionsScene        | Menu to customize settings.                            |
 | Script        | Player Controller   | Handles user input and controls in-game actions.       |
 | Script        | Maze Generator      | Generates the layout of the maze.                      |
 | Script        | Sounds Controller   | Controls the sounds.                                   |
@@ -162,9 +165,14 @@ The game will feature a simple HUD system with slight transparency to allow the 
 | Prefab        | Weapons             | Bundle of weapon's appearance, animation, sound.       |
 | Prefab        | Maze components     | Pieces the maze is made of.                            |
 | Prefab        | Key                 | Keys's appearance, behaviour.                          |
+| Prefab        | Ammunition          | Replenishes ammunition to keep fighting.               |
+| Prefab        | FirstAidKit         | Replenishes health.                                    |
 | Art           | Sounds              | Environment, enemies' and weapons' sounds.             |
 | Art           | Textures            | Materials to add texture to ground, ceiling and walls. |
 | Art           | Music               | Music for the main menu.                               |
+| Art           | Background          | Background image for the title screen.                 |
+| Art           | Font                | Font for the menues.                                   |
+| Art           | Title               | Logo for the game's title.                             |
 
 
 # 8. The Team
