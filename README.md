@@ -129,7 +129,7 @@ The game will feature a simple HUD system with slight transparency to allow the 
 
 The following SWOT analysis will offer a snapshot of our game's potential, highlighting areas for optimization and the challenges that lie ahead.
 
-#### Strengths
+### Strengths
 
 1. **Unpredictability**: This is our big win! The randomly generated maze layout ensures that players will experience a unique challenge each time they play, they can’t just memorize and breeze through enhancing replayability.
 
@@ -137,7 +137,7 @@ The following SWOT analysis will offer a snapshot of our game's potential, highl
 
 3. **Resource Management**: By limiting the ammunition available to players and distributing it randomly throughout the maze, we encourage strategic thinking and make the player wants to explore the maze.
 
-#### Weaknesses
+### Weaknesses
 
 1. **Potential for Repetitiveness**: Despite the random maze generation, if gameplay mechanics and enemy encounters don't provide enough variety, players may find the experience monotonous over time so we will introduce diferent types of zombies that can be easy or hard to kill and as a possible improvement would be puzzles in the maze or power ups to keep the game enganging.
 
@@ -145,13 +145,13 @@ The following SWOT analysis will offer a snapshot of our game's potential, highl
 
 3. **Accessibility Concerns**: Relying heavily on limited visual cues and auditory information could make the game less accessible to players with visual or auditory impairments. Incorporating accessibility options would be a possible future improvement.
 
-#### Opportunities
+### Opportunities
 
 1. **Continuous Improvement**: The nature of random generation allows for an evolving gameplay experience. The maze-generating algorithm can be constantly improved which means the game can grow and get more complex over time.
 
 2. **Community Engagement**: If the game is well-received, there is potential for a dedicated player community to form. This community could share experiences, tips, and strategies, promoting the game.
 
-#### Threats
+### Threats
 
 1. **Technical Challenges**: Random generation can lead to some bugs or imbalances in gameplay, necessitating intense testing and debugging.
 
@@ -162,9 +162,19 @@ The following SWOT analysis will offer a snapshot of our game's potential, highl
 
 ## 5.2 Production Schedule
 
+For the development of our game we created a high level production schedule covering project management, programming, art, design, and quality assurance, we will virtually meet every Wednesday to discuss progress and adjust tasks as needed besides that we will keep the communication via Slack.
+The following timeline provides a roadmap, but we're prepared to adapt as needed in case of unexpected issues or necessary changes after feedbacks.
 
-
-
+| Week Starting | Isabela Louli | Raymond Woon | Alwin Wong  | Ernesto Arakaki | Daniel Rodriguez |
+|---------------|---------------------------------------|-----------------------|---------------------------|-------------------------------|---------------------------|
+| Week 1 (July 24)| Project Planning | Project Planning | Project Planning | Project Planning | Project Planning |
+| Week 2 (July 31)       | Shooter | Maze Generation Programming | Concept Art/Design | Concept Art/Design | Guns & Keys Mechanics |
+| Week 3 (Aug 7)         | Gameplay Programming | Gameplay Programming | Menu Design | Level Design | Testing & Feedback |
+| Week 4 (Aug 14)        | Improve Shooter Mechanics | Enemies Generation | Level Design | Sounds | Continue Guns & Keys Mechanics  |
+| Week 5 (Aug 21)        | Buffer/Rest Week | Buffer/Rest Week | Buffer/Rest Week | Buffer/Rest Week | Buffer/Rest Week |
+| Week 6 (Aug 28)        | Feedback and Iteration | Feedback and Iteration | Feedback and Iteration | Feedback and Iteration | Feedback and Iteration |
+| Week 7 (Sept 4)        | Finalize Game Mechanics | Finalize Game Mechanics | Finalize Game Design or Mechanics   | Finalize Game Design or Mechanics | Finalize Gameplay Mechanics |
+| Week 8 (Sept 11)       | Final Polish and Testing| Final Polish and Testing | Final Polish and Testing | Final Polish and Testing | Final Polish and Testing |
 
 # 6. Prototyping
 
