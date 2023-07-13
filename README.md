@@ -137,11 +137,11 @@ The following SWOT analysis will offer a snapshot of our game's potential, highl
 
 2. **Tense Atmosphere**: Limited lighting and a focus on sound provide an intense, suspenseful atmosphere that is likely to engage fans of the horror genre.
 
-3. **Resource Management**: By limiting the ammunition available to players and distributing it randomly throughout the maze, we encourage strategic thinking and make the player wants to explore the maze.
+3. **Resource Management**: By limiting the ammunition available to players and distributing it randomly throughout the maze, we encourage strategic thinking and maze exploration what will make the user encounter more enemies.
 
 #### Weaknesses
 
-1. **Potential for Repetitiveness**: Despite the random maze generation, if gameplay mechanics and enemy encounters don't provide enough variety, players may find the experience monotonous over time.
+1. **Potential for Repetitiveness**: Despite the random maze generation, if gameplay mechanics and enemy encounters don't provide enough variety, players may find the experience monotonous over time, we are considering some ideas that could help on this point, like multiple kind of zombies, power ups and multiple kind of guns but bear in mind those are future ideas not planned features.
 
 2. **Niche Market**: Not everyone’s a fan of horror, and not everyone loves first-person shooters so the combination of the horror genre with a first-person shooter may limit the game's appeal.
 
