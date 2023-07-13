@@ -123,11 +123,41 @@ The game will feature a simple HUD system with slight transparency to allow the 
 *Figure 4.5: Gameplay with HUD Illustration*
 
 
-
 # 5. Production
 
 ## 5.1 SWOT Analysis
 
+The following SWOT analysis will offer a snapshot of our game's potential, highlighting areas for optimization and the challenges that lie ahead.
+
+#### Strengths
+
+1. **Unpredictability**: This is our big win! The randomly generated maze layout ensures that players will experience a unique challenge each time they play, they can’t just memorize and breeze through enhancing replayability.
+
+2. **Tense Atmosphere**: Limited lighting and a focus on sound provide an intense, suspenseful atmosphere that is likely to engage fans of the horror genre.
+
+3. **Resource Management**: By limiting the ammunition available to players and distributing it randomly throughout the maze, we encourage strategic thinking and make the player wants to explore the maze.
+
+#### Weaknesses
+
+1. **Potential for Repetitiveness**: Despite the random maze generation, if gameplay mechanics and enemy encounters don't provide enough variety, players may find the experience monotonous over time.
+
+2. **Niche Market**: Not everyone’s a fan of horror, and not everyone loves first-person shooters so the combination of the horror genre with a first-person shooter may limit the game's appeal.
+
+3. **Accessibility Concerns**: Relying heavily on limited visual cues and auditory information could make the game less accessible to players with visual or auditory impairments. Incorporating accessibility options would be a possible future improvement.
+
+#### Opportunities
+
+1. **Continuous Improvement**: The nature of random generation allows for an evolving gameplay experience. The maze-generating algorithm can be constantly improved which means the game can grow and get more complex over time.
+
+2. **Community Engagement**: If the game is well-received, there is potential for a dedicated player community to form. This community could share experiences, tips, and strategies, promoting the game.
+
+#### Threats
+
+1. **Technical Challenges**: Random generation can lead to some bugs or imbalances in gameplay, necessitating intense testing and debugging.
+
+2. **Market Competition**: There are a lot of horror games out there, and a lot of shooters too so standing out in that crowd can be a challenge.
+
+3. **Team Inexperience**: As our team does not have prior experience in game development, there could potentially be unforeseen difficulties.
 
 
 ## 5.2 Production Schedule
