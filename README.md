@@ -87,13 +87,13 @@ The player is placed into a random spot in the maze, a screen shows up explainin
 
 ## 4.1 Art Style
 
-The art style will be a 3D polygon style which offers a timeless art style with colorful theme that makes the game unique and conveys a playful feel. The game will use 3D polygon assets by Synty as much as possible to provide a consistent art style throughout the entire game including characters, items, building and the environment. Where a specific asset is unavailable, a custom model with texture will be made to resemble the art style as much as possible.
+The art style will be a 3D polygon style which offers a timeless art style that is quite flexible for all types of games and settings. The game will use 3D polygon assets by Synty as much as possible to provide a consistent art style throughout the entire game including characters, items, and the environment. Where a specific asset is unavailable, a custom model with texture will be made to resemble the art style as much as possible.
 
 ![art style](images/PolygonAdventure_04.webp)
 
 *Figure 4.1: Polygon Adventure Pack (Campfire) Preview by Synty*
 
-The gameplay style will be similar to POLYGON and , both are tactical first-person shooter. The game will feature responsive controls, coupled with fast and fluid animation. The player can control the character to move, sprint, jump, crouch and shoot with polygon weapons to match the game's art style. The game will put heavy emphasis on gunplay with impactful shots at every bullet strike and shells ejecting from the gun, coupled with satisfying reload animations.
+The gameplay style will be similar to POLYGON since both are first-person shooters. The game will feature responsive controls, coupled with fast and fluid animation. The player can control the character to move, sprint, jump, crouch and shoot with polygon weapons to match the game's art style. The game will put heavy emphasis on gunplay with impactful shots at every bullet strike and shells ejecting from the gun, coupled with reload animations.
 
 ![POLYGON](images/POLYGON.jpg)
 
@@ -105,20 +105,20 @@ The gameplay style will be similar to POLYGON and , both are tactical first-pers
 
 ## 4.2 Audio
 
-On the start menu, the game will play orchestral music to set the mood of the player to get ready to play, similar to Polyfield. Once in the game, the music will change between 2 states depending on what the player is doing. If the player has encountered an enemy, the music will get louder with fast tempo, otherwise the music will be quite with mellow tone.
+On the start menu, the game will play orchestral music to set the mood for the player to get ready to play, similar to Polyfield. Once in the game, the music will change between 2 states depending on what the player is doing. If the player has encountered an enemy, the music will get louder with fast tempo, otherwise the music will be quiet with a mellow tone.
 
-As for the environmental sound, the sound will give a isolation settings.
-The game will rely heavily on atmospheric sound, giving the player a sense of dread and "stress" that there may be something right around the corner. Most of the sounds will play at random intervals so that the player may not find the audio cues predictable, but with certain spacing between them so that they feel organic and not part of a predictable algorithm
+As for the environmental sound, the sound will give a sense of isolation.
+The game will rely heavily on atmospheric sound, giving the player a sense of dread and "stress" that there may be something right around the corner. Most of the sounds will play at random intervals so that the player may not find the audio cues predictable, but with certain spacing between them so that they feel organic and not part of a predictable algorithm.
 
 ## 4.3 Front End
 
-Upon starting the game, the player will be greeted with the start menu and beautiful artwork in the background to invite the player to play the game. The menu UI will consists of a 'Start', 'Settings' and 'Exit' buttons and leads to another menu page as shown in the wireframe below:
+Upon starting the game, the player will be greeted by the start menu with artwork in the background to invite the player to play the game. The menu UI will consist of a 'Start', 'Settings' and 'Exit' buttons that lead to another menu page as shown in the wireframe below:
 
 ![Dead Man's Maze - Start Menu](images/Dead_Man's_Maze_-_Start_Menu.png)
 
 *Figure 4.4: Start Menu Wireframe*
 
-The game will feature a simple HUD system with slight transparency to allow the players to immerse themselves in the gameplay without being distracted by complicated HUD. It consists of the health bar, ammo bar and gun selection slots as shown in the illustration below: 
+The game will feature a simple HUD system with slight transparency to allow the players to immerse themselves in the gameplay without being distracted by a complicated HUD. It consists of the health bar, ammo bar and gun selection slots as shown in the illustration below: 
 
 ![Dead Man's Maze - HUD](images/Dead_Man's_Maze_-_HUD.png)
 
@@ -133,7 +133,7 @@ The following SWOT analysis will offer a snapshot of our game's potential, highl
 
 ### Strengths
 
-1. **Unpredictability**: This is our big win! The randomly generated maze layout ensures that players will experience a unique challenge each time they play, they can’t just memorize and breeze through enhancing replayability.
+1. **Unpredictability**: This is our big win! The randomly generated maze layout ensures that players will experience a unique challenge each time they play, they can’t just memorize and breeze through, enhancing replayability.
 
 2. **Tense Atmosphere**: Limited lighting and a focus on sound provide an intense, suspenseful atmosphere that is likely to engage fans of the horror genre.
 
@@ -141,7 +141,7 @@ The following SWOT analysis will offer a snapshot of our game's potential, highl
 
 ### Weaknesses
 
-1. **Potential for Repetitiveness**: Despite the random maze generation, if gameplay mechanics and enemy encounters don't provide enough variety, players may find the experience monotonous over time, we are considering some ideas that could help on this point, like multiple kind of zombies, power ups and multiple kind of guns but bear in mind those are future ideas not planned features.
+1. **Potential for Repetitiveness**: Despite the random maze generation, if gameplay mechanics and enemy encounters don't provide enough variety, players may find the experience monotonous over time, we are considering some ideas that could help on this point, like multiple kind of zombies, power ups and multiple tyoes of guns but bear in mind those are future ideas not planned features.
 
 2. **Niche Market**: Not everyone’s a fan of horror, and not everyone loves first-person shooters so the combination of the horror genre with a first-person shooter may limit the game's appeal.
 
@@ -163,8 +163,8 @@ The following SWOT analysis will offer a snapshot of our game's potential, highl
 
 ## 5.2 Production Schedule
 
-For the development of our game we created a high level production schedule covering project management, programming, art, design, and quality assurance, we will virtually meet every Wednesday to discuss progress and adjust tasks as needed besides that we will keep the communication via Slack.
-The following timeline provides a roadmap, but we're prepared to adapt as needed in case of unexpected issues or necessary changes after feedbacks.
+For the development of our game we created a high level production schedule covering project management, programming, art, design, and quality assurance, we will virtually meet every Wednesday to discuss progress and adjust tasks as needed besides that, we will keep the communication via Slack.
+The following timeline provides a roadmap, but we're prepared to adapt as needed in case of unexpected issues or necessary changes after feedback.
 
 | Week Starting | Isabela Louli | Raymond Woon | Alwin Wong  | Ernesto Arakaki | Daniel Rodriguez |
 |---------------|---------------------------------------|-----------------------|---------------------------|-------------------------------|---------------------------|
@@ -180,9 +180,9 @@ The following timeline provides a roadmap, but we're prepared to adapt as needed
 
 # 6. Prototyping
 
+The repo that has the files for the prototype can be found here:
 
-
-
+[Github Repo](https://github.com/RaymondWoon/Dead-Mans-Maze)
 
 # 7. List of All Assets
 
