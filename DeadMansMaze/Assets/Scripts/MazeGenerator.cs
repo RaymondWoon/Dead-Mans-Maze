@@ -39,7 +39,8 @@ public class MazeGenerator : MonoBehaviour
         _depth = UIManager._mazeDepth;
 
         InitializeMaze();
-        GenerateMaze();
+        GenerateMaze(5, 5);
+        DrawMaze();
     }
 
     private void InitializeMaze()
@@ -58,7 +59,22 @@ public class MazeGenerator : MonoBehaviour
         }
     }
 
-    private void GenerateMaze()
+    private void GenerateMaze(int x, int z)
+    {
+        if (CountOrthogonalNeighbours(x, z) >= 2)
+            return;
+
+        _map[x, z] = 0;
+
+        directions.Shuffle();
+
+        GenerateMaze(x + directions[0].x, z + directions[0].z);
+        GenerateMaze(x + directions[1].x, z + directions[1].z);
+        GenerateMaze(x + directions[2].x, z + directions[2].z);
+        GenerateMaze(x + directions[3].x, z + directions[3].z);
+    }
+
+    private void DrawMaze()
     {
         for (int z = 0; z < _depth; z++)
         {
@@ -80,4 +96,36 @@ public class MazeGenerator : MonoBehaviour
     {
         _width = newWidth;
     }
+
+    private int CountOrthogonalNeighbours(int x, int z)
+    {
+        //  initiate counter
+        int count = 0;
+
+        // Check if outside of limits and return an unexpected value
+        if (x <= 0 || x >= _width - 1 || z <= 0 || z >= _depth - 1)
+            return 5;
+
+        // @ 180 degree
+        if (_map[x - 1, z] == 0) 
+            count++;
+
+        // @ 0 degree
+        if (_map[x + 1, z] == 0)
+            count++;
+
+        // @ 90 degree
+        if (_map[x, z + 1] == 0)
+            count++;
+
+        // @ -90 degree
+        if (_map[x, z - 1] == 0)
+            count++;
+
+        return count;
+    }
+
+
 }
+
+
