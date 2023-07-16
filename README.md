@@ -49,7 +49,7 @@ An atmospheric difficulty increasing horror first-person shooter in which the pl
 
 ## 1.2 Summary
 
-It is an first-person shooter (FPS) game that places the player inside a randomly generated maze with very limited lightning to convey a moody experience. The atmosphere will express heavily on sound, where the player will constantly hear moans, steps, and scratching sounds coming from the monsters in proximity, and the player can choose to either avoid it or take it out.
+It is a first-person shooter (FPS) game that places the player inside a randomly generated maze with very limited lightning to convey a moody experience. The atmosphere will express heavily on sound, where the player will constantly hear moans, steps, and scratching sounds coming from the monsters in proximity, and the player can choose to either avoid it or take it out.
 
 The objective is to escape the maze by collecting keys to the exit. The player will start with limited ammunition for self-defense, where the player can get more ammo from randomly placed pickups within the maze. The game is highly replayable since the mazes are randomly generated with maze customization accessible for the player to change and explore.
 
@@ -82,6 +82,8 @@ The game is set in the Modern day. Earth is close to being decimated by a virus 
 The player is greeted with a dark menu screen and eerie music, where they get the options to start the game, read the instructions or customize various aspects of the game, it could look something like the illustration below:
 
 ![MainMenu](images/MainMenu.png)
+
+*Figure 1: Main Menu*
 
 Once the player clicked on "Play" and "Start" to start a new game, the game will start with the player placed in random spot in the maze followed by a popup screen explaining the lore and your objective. The player can click on "Continue" to begin the game.
 
@@ -119,7 +121,7 @@ As for the environmental sound, the player will only hear silence with constant 
 
 ## 4.3 Front End
 
-Upon starting the game, the player will be greeted with the start menu and a beautiful artwork in the background to invite the player to play the game. The menu UI will consists of a 'Start', 'How to Play' and "Customize Experience" buttons and leads to another menu page as shown in the wireframe below:
+Upon starting the game, the player will be greeted with the start menu and a beautiful artwork in the background to invite the player to play the game. The menu UI will consist of a 'Start', 'How to Play' and "Customize Experience" buttons and leads to another menu page as shown in the wireframe below:
 
 ![Menu](images/Menu.png)
 
@@ -164,24 +166,24 @@ The following SWOT analysis will offer a snapshot of our game's potential, highl
 
 ## 5.2 Production Schedule
 
-For the development of our game we created a high level production schedule covering project management, programming, art, design, and quality assurance, we will virtually meet every Wednesday to discuss progress and adjust tasks as needed besides that, we will keep the communication via Slack. The following timeline provides a roadmap, but we're prepared to adapt as needed in case of unexpected issues or necessary changes after feedback.
+For the development of our game, we created a high-level production schedule covering project management, programming, art, design, and quality assurance, we will virtually meet every Wednesday to discuss progress and adjust tasks as needed besides that, we will keep the communication via Slack. The following timeline provides a roadmap, but we're prepared to adapt as needed in case of unexpected issues or necessary changes after feedback.
 
-| Week Starting    | Isabela Louli            | Raymond Woon                | Alwin Wong               | Ernesto Arakaki          | Daniel Rodriguez                 |
-| ---------------- | ------------------------ | --------------------------- | ------------------------ | ------------------------ | -------------------------------- |
-| Week 1 (July 24) | Project Planning         | Project Planning            | Concept Art/Design       | Concept Art/Design       | Project Planning                 |
-| Week 2 (July 31) | Player                   | Maze Generation Programming | Enemies Generation       | Maze components          | Weapons                          |
-| Week 3 (Aug 7)   | Player interactions      | Level design                | Texture and assets       | Menu                     | Bullets                          |
-| Week 4 (Aug 14)  | Game sounds              | Gameplay Programming        | Lights and atmosphere    | Inventory                | Weapons and Bullets interactions |
-| Week 5 (Aug 21)  | Buffer/Rest Week         | Buffer/Rest Week            | Buffer/Rest Week         | Buffer/Rest Week         | Buffer/Rest Week                 |
-| Week 6 (Aug 28)  | Feedback and Iteration   | Feedback and Iteration      | Feedback and Iteration   | Feedback and Iteration   | Feedback and Iteration           |
-| Week 7 (Sept 4)  | Finalize Game Mechanics  | Finalize Game Mechanics     | Finalize Game Mechanics  | Finalize Game Mechanics  | Finalize Game Mechanics          |
-| Week 8 (Sept 11) | Final Polish and Testing | Final Polish and Testing    | Final Polish and Testing | Final Polish and Testing | Final Polish and Testing         |
+| Week Starting        | Isabela Louli            | Raymond Woon                | Alwin Wong               | Ernesto Arakaki          | Daniel Rodriguez                 |
+| -------------------- | ------------------------ | --------------------------- | ------------------------ | ------------------------ | -------------------------------- |
+| **Week 1 (July 24)** | Project Planning         | Project Planning            | Concept Art/Design       | Concept Art/Design       | Project Planning                 |
+| **Week 2 (July 31)** | Player                   | Maze Generation Programming | Enemies Generation       | Maze components          | Weapons                          |
+| **Week 3 (Aug 7)**   | Player interactions      | Level design                | Texture and assets       | Menu                     | Bullets                          |
+| **Week 4 (Aug 14)**  | Game sounds              | Gameplay Programming        | Lights and atmosphere    | Inventory                | Weapons and Bullets interactions |
+| **Week 5 (Aug 21)**  | Buffer/Rest Week         | Buffer/Rest Week            | Buffer/Rest Week         | Buffer/Rest Week         | Buffer/Rest Week                 |
+| **Week 6 (Aug 28)**  | Feedback and Iteration   | Feedback and Iteration      | Feedback and Iteration   | Feedback and Iteration   | Feedback and Iteration           |
+| **Week 7 (Sept 4)**  | Finalize Game Mechanics  | Finalize Game Mechanics     | Finalize Game Mechanics  | Finalize Game Mechanics  | Finalize Game Mechanics          |
+| **Week 8 (Sept 11)** | Final Polish and Testing | Final Polish and Testing    | Final Polish and Testing | Final Polish and Testing | Final Polish and Testing         |
 
 
 
 # 6. Prototyping
 
-The repo that has the files to the prototype can be found here:
+The repo that has the files of the prototype can be found here:
 
 [Github Repo](https://github.com/RaymondWoon/Dead-Mans-Maze)
 
@@ -206,7 +208,7 @@ The repo that has the files to the prototype can be found here:
 | Prefab | Enemy             | Enemy's appearance, behaviour                         |
 | Prefab | Weapons           | Bundle of weapon's appearance, animation, sound       |
 | Prefab | Maze components   | Pieces the maze is made of                            |
-| Prefab | Key               | Keys's appearance, behaviour                          |
+| Prefab | Key               | Keys' appearance, behaviour                           |
 | Art    | Sounds            | Environment, enemies' and weapons' sounds             |
 | Art    | Textures          | Materials to add texture to ground, ceiling and walls |
 | Art    | Music             | Music for the main menu                               |
