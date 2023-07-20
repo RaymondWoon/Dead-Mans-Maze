@@ -79,17 +79,19 @@ The game is set in the Modern day. Earth is close to being decimated by a virus 
 
 ## 3.1 Beginning the Game
 
-The player is greeted with a dark menu screen and eerie music, where they get the options to start the game, read the instructions or customize various aspects of the game, it could look something like the illustration below:
+The player is greeted with a dark menu screen and eerie music, where they get the options to start the game, read the instructions or customize various aspects of the game. It would look similar to the illustration below:
 
 ![MainMenu](images/MainMenu.png)
 
 *Figure 1: Main Menu*
 
-Once the player clicked on "Play" and "Start" to start a new game, the game will start with the player placed in random spot in the maze followed by a popup screen explaining the lore and your objective. The player can click on "Continue" to begin the game.
+Once the player clicked on "Play" and "Start" to start a new game, the game will start with the player placed in random spot in the maze followed by a popup screen explaining the lore and your objective. The player can click on "Continue" to begin the game. The player will have the option to continue the game with the default settings, or go to the ‘Main Menu’, where the game parameters can be changed to make the game more or less challenging.
 
 ## 3.2 First 2-5 minutes
 
-The player has a flashlight that will flicker from time to time giving the situation a sense of uncertainty and helplessness. Sound will be atmospheric, having muffled groans, scratching against walls, uneven footsteps and dragging across the floor to give the player a sense that they are not alone in this maze. The player will begin to move the character forwards, backwards and sideways using the WASD keys on the keyboard and moving the camera using the Mouse. Upon encountering their first enemy (zombie), the player may choose to turn around and try to find a different route or fight. The player will have a certain amount of health which can be quantified similar to the "Call of Duty" games where the bloodier/redder the screen is, the fewer health points the player has. The player will walk around and shoot enemies in tight corridors (helps generate the common fear of claustrophobia) and will search for keys/items needed to open the exit, the player may be able to find the exit early on but without the keys they will not be able to beat the game. The player will get a very dim sound prompt when they are close to a key and it will intensify or diminish the closer they get. This "hot/cold" mechanic can help relieve some of the frustration a player may feel thus making the game appealing to a broader audience while still retaining an unsettling feeling.
+The player has a flashlight that will flicker from time to time giving the situation a sense of uncertainty and helplessness. Sound will be atmospheric, having muffled groans, scratching against walls, uneven footsteps and dragging across the floor to give the player a sense that they are not alone in this maze.
+
+The player will begin to move the character forwards, backwards and sideways using the WASD keys on the keyboard and moving the camera using the Mouse. Upon encountering their first enemy (zombie), the player may choose to turn around and try to find a different route or fight. The player will have a certain amount of health which can be quantified similar to the "Call of Duty" games where the bloodier/redder the screen is, the fewer health points the player has. The player will walk around and shoot enemies in tight corridors (helps generate the common fear of claustrophobia) and will search for keys/items needed to open the exit, the player may be able to find the exit early on but without the keys they will not be able to beat the game. The player will get a very dim sound prompt when they are close to a key and it will intensify or diminish, the closer they get. This "hot/cold" mechanic can help relieve some of the frustration a player may feel thus making the game appealing to a broader audience while still retaining an unsettling feeling.
 
 
 
@@ -103,7 +105,7 @@ The game's art style follows a 3D polygon style which offers a timeless art styl
 
 *Figure 4.1: Polygon Adventure Pack (Campfire) Preview by Synty*
 
-The gameplay style will be similar to POLYGON and World War Polygon, both are tactical first person shooter. The game will feature responsive controls, coupled with fast and fluid animation. The player can control the character to move, sprint, jump, crouch and shoot with polygon weapons to match the game's aesthetics. The game will put heavy emphasis on gunplay with impactful shots at every bullet strike and shells ejecting from the gun, coupled with satisfying reload animations. Once a bullet hits an enemy, the crosshair will show a red indicator to confirm that the shot hit an enemy. Conversely, once an enemy has been hit by a bullet, the enemy will do a flinch animation to show the enemy was hurt and if the enemy's health is empty, the enemy's ragdoll mode will be enabled as it lifelessly falls to the ground with collider physics.
+The gameplay style will be similar to POLYGON and World War Polygon, both are tactical first-person shooter. The game will feature responsive controls, coupled with fast and fluid animation. The player can control the character to move, sprint, jump, crouch and shoot with polygon weapons to match the game's aesthetics. The game will put heavy emphasis on gunplay with impactful shots at every bullet strike and shells ejecting from the gun, coupled with satisfying reload animations. Once a bullet hits an enemy, the crosshair will show a red indicator to confirm that the shot hit an enemy. Conversely, once an enemy has been hit by a bullet, the enemy will do a flinch animation to show the enemy was hurt and if the enemy's health is empty, the enemy's ragdoll mode will be enabled as it lifelessly falls to the ground with collider physics.
 
 ![POLYGON](images/POLYGON.jpg)
 
@@ -183,35 +185,65 @@ For the development of our game, we created a high-level production schedule cov
 
 # 6. Prototyping
 
-The repo that has the files of the prototype can be found here:
+During this process, we researched and developed the following phases:
 
-[Github Repo](https://github.com/RaymondWoon/Dead-Mans-Maze)
+1. Generate the basic maze container based on variable width and depth via the Inspector. This is achieved using primitive cube elements.
+
+![A white square with arrows and a red and blue arrow  Description automatically generated](images/demo1.jpg)
+
+*Figure 6.1: Basic Maze Container*
+
+2. Create a basic menu system where the user can configure the dimensions of the maze.
+
+![A screenshot of a game  Description automatically generated](images/demo2.png)
+
+*Figure 6.2: Start Menu*
+
+![A screenshot of a video game  Description automatically generated](images/demo3.png)
+
+*Figure 6.3: Options Menu*
+
+3. Use various maze dimensions, generate random mazes.
+
+![A black and white maze  Description automatically generated](images/demo4.png)
+
+*Figure 6.4: 20 x 20 Maze*
+
+![A black and white maze  Description automatically generated](images/demo5.png)
+
+*Figure 6.5: 30 x 20 Maze*
 
 
 
 # 7. List of All Assets
 
-| Type   | Name              | Description                                           |
-| ------ | ----------------- | ----------------------------------------------------- |
-| Script | Player Controller | Handles user input and controls in-game actions       |
-| Script | Maze Generator    | Generates the layout of the maze                      |
-| Script | Sounds Controller | Controls the sounds                                   |
-| Script | Game Controller   | Keeps state of the game                               |
-| Script | Inventory         | Keeps state of the player's items                     |
-| Script | Lights Controller | Generates lights and lighting effects                 |
-| Script | Menu              | Menu to start game, shows guides and configure maze   |
-| Script | UIManager         | Manages UI elements of the game                       |
-| Script | Bullet Controller | Handles interactions between bullets and game objects |
-| Script | Enemy Spawner     | Creates new enemies                                   |
-| Script | Enemy Controller  | Handles enemy behaviour                               |
-| Prefab | Player            | Player's appearance, behaviour                        |
-| Prefab | Enemy             | Enemy's appearance, behaviour                         |
-| Prefab | Weapons           | Bundle of weapon's appearance, animation, sound       |
-| Prefab | Maze components   | Pieces the maze is made of                            |
-| Prefab | Key               | Keys' appearance, behaviour                           |
-| Art    | Sounds            | Environment, enemies' and weapons' sounds             |
-| Art    | Textures          | Materials to add texture to ground, ceiling and walls |
-| Art    | Music             | Music for the main menu                               |
+| **Type** | **Name**          | **Description**                                       |
+| -------- | ----------------- | ----------------------------------------------------- |
+| Prefab   | Enemy             | Player’s appearance and behaviour                     |
+| Prefab   | Maze components   | Components and skin(s) of the maze                    |
+| Prefab   | Weapons           | Bundle of weapon’s appearance, animation, sound       |
+| Prefab   | Key               | Key’s appearance and behaviour                        |
+| Prefab   | Enemy             | Enemy’s appearance and behaviour                      |
+| Script   | Player controller | Handles user input and controls in-game actions       |
+| Script   | Maze generator    | Generates the layout of the maze                      |
+| Script   | Sound controller  | Controls the sounds                                   |
+| Script   | Game controller   | Keeps state of the game                               |
+| Script   | Inventory         | Keeps state of the player's items                     |
+| Script   | Lights controller | Generates lights and lighting effects                 |
+| Script   | Menu              | Options on starting the game                          |
+| Script   | UIManager         | Manages the game state                                |
+| Script   | Bullet controller | Handles interactions between bullets and game objects |
+| Script   | Enemy spawner     | Creates new enemies                                   |
+| Script   | Enemy controller  | Handles enemy behaviour                               |
+| Art      | Sounds            | Environment, enemies' and weapons' sounds             |
+| Art      | Textures          | Materials to add texture to ground, ceiling and walls |
+| Art      | Music             | Music for the main menu                               |
+
+Source of audio/visual assets in addition of Unity Default 3D Assets:
+
+1. Unity store – free and paid Synty POLYGON Packs assets
+2. Mixamo – free 3D animated characters
+3. Sound – [www.freesound.org](http://www.freesound.org)
 
 
 
