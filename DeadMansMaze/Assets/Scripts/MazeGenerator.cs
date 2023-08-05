@@ -32,6 +32,10 @@ public class MazeGenerator : MonoBehaviour
     private byte[,] _map;
     private int _scale = 6;
 
+    public GameObject straight_piece;
+    public GameObject crossroad_piece;
+    public GameObject deadend_piece;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -88,8 +92,54 @@ public class MazeGenerator : MonoBehaviour
                     wall.transform.parent = _mazeContainer.transform;
                     wall.transform.position = pos;
                 }
+                else if (Search2D(x, z, new int[] { 8, 0, 8, 1, 0, 1, 8, 0, 8 }))
+                {
+                    Vector3 pos = new Vector3(x * _scale, 0, z * _scale);
+                    GameObject maze_piece = Instantiate(straight_piece, pos, Quaternion.identity);
+                    maze_piece.transform.parent = _mazeContainer.transform;
+                }
+                else if (Search2D(x, z, new int[] { 8, 1, 8, 0, 0, 0, 8, 1, 8 }))
+                {
+                    Vector3 pos = new Vector3(x * _scale, 0, z * _scale);
+                    GameObject maze_piece = Instantiate(straight_piece, pos, Quaternion.identity);
+                    maze_piece.transform.parent = _mazeContainer.transform;
+                    maze_piece.transform.Rotate(0, 90, 0);
+                }
+                else if (Search2D(x, z, new int[] { 1, 0, 1, 0, 0, 0, 1, 0, 1}))
+                {
+                    Vector3 pos = new Vector3(x * _scale, 0, z * _scale);
+                    GameObject maze_piece = Instantiate(crossroad_piece, pos, Quaternion.identity);
+                    maze_piece.transform.parent = _mazeContainer.transform;
+                }
+                else if (Search2D(x, z, new int[] { 8, 1, 8, 1, 0, 1, 8, 0, 8 }))
+                {
+                    Vector3 pos = new Vector3(x * _scale, 0, z * _scale);
+                    GameObject maze_piece = Instantiate(deadend_piece, pos, Quaternion.identity);
+                    maze_piece.transform.parent = _mazeContainer.transform;
+                }
             }
         }
+    }
+
+    private bool Search2D(int c, int r, int[] pattern)
+    {
+        int count = 0;
+        int pos = 0;
+
+        for (int z = 1; z > -2; z--)
+        {
+            for (int x = -1; x < 2; x++)
+            {
+                if (pattern[pos] == _map[c + x, r + z] || pattern[pos] == 8)
+                {
+                    count++;
+                }
+
+                pos++;
+            }
+        }
+
+        return (count == 9);
     }
 
     public void UpdateMazeWidth(int newWidth)
