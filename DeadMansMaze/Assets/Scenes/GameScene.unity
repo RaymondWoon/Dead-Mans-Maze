@@ -171,6 +171,11 @@ MonoBehaviour:
     type: 3}
   deadend_piece: {fileID: 7411204885245598692, guid: fe43255f1cdd3884d86dfe19ee4c01d9,
     type: 3}
+  curved_corner_piece: {fileID: 7891602265655176211, guid: 0be5fded9d201644ab618cee6fde76f3,
+    type: 3}
+  square_corner_pece: {fileID: 7462400812411015196, guid: 5b7c36a439b8cf54b9fa0933c4df5d83,
+    type: 3}
+  t_piece: {fileID: 864063305136152663, guid: a320422a066090e49a15896be89f2751, type: 3}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,7 +192,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &705507994
 Light:
   m_ObjectHideFlags: 0
@@ -408,7 +413,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 45
   orthographic: 0
   orthographic size: 5
   m_Depth: -1

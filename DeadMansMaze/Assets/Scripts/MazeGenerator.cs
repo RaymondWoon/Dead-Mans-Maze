@@ -35,6 +35,15 @@ public class MazeGenerator : MonoBehaviour
     public GameObject straight_piece;
     public GameObject crossroad_piece;
     public GameObject deadend_piece;
+    public GameObject curved_corner_piece;
+    public GameObject square_corner_pece;
+    public GameObject t_piece;
+
+    public enum CornerMazePieceType
+    {
+        curved,
+        square
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -84,9 +93,10 @@ public class MazeGenerator : MonoBehaviour
         {
             for (int x = 0; x < _width; x++)
             {
+                Vector3 pos = new Vector3(x * _scale, 0, z * _scale);
+
                 if (_map[x, z] == 1)
                 {
-                    Vector3 pos = new Vector3(x * _scale, 0, z * _scale);
                     GameObject wall = GameObject.CreatePrimitive(PrimitiveType.Cube);
                     wall.transform.localScale = new Vector3(_scale, _scale, _scale);
                     wall.transform.parent = _mazeContainer.transform;
@@ -94,28 +104,94 @@ public class MazeGenerator : MonoBehaviour
                 }
                 else if (Search2D(x, z, new int[] { 8, 0, 8, 1, 0, 1, 8, 0, 8 }))
                 {
-                    Vector3 pos = new Vector3(x * _scale, 0, z * _scale);
+                    // Vertical
                     GameObject maze_piece = Instantiate(straight_piece, pos, Quaternion.identity);
                     maze_piece.transform.parent = _mazeContainer.transform;
                 }
                 else if (Search2D(x, z, new int[] { 8, 1, 8, 0, 0, 0, 8, 1, 8 }))
                 {
-                    Vector3 pos = new Vector3(x * _scale, 0, z * _scale);
+                    // Horizontal
                     GameObject maze_piece = Instantiate(straight_piece, pos, Quaternion.identity);
                     maze_piece.transform.parent = _mazeContainer.transform;
                     maze_piece.transform.Rotate(0, 90, 0);
                 }
                 else if (Search2D(x, z, new int[] { 1, 0, 1, 0, 0, 0, 1, 0, 1}))
                 {
-                    Vector3 pos = new Vector3(x * _scale, 0, z * _scale);
                     GameObject maze_piece = Instantiate(crossroad_piece, pos, Quaternion.identity);
                     maze_piece.transform.parent = _mazeContainer.transform;
                 }
                 else if (Search2D(x, z, new int[] { 8, 1, 8, 1, 0, 1, 8, 0, 8 }))
                 {
-                    Vector3 pos = new Vector3(x * _scale, 0, z * _scale);
+                    // Vertical top
                     GameObject maze_piece = Instantiate(deadend_piece, pos, Quaternion.identity);
                     maze_piece.transform.parent = _mazeContainer.transform;
+                }
+                else if (Search2D(x, z, new int[] { 8, 1, 8, 1, 0, 0, 8, 1, 8 }))
+                {
+                    // Horizontal left
+                    GameObject maze_piece = Instantiate(deadend_piece, pos, Quaternion.identity);
+                    maze_piece.transform.parent = _mazeContainer.transform;
+                    maze_piece.transform.Rotate(0, -90, 0);
+                }
+                else if (Search2D(x, z, new int[] { 8, 0, 8, 1, 0, 1, 8, 1, 8 }))
+                {
+                    // Vertical bottom
+                    GameObject maze_piece = Instantiate(deadend_piece, pos, Quaternion.identity);
+                    maze_piece.transform.parent = _mazeContainer.transform;
+                    maze_piece.transform.Rotate(0, 180, 0);
+                }
+                else if (Search2D(x, z, new int[] { 8, 1, 8, 0, 0, 1, 8, 1, 8 }))
+                {
+                    // Horizontal right
+                    GameObject maze_piece = Instantiate(deadend_piece, pos, Quaternion.identity);
+                    maze_piece.transform.parent = _mazeContainer.transform;
+                    maze_piece.transform.Rotate(0, 90, 0);
+                }
+                else if (Search2D(x, z, new int[] { 8, 1, 8, 0, 0, 1, 1, 0, 8 }))
+                {
+                    // Top right
+                    DrawCornerType(pos, "top_right");
+                }
+                else if (Search2D(x, z, new int[] { 8, 1, 8, 1, 0, 0, 8, 0, 1 }))
+                {
+                    DrawCornerType(pos, "top_left");
+                }
+                else if (Search2D(x, z, new int[] { 8, 0, 1, 1, 0, 0, 8, 1, 8 }))
+                {
+                    DrawCornerType(pos, "bottom_left");
+                }
+                else if (Search2D(x, z, new int[] { 1, 0, 8, 0, 0, 1, 8, 1, 8 }))
+                {
+                    DrawCornerType(pos, "bottom_right");
+                }
+                else if (Search2D(x, z, new int[] { 1, 0, 1, 0, 0, 0, 8, 1, 8 }))
+                {
+                    // Inverted T
+                    GameObject maze_piece = Instantiate(t_piece, pos, Quaternion.identity);
+                    maze_piece.transform.parent = _mazeContainer.transform;
+                    maze_piece.transform.Rotate(0, -90, 0);
+                }
+                else if (Search2D(x, z, new int[] { 8, 0, 1, 1, 0, 0, 8, 0, 1 }))
+                {
+                    // Right
+                    GameObject maze_piece = Instantiate(t_piece, pos, Quaternion.identity);
+                    maze_piece.transform.parent = _mazeContainer.transform;
+                    maze_piece.transform.Rotate(0, 0, 0);
+
+                }
+                else if (Search2D(x, z, new int[] { 8, 1, 8, 0, 0, 0, 1, 0, 1 }))
+                {
+                    // True T
+                    GameObject maze_piece = Instantiate(t_piece, pos, Quaternion.identity);
+                    maze_piece.transform.parent = _mazeContainer.transform;
+                    maze_piece.transform.Rotate(0, 90, 0);
+                }
+                else if (Search2D(x, z, new int[] { 1, 0, 8, 0, 0, 1, 1, 0, 8 }))
+                {
+                    // Left
+                    GameObject maze_piece = Instantiate(t_piece, pos, Quaternion.identity);
+                    maze_piece.transform.parent = _mazeContainer.transform;
+                    maze_piece.transform.Rotate(0, 180, 0);
                 }
             }
         }
@@ -175,6 +251,31 @@ public class MazeGenerator : MonoBehaviour
         return count;
     }
 
+
+    private void DrawCornerType(Vector3 pos, string location)
+    {
+        CornerMazePieceType cornerType = (CornerMazePieceType)Random.Range(0, 2);
+
+        GameObject maze_piece = Instantiate((cornerType == CornerMazePieceType.curved ? curved_corner_piece : square_corner_pece), pos, Quaternion.identity);
+        maze_piece.transform.parent = _mazeContainer.transform;
+
+        if (location == "top_right")
+        {
+            maze_piece.transform.Rotate(0, (cornerType == CornerMazePieceType.curved ? -90 : 180), 0);
+        }
+        else if (location == "top_left")
+        {
+            maze_piece.transform.Rotate(0, (cornerType == CornerMazePieceType.curved ? 180 : 90), 0);
+        }
+        else if (location == "bottom_left")
+        {
+            maze_piece.transform.Rotate(0, (cornerType == CornerMazePieceType.curved ? 90 : 0), 0);
+        }
+        else if (location == "bottom_right")
+        {
+            maze_piece.transform.Rotate(0, (cornerType == CornerMazePieceType.curved ? 0 : -90), 0);
+        }
+    }
 
 }
 

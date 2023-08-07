@@ -1,15 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public static class Extensions
 {
-    // https://stackoverflow.com/questions/273313/randomize-a-listt
-
+    
     private static System.Random rng = new System.Random();
 
     public static void Shuffle<T>(this IList<T> list)
     {
+        // https://stackoverflow.com/questions/273313/randomize-a-listt
+
         int n = list.Count;
         while (n > 1)
         {
