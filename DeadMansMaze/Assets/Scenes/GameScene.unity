@@ -165,6 +165,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mazeContainer: {fileID: 551130380}
+  maze_wall: {fileID: 1946520130174904654, guid: d66cb7576239f584eb918291a9d80eb0,
+    type: 3}
   straight_piece: {fileID: 7818841378681404562, guid: 22d05ef407c64624c911def8d33fadc5,
     type: 3}
   crossroad_piece: {fileID: 5272409401906160872, guid: 4720bc840e5aea9488a026cfa96731b4,

@@ -15,7 +15,7 @@ public class MapCoordinate
 
 public class MazeGenerator : MonoBehaviour
 {
-    private List<MapCoordinate> directions = new List<MapCoordinate>()
+    private readonly List<MapCoordinate> directions = new List<MapCoordinate>()
     {
         new MapCoordinate(1, 0),
         new MapCoordinate(0, 1),
@@ -25,13 +25,14 @@ public class MazeGenerator : MonoBehaviour
 
     private int _width;     // x-axis
     private int _depth;     // z axis
+    private int _scale;
 
     [SerializeField]
     private GameObject _mazeContainer;
 
     private byte[,] _map;
-    private int _scale = 6;
 
+    public GameObject maze_wall;
     public GameObject straight_piece;
     public GameObject crossroad_piece;
     public GameObject deadend_piece;
@@ -50,9 +51,10 @@ public class MazeGenerator : MonoBehaviour
     {
         _width = UIManager._mazeWidth;
         _depth = UIManager._mazeDepth;
+        _scale = UIManager._mazeScale;
 
         InitializeMaze();
-        GenerateMaze(5, 5);
+        GenerateMaze((int)(_width / 2), 1);
         DrawMaze();
     }
 
@@ -67,7 +69,14 @@ public class MazeGenerator : MonoBehaviour
         {
             for (int z = 0; z < _depth; z++)
             {
-                _map[x, z] = 1;
+                if (x == (int)(_width / 2) && z == 0)
+                {
+                    _map[x, z] = 8;
+                }
+                else
+                {
+                    _map[x, z] = 1;
+                }
             }
         }
     }
@@ -93,14 +102,73 @@ public class MazeGenerator : MonoBehaviour
         {
             for (int x = 0; x < _width; x++)
             {
-                Vector3 pos = new Vector3(x * _scale, 0, z * _scale);
+                Vector3 pos = new Vector3(x * _scale, -0.3f, z * _scale);
 
                 if (_map[x, z] == 1)
                 {
-                    GameObject wall = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                    //GameObject wall = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                    GameObject wall = Instantiate(maze_wall, pos, Quaternion.identity);
                     wall.transform.localScale = new Vector3(_scale, _scale, _scale);
                     wall.transform.parent = _mazeContainer.transform;
-                    wall.transform.position = pos;
+                    //wall.transform.position = pos;
+                }
+                else if (x == (int)(_width / 2) && z == 0)
+                {
+                    // Vertical
+                    GameObject maze_piece = Instantiate(straight_piece, pos, Quaternion.identity);
+                    maze_piece.transform.parent = _mazeContainer.transform;
+                }
+                else if (x == (int)(_width / 2) && z == 1)
+                {
+                    if (_map[x, z + 1] == 1 && _map[x + 1, z] == 1)
+                    {
+                        //Debug.Log("Top right");
+                        DrawCornerType(pos, "top_right");
+                    }
+                    else if (_map[x, z + 1] == 1 && _map[x - 1, z] == 1)
+                    {
+                        //Debug.Log("Top left");
+                        DrawCornerType(pos, "top_left");
+                    }
+                    else if (_map[x, z + 1] == 1 && _map[x + 1, z] == 0 && _map[x - 1, z] == 0)
+                    {
+                        //Debug.Log("True T");
+                        // True T
+                        GameObject maze_piece = Instantiate(t_piece, pos, Quaternion.identity);
+                        maze_piece.transform.parent = _mazeContainer.transform;
+                        maze_piece.transform.Rotate(0, 90, 0);
+                    }
+                    else if (_map[x - 1, z] == 1 && _map[x, z + 1] == 0 && _map[x + 1, z] == 0)
+                    {
+                        //Debug.Log("Right T");
+                        // Right T
+                        GameObject maze_piece = Instantiate(t_piece, pos, Quaternion.identity);
+                        maze_piece.transform.parent = _mazeContainer.transform;
+                        maze_piece.transform.Rotate(0, 0, 0);
+                    }
+                    else if (_map[x + 1, z] == 1 && _map[x, z + 1] == 0 && _map[x - 1, z] == 0)
+                    {
+                        //Debug.Log("Left T");
+                        // Left T
+                        GameObject maze_piece = Instantiate(t_piece, pos, Quaternion.identity);
+                        maze_piece.transform.parent = _mazeContainer.transform;
+                        maze_piece.transform.Rotate(0, 180, 0);
+                    }
+                    else if (_map[x - 1, z] == 1 && _map[x + 1, z] == 1)
+                    {
+                        //Debug.Log("Vertical");
+                        // Vertical
+                        GameObject maze_piece = Instantiate(straight_piece, pos, Quaternion.identity);
+                        maze_piece.transform.parent = _mazeContainer.transform;
+                    }
+                    else if (_map[x - 1, z] == 0 && _map[x, z + 1] == 0 && _map[x + 1, z] == 0)
+                    {
+                        //Debug.Log("Crossroad");
+                        // Crossroad
+                        GameObject maze_piece = Instantiate(crossroad_piece, pos, Quaternion.identity);
+                        maze_piece.transform.parent = _mazeContainer.transform;
+                    }
+                    //continue;
                 }
                 else if (Search2D(x, z, new int[] { 8, 0, 8, 1, 0, 1, 8, 0, 8 }))
                 {
@@ -117,6 +185,7 @@ public class MazeGenerator : MonoBehaviour
                 }
                 else if (Search2D(x, z, new int[] { 1, 0, 1, 0, 0, 0, 1, 0, 1}))
                 {
+                    // Crossroad
                     GameObject maze_piece = Instantiate(crossroad_piece, pos, Quaternion.identity);
                     maze_piece.transform.parent = _mazeContainer.transform;
                 }

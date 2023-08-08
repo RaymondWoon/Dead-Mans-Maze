@@ -9,5 +9,6 @@ public class UIManager : MonoBehaviour
 
     public static int _mazeDepth = 20;
 
-
+    // define scale of maze elements
+    public static int _mazeScale = 6;
 }

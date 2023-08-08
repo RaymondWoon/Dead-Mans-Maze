@@ -7,8 +7,8 @@ public class PlayerScript : MonoBehaviour
     private readonly float _speed = 0.1f;
     private float _xSensitivity = 2f;
     private float _ySensitivity = 2f;
-    private float _minimumX = -90f;
-    private float _maximumX = 90f;
+    private readonly float _minimumX = -90f;
+    private readonly float _maximumX = 90f;
     private Rigidbody _rb;
     CapsuleCollider _capsuleCollider;
 
@@ -31,6 +31,8 @@ public class PlayerScript : MonoBehaviour
 
         _cameraRot = _camera.transform.localRotation;
         _playerRot = transform.localRotation;
+
+        transform.position = new Vector3((int)(UIManager._mazeWidth * UIManager._mazeScale / 2), 0f, -20.0f);
     }
 
     // Update is called once per frame
