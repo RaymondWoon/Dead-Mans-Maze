@@ -69,7 +69,7 @@ public class MazeGenerator : MonoBehaviour
         {
             for (int z = 0; z < _depth; z++)
             {
-                if (x == (int)(_width / 2) && z == 0)
+                if (x == (int)(_width / 2) && (z == 0 || z == _depth - 1))
                 {
                     _map[x, z] = 8;
                 }
@@ -112,7 +112,7 @@ public class MazeGenerator : MonoBehaviour
                     wall.transform.parent = _mazeContainer.transform;
                     //wall.transform.position = pos;
                 }
-                else if (x == (int)(_width / 2) && z == 0)
+                else if (x == (int)(_width / 2) && (z == 0 || z == _depth - 1))
                 {
                     // Vertical
                     GameObject maze_piece = Instantiate(straight_piece, pos, Quaternion.identity);
