@@ -29,6 +29,10 @@ public class PlayerAction : MonoBehaviour
   float xMove;
   float yMove;
 
+  // Status
+  [SerializeField]
+  PlayerStatus status = new PlayerStatus();
+
   // Start is called before the first frame update
   void Start()
   {
@@ -130,6 +134,14 @@ public class PlayerAction : MonoBehaviour
     if (collision.gameObject.tag == "Ground")
     {
       anim.SetBool("isGrounded", true);
+    }
+
+    // GetKey
+    if (collision.gameObject.tag.ToLower() == "key")
+    {
+        status.inventory.AddItem(collision.gameObject.tag.ToLower());
+        Destroy(collision.gameObject);
+        // Debug.Log("Number of Keys: " + status.inventory.GetNumberOfKeyItem("key").ToString());
     }
   }
 
