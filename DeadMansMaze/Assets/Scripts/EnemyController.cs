@@ -41,20 +41,20 @@ public class EnemyController : MonoBehaviour
         switch (behaviour)
         {
             case "chase":
+                Vector3 direction = player.transform.position - this.transform.position;
+                // Rotate to face the player.
+                float angle = Vector3.Angle(direction, this.transform.forward);
+                this.transform.rotation = Quaternion.Slerp(this.transform.rotation,
+                        Quaternion.LookRotation(direction), rotationSpeed * Time.deltaTime);
 
-                if (Vector3.Distance(player.transform.position, this.transform.position) < 3)
+                if (Vector3.Distance(player.transform.position, this.transform.position) < 1.5)
                 {
                     anim.SetBool("isMoving", false);
                     break;
                 }
-                Vector3 direction = player.transform.position - this.transform.position;
-                float angle = Vector3.Angle(direction, this.transform.forward);
-
-                this.transform.rotation = Quaternion.Slerp(this.transform.rotation,
-                        Quaternion.LookRotation(direction), rotationSpeed * Time.deltaTime);
                 anim.SetBool("isMoving", true);
                 anim.SetFloat("x", direction.x, 0.25f, Time.deltaTime);
-                anim.SetFloat("y", direction.z, 0.25f, Time.deltaTime);
+                anim.SetFloat("y", direction.y, 0.25f, Time.deltaTime);
 
                 break;
             case "defend":
