@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -314,11 +314,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 171981063}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47e94c454cf3c2c4092419a6ef111412, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c006a62b907d5542ac20fef845fe141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _widthSlider: {fileID: 171981065}
-  _widthSlidertext: {fileID: 1200858690}
+  _widthSlider: {fileID: 0}
+  _widthSlidertext: {fileID: 0}
 --- !u!1 &352593888
 GameObject:
   m_ObjectHideFlags: 0
@@ -2131,7 +2131,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Dead Man's Maze
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 46c1ce4cb83b50f4387410956c65174d, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2195,7 +2195,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -242.58826, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1299238553
@@ -2264,7 +2264,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Play
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 46c1ce4cb83b50f4387410956c65174d, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2328,7 +2328,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1335167852
@@ -2369,7 +2369,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1554866199}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ef700fbf9b537c4e9878570a32df988, type: 3}
+  m_Script: {fileID: 11500000, guid: 309a83b187169a4468c5cda61fb0497c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1554866201
@@ -2462,7 +2462,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1554866199}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12e8c077b307a3348afcbbc9866b9bf1, type: 3}
+  m_Script: {fileID: 11500000, guid: b8d192a908808134b86547c8169e65f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1622494799
@@ -2676,7 +2676,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 97690656
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -2789,7 +2789,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Options
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 46c1ce4cb83b50f4387410956c65174d, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2853,7 +2853,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1901026997
@@ -3111,11 +3111,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2002023461}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fc4c8a966f894e4daf938df67e641df, type: 3}
+  m_Script: {fileID: 11500000, guid: 20efaab28e178ce4992083c04cc827ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _depthSlider: {fileID: 2002023463}
-  _depthSlidertext: {fileID: 795867076}
+  _depthSlider: {fileID: 0}
+  _depthSlidertext: {fileID: 0}
 --- !u!1 &2140228141
 GameObject:
   m_ObjectHideFlags: 0
@@ -3174,7 +3174,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Quit
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 46c1ce4cb83b50f4387410956c65174d, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -3238,7 +3238,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &2140228144
