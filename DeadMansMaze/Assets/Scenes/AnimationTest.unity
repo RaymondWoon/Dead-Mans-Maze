@@ -120,7 +120,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: da75da3af37b82449bfd026de4558f08, type: 2}
 --- !u!1 &82004046
 GameObject:
   m_ObjectHideFlags: 0
@@ -1127,6 +1127,68 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c25ac4fdc903e7d49a7520930673ecd6, type: 3}
+--- !u!1001 &1686711591
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1160577204630336, guid: 7c521770c9e780444b9b27cb7183739f, type: 3}
+      propertyPath: m_Name
+      value: Zombie_Military_Male_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256082591115268, guid: 7c521770c9e780444b9b27cb7183739f, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256082591115268, guid: 7c521770c9e780444b9b27cb7183739f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.851
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256082591115268, guid: 7c521770c9e780444b9b27cb7183739f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256082591115268, guid: 7c521770c9e780444b9b27cb7183739f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256082591115268, guid: 7c521770c9e780444b9b27cb7183739f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256082591115268, guid: 7c521770c9e780444b9b27cb7183739f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256082591115268, guid: 7c521770c9e780444b9b27cb7183739f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256082591115268, guid: 7c521770c9e780444b9b27cb7183739f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256082591115268, guid: 7c521770c9e780444b9b27cb7183739f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256082591115268, guid: 7c521770c9e780444b9b27cb7183739f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256082591115268, guid: 7c521770c9e780444b9b27cb7183739f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 95765630703726798, guid: 7c521770c9e780444b9b27cb7183739f,
+        type: 3}
+      propertyPath: m_CullingMode
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7c521770c9e780444b9b27cb7183739f, type: 3}
 --- !u!1 &1738459739
 GameObject:
   m_ObjectHideFlags: 0
@@ -1144,7 +1206,7 @@ GameObject:
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &1738459740
 MeshCollider:
