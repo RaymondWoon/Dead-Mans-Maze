@@ -49,16 +49,8 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        /*
-        Vector3 direction = player.transform.position - this.transform.position;//agent.nextPosition - this.transform.position;
-        anim.SetBool("isMoving", true);//!agent.isStopped);
-        anim.SetFloat("x", direction.x, 0.25f, Time.deltaTime);
-        anim.SetFloat("y", direction.y, 0.25f, Time.deltaTime);
-        */
-
         agent.SetDestination(player.transform.position);
 
-        //Vector3 worldDeltaPosition = agent.nextPosition - transform.position;
         Vector3 worldDeltaPosition = player.transform.position - transform.position;
 
         // Map 'worldDeltaPosition' to local space
@@ -74,11 +66,9 @@ public class EnemyController : MonoBehaviour
         if (Time.deltaTime > 1e-5f)
             velocity = smoothDeltaPosition / Time.deltaTime;
 
-        bool shouldMove = agent.remainingDistance > agent.stoppingDistance;// && velocity.magnitude > 0.5f;
+        bool shouldMove = agent.remainingDistance > agent.stoppingDistance;
 
         // Update animation parameters
-        //Debug.Log(shouldMove);
-        //Debug.Log(velocity);
         anim.SetBool("isMoving", shouldMove);
         anim.SetFloat("x", velocity.x, 0.25f, Time.deltaTime);
         anim.SetFloat("y", velocity.y, 0.25f, Time.deltaTime);
