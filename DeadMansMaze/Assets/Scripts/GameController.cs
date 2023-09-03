@@ -20,7 +20,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void SetNumberOfKeys(int i)
@@ -43,13 +43,18 @@ public class GameController : MonoBehaviour
         return numberOfEnemies;
     }
 
+    private Vector3 getRandomLocation(Vector3 loc)
+    { 
+        return new Vector3(loc.x + Random.Range(-4, 4),
+                            1,
+                            loc.z + Random.Range(-4, 4));
+    }
+
     private void generateKeys()
     {
         for (int i = 0; i < numberOfKeys; i++)
         {
-            Vector3 location = new Vector3(transform.position.x + Random.Range(-4, 4),
-                                    1,
-                                    transform.position.z + Random.Range(-4, 4));
+            Vector3 location = getRandomLocation(transform.position);
             Instantiate(keyPrefab, location, Quaternion.identity);
         }
     }
