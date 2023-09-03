@@ -10,18 +10,19 @@ public class PlayerStatus
     [SerializeField]
     public Inventory inventory = new Inventory();
 
-    public int GetCurrentHp()
+    public int GetHp()
     {
         return currentHp;
     }
 
-    public void SetCurrentHp(int hp)
+    public int AddHp(int s)
     {
-        if (hp > maxHp)
+        if (currentHp + s > maxHp)
         { 
             currentHp = maxHp;
-            return;
+            return currentHp;
         }
-        currentHp = hp;
+        currentHp += s;
+        return currentHp;
     }
 }

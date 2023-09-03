@@ -31,7 +31,7 @@ public class PlayerAction : MonoBehaviour
 
   // Status
   [SerializeField]
-  PlayerStatus status = new PlayerStatus();
+  private PlayerStatus status = new PlayerStatus();
 
   // Start is called before the first frame update
   void Start()
@@ -58,6 +58,26 @@ public class PlayerAction : MonoBehaviour
     // Move transition
     anim.SetFloat("x", xMove, 0.25f, Time.deltaTime);
     anim.SetFloat("y", yMove, 0.25f, Time.deltaTime);
+  }
+
+  public void AddHp(int s)
+  {
+    int currentHp = status.AddHp(s);
+    if (currentHp <= 0)
+    {
+       die();
+    }
+  }
+
+    public int GetHp()
+    {
+        return status.GetHp();
+    }
+
+    private void die()
+  {
+        // death sequence.
+        Debug.Log("You died!");
   }
 
   // OnLook is called on every value change and release (clamped rotation velocity)

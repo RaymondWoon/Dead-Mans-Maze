@@ -7,12 +7,9 @@ public class EnemyController : MonoBehaviour
 {
     private string behaviour;
     private Animator anim;
-    private float xMove = 1f;
-    private float yMove = 1f;
-    private float rotationSpeed = 3f;
     private GameObject player;
-    private int hp = 100;
-    private int maxHp = 100;
+    private int hp = 500;
+    private int maxHp = 500;
     private NavMeshAgent agent;
 
     Vector2 smoothDeltaPosition = Vector2.zero;
@@ -36,14 +33,29 @@ public class EnemyController : MonoBehaviour
         return;
     }
 
+    public int GetHp()
+    {
+        return hp;
+    }
+
     public void AddHp(int s)
     {
-        if (maxHp > hp + s)
+        if (hp + s <= 0)
+        {
+            die();
+            return;
+        }
+        if (hp + s > maxHp)
         {
             hp = maxHp;
             return;
         }
         hp += s;
+    }
+
+    private void die()
+    {
+        Destroy(gameObject);
     }
 
     // Update is called once per frame
@@ -73,7 +85,7 @@ public class EnemyController : MonoBehaviour
         anim.SetFloat("x", velocity.x, 0.25f, Time.deltaTime);
         anim.SetFloat("y", velocity.y, 0.25f, Time.deltaTime);
         //
-        //GetComponent<LookAt>().lookAtTargetPosition = agent.steeringTarget + transform.forward;
+        // GetComponent<LookAt>().lookAtTargetPosition = agent.steeringTarget + transform.forward;
     }
 
     void OnAnimatorMove()
