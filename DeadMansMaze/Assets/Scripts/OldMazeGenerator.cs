@@ -2,25 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MapCoordinate
+public class xMapCoordinate
 {
     public int x, z;
 
-    public MapCoordinate(int _x, int _z)
+    public xMapCoordinate(int _x, int _z)
     {
         x = _x;
         z = _z;
     }
 }
 
-public class MazeGenerator : MonoBehaviour
+public class OldMazeGenerator : MonoBehaviour
 {
-    private readonly List<MapCoordinate> directions = new List<MapCoordinate>()
+    private readonly List<xMapCoordinate> directions = new List<xMapCoordinate>()
     {
-        new MapCoordinate(1, 0),
-        new MapCoordinate(0, 1),
-        new MapCoordinate(-1, 0),
-        new MapCoordinate(0, -1)
+        new xMapCoordinate(1, 0),
+        new xMapCoordinate(0, 1),
+        new xMapCoordinate(-1, 0),
+        new xMapCoordinate(0, -1)
     };
 
     private int _width;     // x-axis

@@ -2501,9 +2501,9 @@ MonoBehaviour:
   MazeDepth: 20
   MazeScale: 6
   MinMazeWidth: 10
-  MaxMazeWidth: 30
+  MaxMazeWidth: 20
   MinMazeDepth: 10
-  MaxMazeDepth: 30
+  MaxMazeDepth: 20
 --- !u!1 &1111610261
 GameObject:
   m_ObjectHideFlags: 0
