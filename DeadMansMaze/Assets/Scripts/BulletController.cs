@@ -27,8 +27,8 @@ public class BulletController : MonoBehaviour
         }
         if (collision.gameObject.tag.ToLower() == "enemy")
         {
-            collision.transform.GetComponent<EnemyController>().AddHp(-damage);
-            Debug.Log("Enemy HP: " + collision.transform.GetComponent<EnemyController>().GetHp().ToString());
+            collision.transform.GetComponent<EnemyControllerX>().AddHp(-damage);
+            Debug.Log("Enemy HP: " + collision.transform.GetComponent<EnemyControllerX>().GetHp().ToString());
         }
         Destroy(gameObject);
     }

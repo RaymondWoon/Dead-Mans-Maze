@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 public static class Extensions
@@ -20,5 +21,13 @@ public static class Extensions
             list[n] = value;
         }
 
+    }
+
+    // https://discussions.unity.com/t/using-random-range-to-pick-a-random-value-out-of-an-enum/119639/3
+    public static T RandomEnumValue<T>()
+    {
+        var values = Enum.GetValues(typeof(T));
+        int random = UnityEngine.Random.Range(0, values.Length);
+        return (T)values.GetValue(random);
     }
 }

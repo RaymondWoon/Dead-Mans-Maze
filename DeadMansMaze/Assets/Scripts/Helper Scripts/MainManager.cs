@@ -8,12 +8,15 @@ public class MainManager : MonoBehaviour
     public int MazeWidth;
     public int MazeDepth;
     public int MazeScale;
+    public int NumberOfEnemies;
 
     // constrains
     public int MinMazeWidth;
     public int MaxMazeWidth;
     public int MinMazeDepth;
     public int MaxMazeDepth;
+    public int MinNumEnemies;
+    public int MaxNumEnemies;
 
     private void Awake()
     {
@@ -31,20 +34,27 @@ public class MainManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        NewMazeWidthSelected(MazeWidth);
-        NewMazeDepthSelected(MazeDepth);
+        InitMazeWidth(MazeWidth);
+        InitMazeDepth(MazeDepth);
+        InitNumOfEnemies(NumberOfEnemies);
     }
 
-    public void NewMazeWidthSelected(int width)
+    public void InitMazeWidth(int width)
     {
         // Update the MazeWidth
         Instance.MazeWidth = width;
     }
 
-    public void NewMazeDepthSelected(int depth)
+    public void InitMazeDepth(int depth)
     {
         // Update the MazeDepth
         Instance.MazeDepth = depth;
+    }
+
+    public void InitNumOfEnemies(int num)
+    {
+        // Update the number of enemies
+        Instance.NumberOfEnemies = num;
     }
 
 }

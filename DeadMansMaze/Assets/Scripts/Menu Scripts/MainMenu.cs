@@ -16,6 +16,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private InputField _widthInputField;
     [SerializeField] private Slider _depthSlider;
     [SerializeField] private InputField _depthInputField;
+    [SerializeField] private Slider _enemySlider;
+    [SerializeField] private InputField _enemyInputField;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,9 @@ public class MainMenu : MonoBehaviour
 
         // Add a listener to the maze depth input field
         _depthInputField.onValueChanged.AddListener(delegate { DepthInputValueChanged(); });
+
+        // Add a listener to the number of enemies input field
+        _enemyInputField.onValueChanged.AddListener(delegate { EnemyInputValueChanged(); });
     }
 
     public void DisableConfirmationPanel()
@@ -46,6 +51,7 @@ public class MainMenu : MonoBehaviour
     {
         MainManager.Instance.MazeWidth = Convert.ToInt32(_widthInputField.text);
         MainManager.Instance.MazeDepth = Convert.ToInt32(_depthInputField.text);
+        MainManager.Instance.NumberOfEnemies = Convert.ToInt32(_enemyInputField.text);
     }
 
     public void OnOptionsButton()
@@ -61,19 +67,24 @@ public class MainMenu : MonoBehaviour
         _depthSlider.value = MainManager.Instance.MazeDepth;
         _depthInputField.text = MainManager.Instance.MazeWidth.ToString();
 
+        // set the enemies slider and text to the current enemies value
+        _enemySlider.value = MainManager.Instance.NumberOfEnemies;
+        _enemyInputField.text = MainManager.Instance.NumberOfEnemies.ToString();
+
+        // this is duplication and may have been conflicting with the other listeners
         // width slider event listener
-        _widthSlider.onValueChanged.AddListener((v) =>
-        {
-            // update the width input field text
-            _widthInputField.text = v.ToString("0");
-        });
+        //_widthSlider.onValueChanged.AddListener((v) =>
+        //{
+        //    // update the width input field text
+        //    _widthInputField.text = v.ToString("0");
+        //});
 
         // depth slider event listener
-        _depthSlider.onValueChanged.AddListener((v) =>
-        {
-            // update the depth input field text
-            _depthInputField.text = v.ToString("0");
-        });
+        //_depthSlider.onValueChanged.AddListener((v) =>
+        //{
+        //    // update the depth input field text
+        //    _depthInputField.text = v.ToString("0");
+        //});
     }
 
     public void OnPlayButton()
@@ -124,6 +135,25 @@ public class MainMenu : MonoBehaviour
         else
         {
             _depthSlider.value = MainManager.Instance.MaxMazeDepth;
+        }
+    }
+
+    private void EnemyInputValueChanged()
+    {
+        int newValue = Convert.ToInt32(_enemyInputField.text);
+
+        if (newValue >= MainManager.Instance.MinNumEnemies && newValue <= MainManager.Instance.MaxNumEnemies)
+        {
+            _enemySlider.value = newValue;
+        }
+        else if (newValue < MainManager.Instance.MinNumEnemies)
+        {
+            _enemySlider.value = MainManager.Instance.MinNumEnemies;
+
+        }
+        else
+        {
+            _enemySlider.value = MainManager.Instance.MaxNumEnemies;
         }
     }
 

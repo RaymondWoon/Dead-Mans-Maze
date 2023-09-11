@@ -30,11 +30,11 @@ public class MazeGenerator : MonoBehaviour
     public byte[,] _map;
 
     [HideInInspector]
-    public List<MapCoordinate> straightPieces = new List<MapCoordinate>();
-    public List<MapCoordinate> cornerPieces = new List<MapCoordinate>();
-    public List<MapCoordinate> crossPieces = new List<MapCoordinate>();
-    public List<MapCoordinate> deadendPieces = new List<MapCoordinate>();
-    public List<MapCoordinate> tPieces = new List<MapCoordinate>();
+    public static List<MapCoordinate> straightPieces = new List<MapCoordinate>();
+    public static List<MapCoordinate> cornerPieces; // = new List<MapCoordinate>();
+    public static List<MapCoordinate> crossPieces = new List<MapCoordinate>();
+    public static List<MapCoordinate> deadendPieces = new List<MapCoordinate>();
+    public static List<MapCoordinate> tPieces = new List<MapCoordinate>();
 
     private readonly List<MapCoordinate> directions = new List<MapCoordinate>()
     {
@@ -49,6 +49,11 @@ public class MazeGenerator : MonoBehaviour
     private int _scale;
 
     private GameObject _player;
+
+    private void Awake()
+    {
+        cornerPieces = new List<MapCoordinate>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -120,11 +125,11 @@ public class MazeGenerator : MonoBehaviour
 
                 if (_map[x, z] == 1)
                 {
-                    pos = new Vector3((x - _width / 2) * _scale, 3.0f, z * _scale);
+                    pos = new Vector3((x - _width / 2) * _scale, 3.0f, z * _scale + 3.0f);
                 }
                 else
                 {
-                    pos = new Vector3((x - _width / 2) * _scale, 0.1f, z * _scale);
+                    pos = new Vector3((x - _width / 2) * _scale, 0.1f, z * _scale + 3.0f);
                 }
 
                 if (_map[x, z] == 1)
@@ -149,7 +154,7 @@ public class MazeGenerator : MonoBehaviour
                         DrawCornerPiece(pos, "top_right");
 
                         // add to 'cornerPieces' list
-                        cornerPieces.Add(new MapCoordinate(x, z));
+                        //cornerPieces.Add(new MapCoordinate(x, z));
                     }
                     else if (_map[x, z + 1] == 1 && _map[x - 1, z] == 1)
                     {
@@ -157,7 +162,7 @@ public class MazeGenerator : MonoBehaviour
                         DrawCornerPiece(pos, "top_left");
 
                         // add to 'cornerPieces' list
-                        cornerPieces.Add(new MapCoordinate(x, z));
+                        //cornerPieces.Add(new MapCoordinate(x, z));
                     }
                     else if (_map[x, z + 1] == 1 && _map[x + 1, z] == 0 && _map[x - 1, z] == 0)
                     {
@@ -165,7 +170,7 @@ public class MazeGenerator : MonoBehaviour
                         DrawTPiece(pos, "upright_t");
 
                         // add to 'tPieces' list
-                        tPieces.Add(new MapCoordinate(x, z));
+                        //tPieces.Add(new MapCoordinate(x, z));
                     }
                     else if (_map[x - 1, z] == 1 && _map[x, z + 1] == 0 && _map[x + 1, z] == 0)
                     {
@@ -173,7 +178,7 @@ public class MazeGenerator : MonoBehaviour
                         DrawTPiece(pos, "right_t");
 
                         // add to 'tPieces' list
-                        tPieces.Add(new MapCoordinate(x, z));
+                        //tPieces.Add(new MapCoordinate(x, z));
                     }
                     else if (_map[x + 1, z] == 1 && _map[x, z + 1] == 0 && _map[x - 1, z] == 0)
                     {
@@ -181,7 +186,7 @@ public class MazeGenerator : MonoBehaviour
                         DrawTPiece(pos, "left_t");
 
                         // add to 'tPieces' list
-                        tPieces.Add(new MapCoordinate(x, z));
+                        //tPieces.Add(new MapCoordinate(x, z));
                     }
                     else if (_map[x - 1, z] == 1 && _map[x + 1, z] == 1)
                     {
@@ -190,7 +195,7 @@ public class MazeGenerator : MonoBehaviour
                         maze_piece.transform.parent = _mazeContainer.transform;
 
                         // add to 'straightPieces' list
-                        straightPieces.Add(new MapCoordinate(x, z));
+                        //straightPieces.Add(new MapCoordinate(x, z));
                     }
                     else if (_map[x - 1, z] == 0 && _map[x, z + 1] == 0 && _map[x + 1, z] == 0)
                     {
@@ -199,7 +204,7 @@ public class MazeGenerator : MonoBehaviour
                         maze_piece.transform.parent = _mazeContainer.transform;
 
                         // add to 'crossPieces' list
-                        crossPieces.Add(new MapCoordinate(x, z));
+                        //crossPieces.Add(new MapCoordinate(x, z));
                     }
                 }
                 else if (Search2D(x, z, new int[] { 8, 0, 8, 1, 0, 1, 8, 0, 8 }))
@@ -454,8 +459,8 @@ public class MazeGenerator : MonoBehaviour
         string msg = "";
 
         Vector3 pos = _player.transform.position;
-        int posInMazeX = Convert.ToInt32(_width / 2) + Convert.ToInt32(pos.x / _scale);
-        int posInMazeZ = Convert.ToInt32(pos.z / _scale);
+        int posInMazeX = (int)(_width / 2) + (int)(pos.x / _scale);
+        int posInMazeZ = (int)(pos.z / _scale);
 
         //Debug.Log("Player X -> " + posInMazeX);
         //Debug.Log("Player Z -> " + posInMazeZ);
