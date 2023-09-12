@@ -182,4 +182,14 @@ public class PlayerAction : MonoBehaviour
     Cursor.visible = false;
     Cursor.lockState = CursorLockMode.Locked;
   }
+
+  public int AddHp(int s)
+  {
+        return status.AddHp(s);
+  }
+
+    public int GetCurrentHp()
+    {
+        return status.GetCurrentHp();
+    }
 }

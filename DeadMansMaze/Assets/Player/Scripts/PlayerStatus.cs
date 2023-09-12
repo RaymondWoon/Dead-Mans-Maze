@@ -15,13 +15,14 @@ public class PlayerStatus
         return currentHp;
     }
 
-    public void SetCurrentHp(int hp)
+    public int AddHp(int hp)
     {
-        if (hp > maxHp)
+        if (currentHp + hp > maxHp)
         { 
             currentHp = maxHp;
-            return;
+            return currentHp;
         }
         currentHp = hp;
+        return currentHp;
     }
 }

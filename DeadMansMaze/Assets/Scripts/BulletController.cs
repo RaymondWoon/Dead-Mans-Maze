@@ -22,8 +22,8 @@ public class BulletController : MonoBehaviour
     {
         if (collision.gameObject.tag.ToLower() == "player")
         {
-            collision.transform.GetComponent<PlayerAction>().AddHp(-damage);
-            Debug.Log("Player hp: " + collision.transform.GetComponent<PlayerAction>().GetHp().ToString());
+            int currHp = collision.transform.GetComponent<PlayerAction>().AddHp(-damage);
+            Debug.Log("Player hp: " + currHp.ToString());
         }
         if (collision.gameObject.tag.ToLower() == "enemy")
         {
