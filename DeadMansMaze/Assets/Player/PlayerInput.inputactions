@@ -42,9 +42,36 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Jump",
+                    "name": "Fire",
+                    "type": "Value",
+                    "id": "6fab69e2-f7e6-453a-8fad-de5220e99389",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Reload",
                     "type": "Button",
-                    "id": "5ead42d3-3049-40e0-80e9-abe2964b7663",
+                    "id": "738e41f6-a4a7-4530-9676-8814075c8d41",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Switch",
+                    "type": "Button",
+                    "id": "32145c85-0e16-4837-8d71-0cd38194d075",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Perspective",
+                    "type": "Button",
+                    "id": "e89b8113-3c06-4347-baf9-e571ac3c1cea",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -109,17 +136,6 @@
                 },
                 {
                     "name": "",
-                    "id": "4f6702dd-a15d-46ed-9184-eced9ebc5df8",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "48e91d08-b8c7-481b-99a9-3ee7a58f8d02",
                     "path": "<Mouse>/delta",
                     "interactions": "",
@@ -143,11 +159,55 @@
                 {
                     "name": "",
                     "id": "06e7d570-412c-4025-8412-32b2335a5480",
-                    "path": "<Keyboard>/c",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6a33c9a3-61c7-4557-af1c-f0f6aae34e4e",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "eef48028-895e-4259-9fb4-de22fba162db",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Switch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "069db48b-2a6e-4110-9ddc-299ffe745d46",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "57a6d92e-d637-4adc-a4a2-7becd32fef28",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Perspective",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
