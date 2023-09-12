@@ -22,7 +22,7 @@ public class PlayerStatus
             currentHp = maxHp;
             return currentHp;
         }
-        currentHp = hp;
+        currentHp += hp;
         return currentHp;
     }
 }
