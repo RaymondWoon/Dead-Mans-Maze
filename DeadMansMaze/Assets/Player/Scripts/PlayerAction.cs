@@ -8,8 +8,9 @@ public class PlayerAction : MonoBehaviour
   // LOOK
 
   // Get position of head for main camera (ignore rotation)
-  [SerializeField] Camera cam;
-  [SerializeField] GameObject pos;
+  [SerializeField] GameObject cam;
+  [SerializeField] GameObject cam3rd;
+  [SerializeField] Transform pos;
 
   // Look sensitivity
   [SerializeField] float xSensitivity;
@@ -19,6 +20,7 @@ public class PlayerAction : MonoBehaviour
   float xLook;
   float yLook;
   float xRotation = 0f;
+  int perspective = 1;
 
   // MOVE
 
@@ -31,7 +33,7 @@ public class PlayerAction : MonoBehaviour
 
   // Status
   [SerializeField]
-  private PlayerStatus status = new PlayerStatus();
+  PlayerStatus status = new PlayerStatus();
 
   // Start is called before the first frame update
   void Start()
@@ -44,7 +46,8 @@ public class PlayerAction : MonoBehaviour
   void FixedUpdate()
   {
     // Main camera inherit position of head (Multi-Position Constraint)
-    cam.transform.position = pos.transform.position;
+    cam.transform.position = pos.position;
+    cam3rd.transform.position = pos.position;
 
     // Rotate body in World Y-Axis
     transform.Rotate(Vector3.up * xSensitivity * xLook);
@@ -52,32 +55,13 @@ public class PlayerAction : MonoBehaviour
 
     // Rotate camera in World X-Axis (clamped on localRotation)
     xRotation -= ySensitivity * yLook;
-    xRotation = Mathf.Clamp(xRotation, -60f, 60f);
+    xRotation = Mathf.Clamp(xRotation, -45f, 45f);
     cam.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
+    cam3rd.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
 
     // Move transition
     anim.SetFloat("x", xMove, 0.25f, Time.deltaTime);
     anim.SetFloat("y", yMove, 0.25f, Time.deltaTime);
-  }
-
-  public void AddHp(int s)
-  {
-    int currentHp = status.AddHp(s);
-    if (currentHp <= 0)
-    {
-       die();
-    }
-  }
-
-    public int GetHp()
-    {
-        return status.GetHp();
-    }
-
-    private void die()
-  {
-        // death sequence.
-        Debug.Log("You died!");
   }
 
   // OnLook is called on every value change and release (clamped rotation velocity)
@@ -85,21 +69,18 @@ public class PlayerAction : MonoBehaviour
   {
     Vector2 xyInput = input.Get<Vector2>();
 
-        //xLook = Mathf.Clamp(xyInput.x, -10f, 10f);
-        //yLook = Mathf.Clamp(xyInput.y, -10f, 10f);
+    xLook = Mathf.Clamp(xyInput.x, -10f, 10f);
+    yLook = Mathf.Clamp(xyInput.y, -10f, 10f);
 
-        xLook = Mathf.Clamp(xyInput.x, -3f, 3f);
-        yLook = Mathf.Clamp(xyInput.y, -3f, 3f);
-
-        //if (xyInput.x != 0)
-        //{
-        //  anim.SetBool("isLookingHorizontal", true);
-        //}
-        //else
-        //{
-        //  anim.SetBool("isLookingHorizontal", false);
-        //}
-    }
+    //if (xyInput.x != 0)
+    //{
+    //  anim.SetBool("isLookingHorizontal", true);
+    //}
+    //else
+    //{
+    //  anim.SetBool("isLookingHorizontal", false);
+    //}
+  }
 
   // OnMove is called on every value change and release
   void OnMove(InputValue input)
@@ -109,7 +90,7 @@ public class PlayerAction : MonoBehaviour
     xMove = xyInput.x;
     yMove = xyInput.y;
     
-    if(xyInput != Vector2.zero)
+    if (xyInput != Vector2.zero)
     {
       anim.SetBool("isMoving", true);
     }
@@ -135,7 +116,7 @@ public class PlayerAction : MonoBehaviour
     }
   }
 
-  // OnCrouch is called once on press
+  // OnCrouch is called once on trigger
   void OnCrouch()
   {
     bool isCrouching = anim.GetBool("isCrouching");
@@ -151,6 +132,24 @@ public class PlayerAction : MonoBehaviour
     }
   }
 
+  // OnPerspective is called once on trigger
+  void OnPerspective()
+  {
+    // Press to crouch
+    if (perspective == 1)
+    {
+      perspective = 3;
+      cam.SetActive(false);
+      cam3rd.SetActive(true);
+    }
+    else if (perspective == 3)
+    {
+      perspective = 1;
+      cam3rd.SetActive(false);
+      cam.SetActive(true);
+    }
+  }
+
   // OnCollisionEnter is called on enter collision
   private void OnCollisionEnter(Collision collision)
   {
@@ -162,9 +161,9 @@ public class PlayerAction : MonoBehaviour
     // GetKey
     if (collision.gameObject.tag.ToLower() == "key")
     {
-        status.inventory.AddItem(collision.gameObject.tag.ToLower());
-        Destroy(collision.gameObject);
-        // Debug.Log("Number of Keys: " + status.inventory.GetNumberOfKeyItem("key").ToString());
+      status.inventory.AddItem(collision.gameObject.tag.ToLower());
+      Destroy(collision.gameObject);
+      // Debug.Log("Number of Keys: " + status.inventory.GetNumberOfKeyItem("key").ToString());
     }
   }
 
