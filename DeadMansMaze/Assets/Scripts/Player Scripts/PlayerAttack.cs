@@ -27,7 +27,7 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        WeaponShoot();
     }
 
     private void WeaponShoot()
@@ -46,9 +46,11 @@ public class PlayerAttack : MonoBehaviour
         }
         else
         {
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButtonDown(0))
             {
+                _weaponManager.GetCurrentSelectedWeapon().ShootAnimation();
 
+                // bulletfired
             }
 
 

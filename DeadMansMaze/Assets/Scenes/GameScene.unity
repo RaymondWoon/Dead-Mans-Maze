@@ -3932,7 +3932,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 567707457}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d1725b9d24832f4a8e90720222ec573, type: 3}
   m_Name: 
@@ -3957,7 +3957,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 567707457}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 64e9d02f71fff43429da76d892477d45, type: 3}
   m_Name: 
@@ -4344,7 +4344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 732e7d4e9a218504a9320cb3461404c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapons:
+  _weapons:
   - {fileID: 1917675100}
   - {fileID: 171015210}
   - {fileID: 9055800}
