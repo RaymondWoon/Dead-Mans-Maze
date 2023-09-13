@@ -17,7 +17,8 @@ public class SpawnEnemies : MonoBehaviour
 
     // Variables
     private bool _isBossActive;
-    private int _numOfEnemies = MainManager.Instance.NumberOfEnemies;
+    private int _numOfEnemies;
+    private GameObject _player;
 
     private enum MAZE_PIECE
     {
@@ -31,7 +32,10 @@ public class SpawnEnemies : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _numOfEnemies = MainManager.Instance.NumberOfEnemies;
         _isBossActive = false;
+
+        _player = GameObject.FindWithTag("Player");
 
         for (int i = 0; i < _numOfEnemies; i++)
         {
@@ -44,7 +48,11 @@ public class SpawnEnemies : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (!_isBossActive && _player.transform.position.z > 24)
+        {
+            InstantiateEnemyBoss((int)MainManager.Instance.MazeWidth / 2, 1);
+            _isBossActive = true;
+        }
     }
 
     private void InstantiateEnemy(MAZE_PIECE mp)
@@ -89,5 +97,14 @@ public class SpawnEnemies : MonoBehaviour
         Instantiate(enemy, pos, Quaternion.identity);
         //Debug.Log(mapPt.x);
         //Debug.Log(mapPt.z);
+    }
+
+    private void InstantiateEnemyBoss(int x, int z)
+    {
+        MapCoordinate mapPt = new MapCoordinate(x, z);
+        
+        Vector3 pos = new Vector3((mapPt.x - MainManager.Instance.MazeWidth / 2) * MainManager.Instance.MazeScale, 0.1f, mapPt.z * MainManager.Instance.MazeScale + 3.0f);
+
+        Instantiate(_boss, pos, Quaternion.identity);
     }
 }

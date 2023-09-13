@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // This class is not a MonoBehavior as it will live as a property of the player.
-public class Inventory
+public class InventoryY
 {
     // Declare class variables
     private List<string> keyItems =  new List<string>();

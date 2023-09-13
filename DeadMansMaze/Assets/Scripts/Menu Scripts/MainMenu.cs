@@ -73,18 +73,25 @@ public class MainMenu : MonoBehaviour
 
         // this is duplication and may have been conflicting with the other listeners
         // width slider event listener
-        //_widthSlider.onValueChanged.AddListener((v) =>
-        //{
-        //    // update the width input field text
-        //    _widthInputField.text = v.ToString("0");
-        //});
+        _widthSlider.onValueChanged.AddListener((v) =>
+        {
+            // update the width input field text
+            _widthInputField.text = v.ToString("0");
+        });
 
         // depth slider event listener
-        //_depthSlider.onValueChanged.AddListener((v) =>
-        //{
-        //    // update the depth input field text
-        //    _depthInputField.text = v.ToString("0");
-        //});
+        _depthSlider.onValueChanged.AddListener((v) =>
+        {
+            // update the depth input field text
+            _depthInputField.text = v.ToString("0");
+        });
+
+        // enemy slider event listener
+        _enemySlider.onValueChanged.AddListener((v) =>
+        {
+            // update the enemy input field text
+            _enemyInputField.text = v.ToString("0");
+        });
     }
 
     public void OnPlayButton()
@@ -94,8 +101,10 @@ public class MainMenu : MonoBehaviour
 
     public void OnQuitButton()
     {
+#if UNITY_EDITOR
         // Stops the Unity engine
         EditorApplication.isPlaying = false;
+#endif
         // Quit the application
         Application.Quit();
     }

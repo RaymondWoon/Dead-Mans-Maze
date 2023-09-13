@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//using UnityEngine.UI;
+using TMPro;
 
 public class MapCoordinate
 {
@@ -25,6 +27,10 @@ public class MazeGenerator : MonoBehaviour
     [SerializeField] private GameObject _crossRoadPiece;
     [SerializeField] private GameObject _deadendPiece;
     [SerializeField] private GameObject _tPiece;
+
+    [Header("Map")]
+    [SerializeField] private TMP_Text _uiMap;
+    //[SerializeField] private Text _uiMap;
 
     [HideInInspector]
     public byte[,] _map;
@@ -70,6 +76,11 @@ public class MazeGenerator : MonoBehaviour
         InitializeMaze();
         GenerateMaze((int)(_width / 2), 1);
         DrawMaze();
+    }
+
+    private void FixedUpdate()
+    {
+        UpdateMap();
     }
 
     private void InitializeMaze()
@@ -454,7 +465,7 @@ public class MazeGenerator : MonoBehaviour
     }
 
     // Draw utf-8 box symbols to represent map of maze
-    private void OnGUI()
+    private void OnGUI_UTF8()
     {
         string msg = "";
 
@@ -618,10 +629,14 @@ public class MazeGenerator : MonoBehaviour
         GUI.Label(new Rect(20, 20, 500, 500), msg);
     }
 
-    // This is not very clear
-    private void OnGUIWithCharacters()
+    // Draw ASCII characters to represent map of maze
+    private void OnGUI_ASCII()
     {
         string msg = "";
+
+        Vector3 pos = _player.transform.position;
+        int posInMazeX = (int)(_width / 2) + (int)(pos.x / _scale);
+        int posInMazeZ = (int)(pos.z / _scale);
 
         for (int z = _depth - 1; z >= 0; z--)
         {
@@ -630,12 +645,16 @@ public class MazeGenerator : MonoBehaviour
                 if (_map[x, z] == 1)
                 {
                     // wall
-                    msg += "O";
+                    msg += "||||";
+                }
+                else if (pos.z >= 0 && x == posInMazeX && z == posInMazeZ)
+                {
+                    msg += " o ";
                 }
                 else
                 {
                     // Maze
-                    msg += "  ";
+                    msg += "   ";
                 }
             }
 
@@ -643,5 +662,45 @@ public class MazeGenerator : MonoBehaviour
         }
 
         GUI.Label(new Rect(20, 20, 500, 500), msg);
+    }
+
+    private void UpdateMap()
+    {
+        string msg = "";
+
+        Vector3 pos = _player.transform.position;
+        int posInMazeX = (int)(_width / 2) + (int)(pos.x / _scale);
+        int posInMazeZ = (int)(pos.z / _scale);
+
+        for (int z = _depth - 1; z >= 0; z--)
+        {
+            if (z == _depth - 1)
+                msg = "<mspace=0.22em>";
+
+            for (int x = 0; x < _width; x++)
+            {
+                if (_map[x, z] == 1)
+                {
+                    // wall
+                    msg += "|||";
+                }
+                else if (pos.z >= 0 && x == posInMazeX && z == posInMazeZ)
+                {
+                    msg += " o ";
+                }
+                else
+                {
+                    // Maze
+                    msg += "   ";
+                }
+            }
+
+            if (z == 0)
+                msg += "</mspace>";
+
+            msg += "\n";
+        }
+
+        _uiMap.text = msg;
     }
 }

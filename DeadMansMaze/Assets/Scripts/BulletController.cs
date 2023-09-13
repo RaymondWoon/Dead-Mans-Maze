@@ -22,13 +22,13 @@ public class BulletController : MonoBehaviour
     {
         if (collision.gameObject.tag.ToLower() == "player")
         {
-            collision.transform.GetComponent<PlayerAction>().AddHp(-damage);
-            Debug.Log("Player hp: " + collision.transform.GetComponent<PlayerAction>().GetHp().ToString());
+            //collision.transform.GetComponent<PlayerAction>().AddHp(-damage);
+            //Debug.Log("Player hp: " + collision.transform.GetComponent<PlayerAction>().GetHp().ToString());
         }
         if (collision.gameObject.tag.ToLower() == "enemy")
         {
-            collision.transform.GetComponent<EnemyControllerX>().AddHp(-damage);
-            Debug.Log("Enemy HP: " + collision.transform.GetComponent<EnemyControllerX>().GetHp().ToString());
+            //collision.transform.GetComponent<EnemyControllerX>().AddHp(-damage);
+            //Debug.Log("Enemy HP: " + collision.transform.GetComponent<EnemyControllerX>().GetHp().ToString());
         }
         Destroy(gameObject);
     }
