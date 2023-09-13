@@ -9,7 +9,10 @@ using UnityEngine.Events;
 public class GunPlay : MonoBehaviour
 {
   // Weapon
+  [Header("HUD")]
   [SerializeField] Text Ammo;
+
+  [Header("Weapon")]
   [SerializeField] GameObject Rifle;
   [SerializeField] GameObject Pistol;
   [SerializeField] GameObject RifleMuzzleFlash;
@@ -17,15 +20,27 @@ public class GunPlay : MonoBehaviour
   [SerializeField] GameObject BulletCasing;
   [SerializeField] Transform RifleEjectPoint;
   [SerializeField] Transform PistolEjectPoint;
+
+  [Header("Weapon Audio")]
+  [SerializeField] AudioClip RifleShoot;
+  [SerializeField] AudioClip PistolShoot;
+  [SerializeField] AudioClip RifleReload;
+  [SerializeField] AudioClip PistolReload;
+  [SerializeField] AudioClip Holster;
+
+  [Header("Weapon Stats")]
   [SerializeField] int RifleMagCap;
   [SerializeField] int PistolMagCap;
   [SerializeField] float RifleFireRate;
   [SerializeField] float PistolFireRate;
+
+  [Header("Hit Effect")]
   [SerializeField] UnityEvent OnHit;
 
   // Components
   Animator anim;
   RigBuilder rig;
+  AudioSource aud;
 
   // Weapon state
   float RifleBulletLeft;
@@ -40,7 +55,9 @@ public class GunPlay : MonoBehaviour
   {
     anim = GetComponent<Animator>();
     rig = GetComponent<RigBuilder>();
+    aud = GetComponent<AudioSource>();
 
+    // Start with Rifle Equiped with Full Mag
     anim.SetInteger("WeaponID", 1);
     RifleBulletLeft = RifleMagCap;
     PistolBulletLeft = PistolMagCap;
@@ -90,6 +107,7 @@ public class GunPlay : MonoBehaviour
       if (RifleBulletLeft > 0)
       {
         RifleBulletLeft--;
+        aud.PlayOneShot(RifleShoot, 0.5f);
         anim.SetTrigger("Fire");
         Instantiate(BulletCasing, RifleEjectPoint.position, RifleEjectPoint.rotation);
         RifleMuzzleFlash.SetActive(true);
@@ -113,6 +131,7 @@ public class GunPlay : MonoBehaviour
       if (PistolBulletLeft > 0)
       {
         PistolBulletLeft--;
+        aud.PlayOneShot(PistolShoot, 0.5f);
         anim.SetTrigger("Fire");
         Instantiate(BulletCasing, PistolEjectPoint.position, PistolEjectPoint.rotation);
         PistolMuzzleFlash.SetActive(true);
@@ -130,7 +149,7 @@ public class GunPlay : MonoBehaviour
       {
         OnReload();
       }
-      }
+    }
   }
 
   // OnReload is called once on trigger or when mag is empty
@@ -140,12 +159,23 @@ public class GunPlay : MonoBehaviour
     if(!isReloading & RifleBulletLeft != RifleMagCap | PistolBulletLeft != PistolMagCap)
     {
       anim.SetBool("isReloading", true);
+
+      if (WeaponID == 1)
+      {
+        aud.PlayOneShot(RifleReload, 0.5f);
+      }
+      else if (WeaponID == 2)
+      {
+        aud.PlayOneShot(PistolReload, 0.5f);
+      }
     }
   }
 
   // OnSwitch is called once on trigger (stops reloading)
   void OnSwitch()
   {
+    aud.PlayOneShot(Holster, 0.5f);
+
     if (WeaponID == 1)
     {
       anim.SetBool("isReloading", false);
