@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
     [Header("Panels")]
     [SerializeField] private GameObject _optionsPanel;
     [SerializeField] private GameObject _confirmationPanel;
+    [SerializeField] private GameObject _instructionsPanel;
 
     [Header("Maze Parameters")]
     [SerializeField] private Slider _widthSlider;
@@ -32,9 +33,22 @@ public class MainMenu : MonoBehaviour
         _enemyInputField.onValueChanged.AddListener(delegate { EnemyInputValueChanged(); });
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            OnHelpButton();
+        }
+    }
+
     public void DisableConfirmationPanel()
     {
         _confirmationPanel.SetActive(false);
+    }
+
+    public void DisableInstructionPanel()
+    {
+        _instructionsPanel.SetActive(false);
     }
 
     public void DisableOptionPanel()
@@ -92,6 +106,12 @@ public class MainMenu : MonoBehaviour
             // update the enemy input field text
             _enemyInputField.text = v.ToString("0");
         });
+    }
+
+    public void OnHelpButton()
+    {
+        // activate 'Instructions Panel'
+        _instructionsPanel.SetActive(true);
     }
 
     public void OnPlayButton()
