@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Key
   - Enemy
+  - Volume Setting Camera
   layers:
   - Default
   - TransparentFX

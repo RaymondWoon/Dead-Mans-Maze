@@ -8,6 +8,8 @@ public class PlayerFootsteps : MonoBehaviour
     [Header("Footsteps clips")]
     [SerializeField] private AudioClip[] _footstepClip;
 
+    [SerializeField] private Animator _anim;
+
     [HideInInspector]
     public float _volumeMin, _volumeMax;
 
@@ -15,7 +17,6 @@ public class PlayerFootsteps : MonoBehaviour
     public float _stepDistance;
 
     // Variables
-    private CharacterController _characterController;
     private float _accumulatedDistance;
     private AudioSource _footstepSound;
 
@@ -23,9 +24,6 @@ public class PlayerFootsteps : MonoBehaviour
     {
         // Initialize to AudioSource component
         _footstepSound = GetComponent<AudioSource>();
-
-        // Initialize to CharacterController component
-        _characterController = GetComponentInParent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -37,10 +35,10 @@ public class PlayerFootsteps : MonoBehaviour
 
     private void CheckToPlayFootstepSound()
     {
-        if (!_characterController.isGrounded)
+        if (!_anim.GetBool("isMoving"))
             return;
 
-        if (_characterController.velocity.sqrMagnitude > 0)
+        if (_anim.velocity.sqrMagnitude > 0)
         {
             // _accumulatedDistance is the value how far can we go
             // e.g. make a step, sprint, or move while crouching

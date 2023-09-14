@@ -14,14 +14,14 @@ public class DepthSliderScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _depthSlider.value = UIManager._mazeDepth;
-        _depthSlidertext.text = UIManager._mazeDepth.ToString();
+        _depthSlider.value = UIManagerX._mazeDepth;
+        _depthSlidertext.text = UIManagerX._mazeDepth.ToString();
 
         _depthSlider.onValueChanged.AddListener((v) =>
         {
             _depthSlidertext.text = v.ToString("0");
 
-            UIManager._mazeDepth = (int)v;
+            UIManagerX._mazeDepth = (int)v;
         });
     }
 }

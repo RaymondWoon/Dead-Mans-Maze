@@ -16,6 +16,8 @@ public class PlayerAction : MonoBehaviour
   [SerializeField] float xSensitivity;
   [SerializeField] float ySensitivity;
 
+    
+
   // Look values
   float xLook;
   float yLook;
@@ -31,20 +33,48 @@ public class PlayerAction : MonoBehaviour
   float xMove;
   float yMove;
 
-  // Status
-  [SerializeField]
-  PlayerStatus status = new PlayerStatus();
+    // Variables for player footsteps
+    private PlayerFootsteps _playerFootsteps;
 
-  // Start is called before the first frame update
-  void Start()
+    private float _sprintVolumeMin = 1f;
+    private float _sprintVolumeMax = 3f;
+    private float _crouchVolumeMin = 0.1f;
+    private float _crouchVolumeMax = 0.2f;
+
+    private float _walkVolumeMin = 0.2f, _walkVolumeMax = 0.6f;
+
+    private float _walkStepDistance = 0.4f;
+    private float _sprintStepDistance = 0.25f;
+    private float _crouchStepDistance = 0.5f;
+
+    // Status
+    [SerializeField]
+    PlayerStatus status = new PlayerStatus();
+
+    private void Awake()
+    {
+        // access the PlayerFootsteps component (script)
+        _playerFootsteps = GetComponentInChildren<PlayerFootsteps>();
+    }
+
+    // Start is called before the first frame update
+    void Start()
   {
     anim = GetComponent<Animator>();
     HideCursor();
-  }
+
+        // default volume setting to walk
+        _playerFootsteps._volumeMin = _walkVolumeMin;
+        _playerFootsteps._volumeMax = _walkVolumeMax;
+        _playerFootsteps._stepDistance = _walkStepDistance;
+    }
 
   // Update is called once per fixed frame
   void FixedUpdate()
   {
+        if (Cursor.lockState == CursorLockMode.None)
+            return;
+
     // Main camera inherit position of head (Multi-Position Constraint)
     cam.transform.position = pos.position;
     cam3rd.transform.position = pos.position;
@@ -112,11 +142,21 @@ public class PlayerAction : MonoBehaviour
     if (!isRunning)
     {
       anim.SetBool("isRunning", true);
+
+        // set volume settings to 'sprint;
+        _playerFootsteps._volumeMin = _sprintVolumeMin;
+        _playerFootsteps._volumeMax = _sprintVolumeMax;
+        _playerFootsteps._stepDistance = _sprintStepDistance;
     }
     else
     {
       anim.SetBool("isRunning", false);
-    }
+
+        // set volume settings to 'walk;
+        _playerFootsteps._volumeMin = _walkVolumeMin;
+        _playerFootsteps._volumeMax = _walkVolumeMax;
+        _playerFootsteps._stepDistance = _walkStepDistance;
+        }
   }
 
   // OnCrouch is called once on trigger
@@ -128,10 +168,20 @@ public class PlayerAction : MonoBehaviour
     if (!isCrouching)
     {
       anim.SetBool("isCrouching", true);
+
+        // set volume settings to 'crouch;
+        _playerFootsteps._volumeMin = _crouchVolumeMin;
+        _playerFootsteps._volumeMax = _crouchVolumeMax;
+        _playerFootsteps._stepDistance = _crouchStepDistance;
     }
     else
     {
       anim.SetBool("isCrouching", false);
+
+        // set volume settings to 'walk;
+        _playerFootsteps._volumeMin = _walkVolumeMin;
+        _playerFootsteps._volumeMax = _walkVolumeMax;
+        _playerFootsteps._stepDistance = _walkStepDistance;
     }
   }
 

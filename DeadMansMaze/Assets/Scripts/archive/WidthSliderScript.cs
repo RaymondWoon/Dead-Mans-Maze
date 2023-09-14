@@ -16,14 +16,14 @@ public class WidthSliderScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _widthSlider.value = UIManager._mazeWidth;
-        _widthSlidertext.text = UIManager._mazeWidth.ToString();
+        _widthSlider.value = UIManagerX._mazeWidth;
+        _widthSlidertext.text = UIManagerX._mazeWidth.ToString();
 
         _widthSlider.onValueChanged.AddListener((v) =>
         {
             _widthSlidertext.text = v.ToString("0");
 
-            UIManager._mazeWidth = (int)v;
+            UIManagerX._mazeWidth = (int)v;
         });
     }
 

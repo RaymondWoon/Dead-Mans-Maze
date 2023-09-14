@@ -32,7 +32,7 @@ public class PlayerScript : MonoBehaviour
         _cameraRot = _camera.transform.localRotation;
         _playerRot = transform.localRotation;
 
-        transform.position = new Vector3((int)(UIManager._mazeWidth * UIManager._mazeScale / 2), 0f, -20.0f);
+        transform.position = new Vector3((int)(UIManagerX._mazeWidth * UIManagerX._mazeScale / 2), 0f, -20.0f);
     }
 
     // Update is called once per frame

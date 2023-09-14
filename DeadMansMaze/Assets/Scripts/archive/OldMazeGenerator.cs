@@ -49,9 +49,9 @@ public class OldMazeGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _width = UIManager._mazeWidth;
-        _depth = UIManager._mazeDepth;
-        _scale = UIManager._mazeScale;
+        _width = UIManagerX._mazeWidth;
+        _depth = UIManagerX._mazeDepth;
+        _scale = UIManagerX._mazeScale;
 
         InitializeMaze();
         GenerateMaze((int)(_width / 2), 1);
