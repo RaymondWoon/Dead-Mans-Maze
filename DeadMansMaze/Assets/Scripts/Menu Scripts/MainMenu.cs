@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEditor;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
@@ -10,6 +11,7 @@ public class MainMenu : MonoBehaviour
     [Header("Panels")]
     [SerializeField] private GameObject _optionsPanel;
     [SerializeField] private GameObject _confirmationPanel;
+    [SerializeField] private GameObject _audioPanel;
     [SerializeField] private GameObject _instructionsPanel;
 
     [Header("Maze Parameters")]
@@ -19,6 +21,13 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private InputField _depthInputField;
     [SerializeField] private Slider _enemySlider;
     [SerializeField] private InputField _enemyInputField;
+
+    [Header("Audio Controls")]
+    [SerializeField] private AudioMixer _mixer;
+    //[SerializeField] private GameObject _window;
+    [SerializeField] private Slider _masterSlider;
+    [SerializeField] private Slider _sfxSlider;
+    [SerializeField] private Slider _musicSlider;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +48,11 @@ public class MainMenu : MonoBehaviour
         {
             OnHelpButton();
         }
+    }
+
+    public void DisableAudioSettingsPanel()
+    {
+        _audioPanel.SetActive(false);
     }
 
     public void DisableConfirmationPanel()
@@ -66,6 +80,34 @@ public class MainMenu : MonoBehaviour
         MainManager.Instance.MazeWidth = Convert.ToInt32(_widthInputField.text);
         MainManager.Instance.MazeDepth = Convert.ToInt32(_depthInputField.text);
         MainManager.Instance.NumberOfEnemies = Convert.ToInt32(_enemyInputField.text);
+    }
+
+    public void OnAudioSettingsButton()
+    {
+        // activate the 'Audio Settings Panel' 
+        _audioPanel.SetActive(true);
+
+        // Initiate the Master Volume audio & slider to the Master Volume PlayerPref parameter
+        if (PlayerPrefs.HasKey("MasterVolume"))
+        {
+            _mixer.SetFloat("MasterVolume", PlayerPrefs.GetFloat("MasterVolume"));
+            // set slider values based on current preference
+            _masterSlider.value = PlayerPrefs.GetFloat("MasterVolume");
+        }
+
+        // Initiate the SFX audio & slider to the SFX PlayerPref parameter
+        if (PlayerPrefs.HasKey("SFXVolume"))
+        {
+            _mixer.SetFloat("SFXVolume", PlayerPrefs.GetFloat("SFXVolume"));
+            _sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume");
+        }
+
+        // Initiate the Music audio & slider to the Music PlayerPref parameter
+        if (PlayerPrefs.HasKey("MusicVolume"))
+        {
+            _mixer.SetFloat("MusicVolume", PlayerPrefs.GetFloat("MusicVolume"));
+            _musicSlider.value = PlayerPrefs.GetFloat("MusicVolume");
+        }
     }
 
     public void OnOptionsButton()
@@ -186,4 +228,24 @@ public class MainMenu : MonoBehaviour
         }
     }
 
+    // Update the AudioMixer 'Master Volume' and PlayerPrefs
+    public void UpdateMasterVolume()
+    {
+        _mixer.SetFloat("MasterVolume", _masterSlider.value);
+        PlayerPrefs.SetFloat("MasterVolume", _masterSlider.value);
+    }
+
+    // Update the AudioMixer 'SFX Volume' and PlayerPrefs
+    public void UpdateSFXVolume()
+    {
+        _mixer.SetFloat("SFXVolume", _sfxSlider.value);
+        PlayerPrefs.SetFloat("SFXVolume", _sfxSlider.value);
+    }
+
+    // Update the AudioMixer 'Music Volume' and PlayerPrefs
+    public void UpdateMusicVolume()
+    {
+        _mixer.SetFloat("MusicVolume", _musicSlider.value);
+        PlayerPrefs.SetFloat("MusicVolume", _musicSlider.value);
+    }
 }

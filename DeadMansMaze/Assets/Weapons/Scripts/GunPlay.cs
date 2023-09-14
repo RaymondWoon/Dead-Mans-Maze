@@ -82,6 +82,7 @@ public class GunPlay : MonoBehaviour
   // OnShoot is called twice on press and release
   void OnFire()
   {
+
     // Hold to shoot
     if (!isFiring)
     {
