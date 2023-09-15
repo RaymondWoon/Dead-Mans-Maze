@@ -13,7 +13,7 @@ public class EjectBulletCasing : MonoBehaviour
   {
     // Spawn bullet casing with ejection force
     rb = GetComponent<Rigidbody>();
-    rb.AddRelativeForce(0.1f, -0.5f, 0, ForceMode.Impulse);
+    rb.AddRelativeForce(0.25f, 0.25f, 0, ForceMode.Impulse);
     Destroy(gameObject, DestroyInSeconds);
   }
 }
