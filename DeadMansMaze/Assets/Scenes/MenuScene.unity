@@ -1418,7 +1418,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &327215846
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4816,11 +4816,11 @@ MonoBehaviour:
     to move\n<pos=4%>* Hold down the Left-Shift key together with a direction key
     to run\n<pos=4%>* Press 'c' to toggle between walking and crouching\n<pos=4%>*
     Press 'q' to toggle between first-person and third-person views\n<pos=4%>* Use
-    the mouse movement to look around (cursor is invisible). \n<pos=4%>  Use he Escape
-    key to exit and left-mouse click to re-activate.\n\n4. <b>Weapon Controls</b>\n<pos=4%>*
-    Press 'e' to toggle between the pistol and the rifle\n<pos=4%>* Press 'r' to
-    reload the active weapon\n<pos=4%>* Press the 'left mouse button' to fire the
-    active weapon"
+    the mouse movement to look around (cursor is invisible). \n<pos=4%>* Use the
+    Escape key to access the Pause menu\n\n4. <b>Weapon Controls</b>\n<pos=4%>* Press
+    'e' to toggle between the pistol and the rifle\n<pos=4%>* Press 'r' to reload
+    the active weapon\n<pos=4%>* Press the 'left mouse button' to fire the active
+    weapon"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

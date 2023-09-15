@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerSprintAndCrouch : MonoBehaviour
+public class NAPlayerSprintAndCrouch : MonoBehaviour
 {
     [Header("Speeds")]
     [SerializeField] private float _sprintSpeed;
     [SerializeField] private float _crouchSpeed;
 
     // Variables
-    private PlayerMovement _playerMovement;
+    private NAPlayerMovement _playerMovement;
     private Transform _lookRoot;
 
     private float _standHeight;
@@ -35,7 +35,7 @@ public class PlayerSprintAndCrouch : MonoBehaviour
     private void Awake()
     {
         // Access the 'PlayerMovement' component (script)
-        _playerMovement = GetComponent<PlayerMovement>();
+        _playerMovement = GetComponent<NAPlayerMovement>();
 
         // define the standard 'walking' speed
         _moveSpeed = _playerMovement._speed;

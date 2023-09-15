@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponManager : MonoBehaviour
+public class NAWeaponManager : MonoBehaviour
 {
     [Header("Weapons")]
     [SerializeField] private WeaponHandler[] _weapons;

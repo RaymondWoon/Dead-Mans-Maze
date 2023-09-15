@@ -12,11 +12,28 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float _walkingSpeed;
     [SerializeField] private float _runningSpeed;
 
+    [Header("Range")]
+    [SerializeField] private float _chaseDistance = 10.0f;
+    [SerializeField] private float _forgetDistance = 15.0f;
 
+    [Header("Stats")]
+    [SerializeField] private int _health;
+    [SerializeField] private int _damage;
+
+    [Header("Audio Clip")]
+    [SerializeField] private AudioClip _alert;
+    [SerializeField] private AudioClip _walking;
+    [SerializeField] private AudioClip _running;
+    [SerializeField] private AudioClip _attack;
+    [SerializeField] private AudioClip _pain;
+    [SerializeField] private AudioClip _die;
+
+    // Components
     private GameObject _player;
     private Animator _anim;
     private NavMeshAgent _agent;
 
+    // Enemy states
     private enum STATE
     {
         IDLE,
@@ -117,6 +134,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    // Set all anim bool states to false
     private void ResetStates()
     {
         _anim.SetBool("isWalking", false);
@@ -130,17 +148,19 @@ public class EnemyController : MonoBehaviour
         return Vector3.Distance(_player.transform.position, transform.position);
     }
 
+    // Check if the player is within visible range
     private bool IsPlayerVisible()
     {
-        if (DistanceToPlayer() < 10)
+        if (DistanceToPlayer() < _chaseDistance)
             return true;
 
         return false;
     }
 
+    // Check if player is out of range
     private bool ForgetPlayer()
     {
-        if (DistanceToPlayer() > 20)
+        if (DistanceToPlayer() > _forgetDistance)
             return true;
 
         return false;
