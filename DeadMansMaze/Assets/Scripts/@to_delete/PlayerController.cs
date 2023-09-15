@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class NAPlayerController : MonoBehaviour
 {
     [SerializeField] private GameObject _camera;
     [SerializeField] private float _speed = 0.1f;

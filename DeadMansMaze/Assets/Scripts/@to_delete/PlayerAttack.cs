@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAttack : MonoBehaviour
+public class NAPlayerAttack : MonoBehaviour
 {
     public float _fireRate = 15f;
     private float _nextShootTime;
     public float _damage = 20f;
 
     // Variables
-    private WeaponManager _weaponManager;
+    private NAWeaponManager _weaponManager;
 
     private void Awake()
     {
         _nextShootTime = 0.0f;
-        _weaponManager = GetComponent<WeaponManager>();
+        _weaponManager = GetComponent<NAWeaponManager>();
     }
 
 

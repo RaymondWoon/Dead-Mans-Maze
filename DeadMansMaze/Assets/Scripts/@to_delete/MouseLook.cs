@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MouseLook : MonoBehaviour
+public class NAMouseLook : MonoBehaviour
 {
     [Header("Root Transforms")]
     [SerializeField] private Transform _playerRoot;
