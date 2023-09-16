@@ -13,8 +13,9 @@ public class PlayerAction : MonoBehaviour
   [SerializeField] Transform pos;
 
   // Look sensitivity
-  [SerializeField] float xSensitivity;
-  [SerializeField] float ySensitivity;
+  // Moved to be a user option in the MainMenu
+  //[SerializeField] float xSensitivity;
+  //[SerializeField] float ySensitivity;
 
     
 
@@ -32,6 +33,8 @@ public class PlayerAction : MonoBehaviour
   // Move values
   float xMove;
   float yMove;
+    private float xSensitivity = MainManager.Instance.MouseSensitivity;
+    private float ySensitivity = MainManager.Instance.MouseSensitivity;
 
     // Variables for player footsteps
     private PlayerFootsteps _playerFootsteps;

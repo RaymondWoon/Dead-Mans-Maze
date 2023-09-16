@@ -11,11 +11,17 @@ public class SpawnPickup : MonoBehaviour
     [SerializeField] private GameObject _key;
     [SerializeField] private GameObject _athelas;
 
-    MapCoordinate _keyPt;
+    private MapCoordinate _keyPt;
+    private bool _keyLoaded;
+    private bool _athelasLoaded;
 
     // Start is called before the first frame update
     void Start()
     {
+        // Default
+        _keyLoaded = false;
+        _athelasLoaded = false;
+
         // pistol ammo pickup
         LoadPistolAmmo(Extensions.RandomEnumValue<MAZE_PIECE>());
 
@@ -151,6 +157,9 @@ public class SpawnPickup : MonoBehaviour
 
     private void LoadKey()
     {
+        if (_keyLoaded)
+            return;
+
         _keyPt = new MapCoordinate(0, 0);
         _keyPt = MazeGenerator.deadendPieces[Random.Range(0, MazeGenerator.deadendPieces.Count - 1)];
 
@@ -160,6 +169,8 @@ public class SpawnPickup : MonoBehaviour
         Vector3 pos = new Vector3((_keyPt.x - MainManager.Instance.MazeWidth / 2) * MainManager.Instance.MazeScale, 1f, _keyPt.z * MainManager.Instance.MazeScale + 3.0f);
 
         Instantiate(_key, pos, Quaternion.identity);
+
+        _keyLoaded = true;
     }
 
     private void LoadAthelas()

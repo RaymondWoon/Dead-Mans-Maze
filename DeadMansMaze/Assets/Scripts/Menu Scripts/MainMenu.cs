@@ -29,6 +29,10 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Slider _sfxSlider;
     [SerializeField] private Slider _musicSlider;
 
+    [Header("Mouse Control")]
+    [SerializeField] private Slider _mouseSlider;
+    [SerializeField] private InputField _mouseInputField;
+
     [Header("Completion Time")]
     [SerializeField] private Slider _timeSlider;
     [SerializeField] private InputField _timeInputField;
@@ -47,6 +51,9 @@ public class MainMenu : MonoBehaviour
 
         // Add a listener to the time input field
         _timeInputField.onValueChanged.AddListener(delegate { TimeInputValueChanged(); });
+
+        // Add a listener to the mouse input field
+        _mouseInputField.onValueChanged.AddListener(delegate { MouseSensitivityInputValueChanged(); });
     }
 
     private void Update()
@@ -88,6 +95,9 @@ public class MainMenu : MonoBehaviour
         MainManager.Instance.MazeDepth = Convert.ToInt32(_depthInputField.text);
         MainManager.Instance.NumberOfEnemies = Convert.ToInt32(_enemyInputField.text);
         MainManager.Instance.TimeToComplete = Convert.ToInt32(_timeInputField.text);
+        MainManager.Instance.MouseSensitivity = (float) Convert.ToDouble(string.Format("{0:F2}", _mouseInputField.text));
+
+        DisableOptionPanel();
     }
 
     public void OnAudioSettingsButton()
@@ -139,6 +149,11 @@ public class MainMenu : MonoBehaviour
         _timeSlider.value = MainManager.Instance.TimeToComplete;
         _timeInputField.text = MainManager.Instance.TimeToComplete.ToString();
 
+        // set the mouse slider and text to the current mouseSensitivity value
+        _mouseSlider.value = MainManager.Instance.MouseSensitivity;
+        //_mouseInputField.text = MainManager.Instance.MouseSensitivity.ToString();
+        _mouseInputField.text = string.Format("{0:F2}", MainManager.Instance.MouseSensitivity);
+
         // width slider event listener
         _widthSlider.onValueChanged.AddListener((v) =>
         {
@@ -166,6 +181,13 @@ public class MainMenu : MonoBehaviour
             // update the time input field text
             _timeInputField.text = v.ToString("0");
         });
+
+        // mouse slider event listener
+        _mouseSlider.onValueChanged.AddListener((v) =>
+        {
+            // update the mouse input field text
+            _mouseInputField.text = string.Format("{0:F2}", v);
+        });
     }
 
     public void OnHelpButton()
@@ -189,6 +211,7 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    // Handler for MazeWidthInputField
     private void WidthInputValueChanged()
     {
         int newValue = Convert.ToInt32(_widthInputField.text);
@@ -208,6 +231,7 @@ public class MainMenu : MonoBehaviour
         }
     }
 
+    // Handler for MazeDepthInputField
     private void DepthInputValueChanged()
     {
         int newValue = Convert.ToInt32(_depthInputField.text);
@@ -227,6 +251,7 @@ public class MainMenu : MonoBehaviour
         }
     }
 
+    // Handler for EnemyInputField
     private void EnemyInputValueChanged()
     {
         int newValue = Convert.ToInt32(_enemyInputField.text);
@@ -246,6 +271,7 @@ public class MainMenu : MonoBehaviour
         }
     }
 
+    // Handler for TimeInputField
     private void TimeInputValueChanged()
     {
         int newValue = Convert.ToInt32(_timeInputField.text);
@@ -261,6 +287,25 @@ public class MainMenu : MonoBehaviour
         else
         {
             _timeSlider.value = MainManager.Instance.MaxTimeToComplete;
+        }
+    }
+
+    // Handler for MouseInputField
+    private void MouseSensitivityInputValueChanged()
+    {
+        float newValue = (float) Convert.ToDouble(_mouseInputField.text);
+
+        if (newValue >= MainManager.Instance.MinMouseSensitivity && newValue <= MainManager.Instance.MaxMouseSensitivity)
+        {
+            _mouseSlider.value = newValue;
+        }
+        else if (newValue < MainManager.Instance.MinMouseSensitivity)
+        {
+            _mouseSlider.value = MainManager.Instance.MinMouseSensitivity;
+        }
+        else
+        {
+            _mouseSlider.value = MainManager.Instance.MaxMouseSensitivity;
         }
     }
 
