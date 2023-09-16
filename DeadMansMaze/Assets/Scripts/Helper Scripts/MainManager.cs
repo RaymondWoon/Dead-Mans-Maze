@@ -23,7 +23,8 @@ public class MainManager : MonoBehaviour
     public int MaxNumEnemies;
     public int MinTimeToComplete;
     public int MaxTimeToComplete;
-
+    public float MinMouseSensitivity;
+    public float MaxMouseSensitivity;
 
     private void Awake()
     {

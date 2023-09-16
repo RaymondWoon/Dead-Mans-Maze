@@ -11,7 +11,7 @@ public class AutoScroll : MonoBehaviour
     [SerializeField] private bool _isLooping = false;
 
     // Scroll parameters
-    private readonly float _speed = 75f;
+    private readonly float _speed = 50f;
     private readonly float _startTextPos = -1000f;
     private readonly float _endTextPos = 1000f;
 
