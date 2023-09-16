@@ -12,6 +12,7 @@ public class MainManager : MonoBehaviour
     public bool MazeKeyFound;
     public bool AthelasFound;
     public int TimeToComplete;
+    public float MouseSensitivity;
 
     // constrains
     public int MinMazeWidth;
@@ -44,6 +45,7 @@ public class MainManager : MonoBehaviour
         InitMazeDepth(MazeDepth);
         InitNumOfEnemies(NumberOfEnemies);
         InitTimeToComplete(TimeToComplete);
+        InitMouseSensitivity(MouseSensitivity);
     }
 
     public void InitMazeWidth(int width)
@@ -68,6 +70,12 @@ public class MainManager : MonoBehaviour
     {
         // Update the time variable
         Instance.TimeToComplete = num;
+    }
+
+    public void InitMouseSensitivity(float num)
+    {
+        // update the mouse sensitivity variable
+        Instance.MouseSensitivity = num;
     }
 
 }

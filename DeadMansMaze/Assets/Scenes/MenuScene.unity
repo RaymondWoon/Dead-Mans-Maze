@@ -2083,7 +2083,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9019608, g: 0.9254902, b: 0.26666668, a: 1}
+  m_Color: {r: 0.8962264, g: 0.8497241, b: 0.8497241, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2111,7 +2111,7 @@ MonoBehaviour:
     of a maze that he had constructed himself to keep it from the hands of his enemies.\n\tYour
     role, as Dr Flemings, is to overcome all challenges - entering the maze to retrieve
     the Athelas, surviving the attacks from the zombie-like creatures, and making
-    it back alive to civilization, to complete the cure for this deadly virus."
+    it back alive to civilization, to complete the cure for this deadly virus.\n"
 --- !u!222 &386610055
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2133,7 +2133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textToScroll: {fileID: 386610054}
-  _isLooping: 0
+  _isLooping: 1
 --- !u!1 &398867426
 GameObject:
   m_ObjectHideFlags: 0
@@ -5326,8 +5326,8 @@ MonoBehaviour:
   MazeDepth: 10
   MazeScale: 6
   NumberOfEnemies: 6
-  _mazeKeyFound: 0
-  _athelasFound: 0
+  MazeKeyFound: 0
+  AthelasFound: 0
   TimeToComplete: 5
   MinMazeWidth: 10
   MaxMazeWidth: 20
