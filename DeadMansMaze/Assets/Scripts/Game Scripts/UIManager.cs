@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class UIManager : MonoBehaviour
@@ -53,6 +54,27 @@ public class UIManager : MonoBehaviour
     public void TogglePauseMenu(bool paused)
     {
         _pauseMenu.SetActive(paused);
+    }
+
+    public void OnResumeButton()
+    {
+        GameManager.instance.TogglePauseGame();
+    }
+
+    public void OnMenuButton()
+    {
+        Debug.Log("Menu Button");
+
+        // Pause game
+        Time.timeScale = 0.0f;
+        // Load menu
+        SceneManager.LoadScene("MenuScene");
+    }
+
+    public void UpdateHealthBar(int currentHP, int maxHP)
+    {
+        // return a value between 0 and 1
+        _healthBarFill.fillAmount = (float)currentHP / (float)maxHP;
     }
 
 }

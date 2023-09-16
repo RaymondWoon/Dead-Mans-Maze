@@ -9,6 +9,9 @@ public class MainManager : MonoBehaviour
     public int MazeDepth;
     public int MazeScale;
     public int NumberOfEnemies;
+    public bool MazeKeyFound;
+    public bool AthelasFound;
+    public int TimeToComplete;
 
     // constrains
     public int MinMazeWidth;
@@ -17,6 +20,9 @@ public class MainManager : MonoBehaviour
     public int MaxMazeDepth;
     public int MinNumEnemies;
     public int MaxNumEnemies;
+    public int MinTimeToComplete;
+    public int MaxTimeToComplete;
+
 
     private void Awake()
     {
@@ -37,6 +43,7 @@ public class MainManager : MonoBehaviour
         InitMazeWidth(MazeWidth);
         InitMazeDepth(MazeDepth);
         InitNumOfEnemies(NumberOfEnemies);
+        InitTimeToComplete(TimeToComplete);
     }
 
     public void InitMazeWidth(int width)
@@ -55,6 +62,12 @@ public class MainManager : MonoBehaviour
     {
         // Update the number of enemies
         Instance.NumberOfEnemies = num;
+    }
+
+    public void InitTimeToComplete(int num)
+    {
+        // Update the time variable
+        Instance.TimeToComplete = num;
     }
 
 }

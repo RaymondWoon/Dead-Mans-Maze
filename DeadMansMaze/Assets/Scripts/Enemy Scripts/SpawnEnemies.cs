@@ -5,29 +5,22 @@ using UnityEngine;
 public class SpawnEnemies : MonoBehaviour
 {
     [Header("Enemies")]
-    //[SerializeField] private GameObject _enemyContainer;
     [SerializeField] private GameObject[] _enemy;
     [SerializeField] private GameObject _boss;
-
-    //public List<MapCoordinate> straightPieces = new List<MapCoordinate>();
-    //public List<MapCoordinate> cornerPieces = new List<MapCoordinate>();
-    //public List<MapCoordinate> crossPieces = new List<MapCoordinate>();
-    //public List<MapCoordinate> deadendPieces = new List<MapCoordinate>();
-    //public List<MapCoordinate> tPieces = new List<MapCoordinate>();
 
     // Variables
     private bool _isBossActive;
     private int _numOfEnemies;
     private GameObject _player;
 
-    private enum MAZE_PIECE
-    {
-        STRAIGHT,
-        CORNER,
-        CROSS,
-        DEADEND,
-        T
-    }
+    //public enum MAZE_PIECE
+    //{
+    //    STRAIGHT,
+    //    CORNER,
+    //    CROSS,
+    //    DEADEND,
+    //    T
+    //}
 
     // Start is called before the first frame update
     void Start()
@@ -95,8 +88,6 @@ public class SpawnEnemies : MonoBehaviour
         Vector3 pos = new Vector3((mapPt.x - MainManager.Instance.MazeWidth / 2) * MainManager.Instance.MazeScale, 0.1f, mapPt.z * MainManager.Instance.MazeScale + 3.0f);
 
         Instantiate(enemy, pos, Quaternion.identity);
-        //Debug.Log(mapPt.x);
-        //Debug.Log(mapPt.z);
     }
 
     private void InstantiateEnemyBoss(int x, int z)

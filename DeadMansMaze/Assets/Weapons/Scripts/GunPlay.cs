@@ -37,21 +37,28 @@ public class GunPlay : MonoBehaviour
   [Header("Hit Effect")]
   [SerializeField] UnityEvent OnHit;
 
-  // Components
-  Animator anim;
+    // Components
+    Animator anim;
   RigBuilder rig;
   AudioSource aud;
 
-  // Weapon state
-  float RifleBulletLeft;
-  float PistolBulletLeft;
-  int WeaponID;
+    // Weapon state
+    [HideInInspector]
+    public static int RifleBulletLeft;
+    public static int PistolBulletLeft;
+    public static int WeaponID;
+    public static int PistolBulletStock = 30;
+    public static int RifleBulletStock = 60;
   bool isReloading;
   bool isFiring = false;
   bool doneFiring = true;
 
-  // Start is called before the first frame update
-  void Start()
+    
+    public static bool _gameIsPaused;
+
+ 
+    // Start is called before the first frame update
+    void Start()
   {
     anim = GetComponent<Animator>();
     rig = GetComponent<RigBuilder>();
@@ -61,6 +68,8 @@ public class GunPlay : MonoBehaviour
     anim.SetInteger("WeaponID", 1);
     RifleBulletLeft = RifleMagCap;
     PistolBulletLeft = PistolMagCap;
+
+        _gameIsPaused = false;
   }
 
   // Update is called once per frame
@@ -82,6 +91,8 @@ public class GunPlay : MonoBehaviour
   // OnShoot is called twice on press and release
   void OnFire()
   {
+        if (_gameIsPaused)
+            return;
 
     // Hold to shoot
     if (!isFiring)
@@ -157,18 +168,33 @@ public class GunPlay : MonoBehaviour
   void OnReload()
   {
     // Reload only if not already reloading or mag is not full
-    if(!isReloading & RifleBulletLeft != RifleMagCap | PistolBulletLeft != PistolMagCap)
-    {
-      anim.SetBool("isReloading", true);
+    //if(!isReloading & RifleBulletLeft != RifleMagCap | PistolBulletLeft != PistolMagCap)
+    //{
+    //  anim.SetBool("isReloading", true);
 
-      if (WeaponID == 1)
-      {
-        aud.PlayOneShot(RifleReload, 0.5f);
-      }
-      else if (WeaponID == 2)
-      {
-        aud.PlayOneShot(PistolReload, 0.5f);
-      }
+    //  if (WeaponID == 1)
+    //  {
+    //    aud.PlayOneShot(RifleReload, 0.5f);
+    //  }
+    //  else if (WeaponID == 2)
+    //  {
+    //    aud.PlayOneShot(PistolReload, 0.5f);
+    //  }
+    //}
+
+    // Revised by Raymond - only allow reload if there are magazine clips available
+    if (!isReloading)
+    {
+        if (WeaponID == 1 && RifleBulletStock > 0)
+        {
+            anim.SetBool("isReloading", true);
+            aud.PlayOneShot(RifleReload, 0.5f);
+        }
+        else if (WeaponID == 2 && PistolBulletStock > 0)
+        {
+            anim.SetBool("isReloading", true);
+            aud.PlayOneShot(PistolReload, 0.5f);
+        }
     }
   }
 
@@ -208,11 +234,42 @@ public class GunPlay : MonoBehaviour
 
     if (WeaponID == 1)
     {
-      RifleBulletLeft = RifleMagCap;
-    }
+            //RifleBulletLeft = RifleMagCap;
+
+            // If out of bullets, exit
+            if (RifleBulletStock <= 0)
+                    return;
+
+            if (RifleBulletStock >= RifleMagCap)
+            {
+                RifleBulletStock -= RifleMagCap;
+            }
+            else
+            {
+                RifleBulletStock = 0;
+            }
+
+            RifleBulletLeft = RifleMagCap;
+
+        }
     else if (WeaponID == 2)
     {
-      PistolBulletLeft = PistolMagCap;
+            //PistolBulletLeft = PistolMagCap;
+
+            // If out of bullets, exit
+            if (PistolBulletStock <= 0)
+                return;
+
+            if (PistolBulletStock >= PistolMagCap)
+            {
+                PistolBulletStock -= PistolMagCap;
+            }
+            else
+            {
+                PistolBulletStock = 0;
+            }
+
+            PistolBulletLeft = PistolMagCap;
     }
   }
 }

@@ -7,7 +7,7 @@ TagManager:
   - Ground
   - Key
   - Enemy
-  - Volume Setting Camera
+  - Pause Menu
   layers:
   - Default
   - TransparentFX

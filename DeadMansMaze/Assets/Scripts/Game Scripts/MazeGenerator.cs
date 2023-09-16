@@ -16,6 +16,14 @@ public class MapCoordinate
     }
 }
 
+public enum MAZE_PIECE
+{
+    STRAIGHT,
+    CORNER,
+    CROSS,
+    DEADEND,
+    T
+}
 
 public class MazeGenerator : MonoBehaviour
 {
@@ -31,6 +39,9 @@ public class MazeGenerator : MonoBehaviour
     [Header("Map")]
     [SerializeField] private TMP_Text _uiMap;
     //[SerializeField] private Text _uiMap;
+
+    [Header("Player")]
+    [SerializeField] private GameObject _player;
 
     [HideInInspector]
     public byte[,] _map;
@@ -54,7 +65,7 @@ public class MazeGenerator : MonoBehaviour
     private int _depth;     // z-axis
     private int _scale;
 
-    private GameObject _player;
+    //private GameObject _player;
 
     private void Awake()
     {
@@ -71,14 +82,14 @@ public class MazeGenerator : MonoBehaviour
             _scale = MainManager.Instance.MazeScale;
         }
 
-        _player = GameObject.FindWithTag("Player");
+        //_player = GameObject.FindWithTag("Player");
 
         InitializeMaze();
         GenerateMaze((int)(_width / 2), 1);
         DrawMaze();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         UpdateMap();
     }
@@ -671,7 +682,7 @@ public class MazeGenerator : MonoBehaviour
         Vector3 pos = _player.transform.position;
         int posInMazeX = (int)(_width / 2) + (int)(pos.x / _scale);
         int posInMazeZ = (int)(pos.z / _scale);
-
+        
         for (int z = _depth - 1; z >= 0; z--)
         {
             if (z == _depth - 1)
