@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetButtonDown("Cancel"))
         {
+            GunPlay._gameIsPaused = !GunPlay._gameIsPaused;
             TogglePauseGame();
         }
     }

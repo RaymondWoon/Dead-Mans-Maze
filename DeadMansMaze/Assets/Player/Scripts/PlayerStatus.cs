@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerStatus
 {
-    [SerializeField]
-    private int currentHp = 100;
-    private int maxHp = 100;
+    //[SerializeField]
+    public static int currentHp = 50;
+    public static int maxHp = 100;
     [SerializeField]
     public Inventory inventory = new Inventory();
 

@@ -29,6 +29,10 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Slider _sfxSlider;
     [SerializeField] private Slider _musicSlider;
 
+    [Header("Completion Time")]
+    [SerializeField] private Slider _timeSlider;
+    [SerializeField] private InputField _timeInputField;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,6 +44,9 @@ public class MainMenu : MonoBehaviour
 
         // Add a listener to the number of enemies input field
         _enemyInputField.onValueChanged.AddListener(delegate { EnemyInputValueChanged(); });
+
+        // Add a listener to the time input field
+        _timeInputField.onValueChanged.AddListener(delegate { TimeInputValueChanged(); });
     }
 
     private void Update()
@@ -80,6 +87,7 @@ public class MainMenu : MonoBehaviour
         MainManager.Instance.MazeWidth = Convert.ToInt32(_widthInputField.text);
         MainManager.Instance.MazeDepth = Convert.ToInt32(_depthInputField.text);
         MainManager.Instance.NumberOfEnemies = Convert.ToInt32(_enemyInputField.text);
+        MainManager.Instance.TimeToComplete = Convert.ToInt32(_timeInputField.text);
     }
 
     public void OnAudioSettingsButton()
@@ -127,7 +135,10 @@ public class MainMenu : MonoBehaviour
         _enemySlider.value = MainManager.Instance.NumberOfEnemies;
         _enemyInputField.text = MainManager.Instance.NumberOfEnemies.ToString();
 
-        // this is duplication and may have been conflicting with the other listeners
+        // set the time slider and text to the current timeToComplete value
+        _timeSlider.value = MainManager.Instance.TimeToComplete;
+        _timeInputField.text = MainManager.Instance.TimeToComplete.ToString();
+
         // width slider event listener
         _widthSlider.onValueChanged.AddListener((v) =>
         {
@@ -147,6 +158,13 @@ public class MainMenu : MonoBehaviour
         {
             // update the enemy input field text
             _enemyInputField.text = v.ToString("0");
+        });
+
+        // time slider event listener
+        _timeSlider.onValueChanged.AddListener((v) =>
+        {
+            // update the time input field text
+            _timeInputField.text = v.ToString("0");
         });
     }
 
@@ -225,6 +243,24 @@ public class MainMenu : MonoBehaviour
         else
         {
             _enemySlider.value = MainManager.Instance.MaxNumEnemies;
+        }
+    }
+
+    private void TimeInputValueChanged()
+    {
+        int newValue = Convert.ToInt32(_timeInputField.text);
+
+        if (newValue >= MainManager.Instance.MinTimeToComplete && newValue <= MainManager.Instance.MaxTimeToComplete)
+        {
+            _timeSlider.value = newValue;
+        }
+        else if (newValue < MainManager.Instance.MinTimeToComplete)
+        {
+            _timeSlider.value = MainManager.Instance.MinTimeToComplete;
+        }
+        else
+        {
+            _timeSlider.value = MainManager.Instance.MaxTimeToComplete;
         }
     }
 

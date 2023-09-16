@@ -63,6 +63,9 @@ public class PlayerAction : MonoBehaviour
     anim = GetComponent<Animator>();
     HideCursor();
 
+        // Health bar
+        UIManager.instance.UpdateHealthBar(PlayerStatus.currentHp, PlayerStatus.maxHp);
+
         // default volume setting to walk
         _playerFootsteps._volumeMin = _walkVolumeMin;
         _playerFootsteps._volumeMax = _walkVolumeMax;
@@ -235,4 +238,12 @@ public class PlayerAction : MonoBehaviour
     Cursor.visible = false;
     Cursor.lockState = CursorLockMode.Locked;
   }
+
+    public static void GetHealth(int amount)
+    {
+        PlayerStatus.currentHp = Mathf.Clamp(PlayerStatus.currentHp + amount, 0, PlayerStatus.maxHp);
+
+        UIManager.instance.UpdateHealthBar(PlayerStatus.currentHp, PlayerStatus.maxHp);
+    }
 }
+
