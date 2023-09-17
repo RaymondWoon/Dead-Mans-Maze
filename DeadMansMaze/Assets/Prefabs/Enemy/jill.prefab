@@ -4426,6 +4426,8 @@ GameObject:
   - component: {fileID: 1495284303}
   - component: {fileID: 1079965066102960017}
   - component: {fileID: 6229971281544246943}
+  - component: {fileID: 1002359672}
+  - component: {fileID: 1002359673}
   m_Layer: 10
   m_Name: jill
   m_TagString: Enemy
@@ -4599,7 +4601,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af23a5624ff89104d98d9f3365b54aa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
   _walkingSpeed: 0.8
   _runningSpeed: 1.6
   _chaseDistance: 10
@@ -4616,3 +4617,32 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 336fb3f95e718334ea0044ee3e9f0ad0, type: 3}
   _pain: {fileID: 8300000, guid: 74a15b51bea99c640845ff968592fe8a, type: 3}
   _die: {fileID: 8300000, guid: 2018c30ca0faff642abbb3b0792b6b3b, type: 3}
+--- !u!54 &1002359672
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9153167617879130721}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &1002359673
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9153167617879130721}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 1, z: 0}

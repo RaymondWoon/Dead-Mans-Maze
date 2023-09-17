@@ -29,8 +29,6 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private AudioClip _pain;
     [SerializeField] private AudioClip _die;
 
-    
-
     // Components
     private GameObject _player;
     private Animator _anim;
@@ -181,6 +179,16 @@ public class EnemyController : MonoBehaviour
         {
             _player.GetComponent<PlayerAction>().TakeHit(_damage);
             //PlayStrikeAudio();
+        }
+    }
+
+    public void DamageEnemy()
+    {
+        _health--;
+
+        if (_health <= 0)
+        {
+            _anim.SetBool("isDead", true);
         }
     }
 
