@@ -182,9 +182,9 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    public void DamageEnemy()
+    public void DamageEnemy(int Damage)
     {
-        _health--;
+        _health = _health - Damage;
 
         if (_health <= 0)
         {
