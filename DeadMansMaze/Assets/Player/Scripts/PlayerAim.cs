@@ -30,25 +30,26 @@ public class PlayerAim : MonoBehaviour
     Vector2 screenCenterPoint = new Vector2(Screen.width / 2f, Screen.height / 2f);
     Ray mouseRay = cam.ScreenPointToRay(screenCenterPoint);
 
-    // Raycast to aim at colliders or maximum distance from origin
-    if (Physics.Raycast(mouseRay, out hitInfo, 10f))
-    {
-      hitPoint = hitInfo.point;
-      hitDirection = hitInfo.normal;
-      Surface = true;
-    }
-    else
-    {
-      hitPoint = mouseRay.origin + mouseRay.direction * 10f;
-      Surface = false;
-    }
+        // Raycast to aim at colliders or maximum distance from origin
+        if (Physics.Raycast(mouseRay, out hitInfo, 10f))
+        {
+            hitPoint = hitInfo.point;
+            hitDirection = hitInfo.normal;
+            Surface = true;
+        }
+        else
+        {
+            hitPoint = mouseRay.origin + mouseRay.direction * 10f;
+            Surface = false;
+        }
 
-    // Transform position to raycasted destination
-    transform.position = hitPoint;
-  }
+        // Transform position to raycasted destination
+        transform.position = hitPoint;
+    }
 
   public void HitEffectRifle()
   {
+        
     if (Surface)
     {
       AimHit.transform.position = hitPoint;
@@ -64,7 +65,8 @@ public class PlayerAim : MonoBehaviour
 
   public void HitEffectPistol()
   {
-    if (Surface)
+        
+        if (Surface)
     {
       AimHit.transform.position = hitPoint;
       AimHit.transform.forward = hitDirection;

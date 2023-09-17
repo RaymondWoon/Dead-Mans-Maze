@@ -2071,6 +2071,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 5272401191220375143, guid: 1941542b7a2b20340a7b533b92cc5131,
+        type: 3}
+      propertyPath: RifleDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5272401191220375143, guid: 1941542b7a2b20340a7b533b92cc5131,
+        type: 3}
+      propertyPath: PistolDamage
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 5272401191284804832, guid: 1941542b7a2b20340a7b533b92cc5131,
         type: 3}
       propertyPath: m_Layer
@@ -3382,6 +3392,66 @@ PrefabInstance:
       propertyPath: _pauseMenu
       value: 
       objectReference: {fileID: 1020218929}
+    - target: {fileID: 8500522025376131030, guid: 1941542b7a2b20340a7b533b92cc5131,
+        type: 3}
+      propertyPath: RifleOnHit.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500522025376131030, guid: 1941542b7a2b20340a7b533b92cc5131,
+        type: 3}
+      propertyPath: PistolOnHit.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500522025376131030, guid: 1941542b7a2b20340a7b533b92cc5131,
+        type: 3}
+      propertyPath: RifleOnHit.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500522025376131030, guid: 1941542b7a2b20340a7b533b92cc5131,
+        type: 3}
+      propertyPath: PistolOnHit.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500522025376131030, guid: 1941542b7a2b20340a7b533b92cc5131,
+        type: 3}
+      propertyPath: RifleOnHit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1987161613}
+    - target: {fileID: 8500522025376131030, guid: 1941542b7a2b20340a7b533b92cc5131,
+        type: 3}
+      propertyPath: PistolOnHit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1987161613}
+    - target: {fileID: 8500522025376131030, guid: 1941542b7a2b20340a7b533b92cc5131,
+        type: 3}
+      propertyPath: RifleOnHit.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500522025376131030, guid: 1941542b7a2b20340a7b533b92cc5131,
+        type: 3}
+      propertyPath: PistolOnHit.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500522025376131030, guid: 1941542b7a2b20340a7b533b92cc5131,
+        type: 3}
+      propertyPath: RifleOnHit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HitEffectRifle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500522025376131030, guid: 1941542b7a2b20340a7b533b92cc5131,
+        type: 3}
+      propertyPath: PistolOnHit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HitEffectPistol
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500522025376131030, guid: 1941542b7a2b20340a7b533b92cc5131,
+        type: 3}
+      propertyPath: RifleOnHit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500522025376131030, guid: 1941542b7a2b20340a7b533b92cc5131,
+        type: 3}
+      propertyPath: PistolOnHit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8501108221152289494, guid: 1941542b7a2b20340a7b533b92cc5131,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5190,6 +5260,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1975886633}
   m_CullTransparentMesh: 0
+--- !u!114 &1987161613 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5272401191220375143, guid: 1941542b7a2b20340a7b533b92cc5131,
+    type: 3}
+  m_PrefabInstance: {fileID: 1091913335}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87081eb0ad550044baa2035d4901f786, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2057653831
 GameObject:
   m_ObjectHideFlags: 0
