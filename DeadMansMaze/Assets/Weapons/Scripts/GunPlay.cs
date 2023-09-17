@@ -35,7 +35,8 @@ public class GunPlay : MonoBehaviour
   [SerializeField] float PistolFireRate;
 
   [Header("Hit Effect")]
-  [SerializeField] UnityEvent OnHit;
+  [SerializeField] UnityEvent RifleOnHit;
+  [SerializeField] UnityEvent PistolOnHit;
 
     // Components
     Animator anim;
@@ -91,8 +92,8 @@ public class GunPlay : MonoBehaviour
   // OnShoot is called twice on press and release
   void OnFire()
   {
-        if (_gameIsPaused)
-            return;
+    if (_gameIsPaused)
+        return;
 
     // Hold to shoot
     if (!isFiring)
@@ -123,7 +124,7 @@ public class GunPlay : MonoBehaviour
         anim.SetTrigger("Fire");
         Instantiate(BulletCasing, RifleEjectPoint.position, RifleEjectPoint.rotation);
         RifleMuzzleFlash.SetActive(true);
-        OnHit.Invoke();
+        RifleOnHit.Invoke();
         doneFiring = false;
         yield return new WaitForSeconds(RifleFireRate);
         RifleMuzzleFlash.SetActive(false);
@@ -147,7 +148,7 @@ public class GunPlay : MonoBehaviour
         anim.SetTrigger("Fire");
         Instantiate(BulletCasing, PistolEjectPoint.position, PistolEjectPoint.rotation);
         PistolMuzzleFlash.SetActive(true);
-        OnHit.Invoke();
+        PistolOnHit.Invoke();
         doneFiring = false;
         yield return new WaitForSeconds(PistolFireRate);
         PistolMuzzleFlash.SetActive(false);

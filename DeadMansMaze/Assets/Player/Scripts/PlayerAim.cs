@@ -5,7 +5,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerAim : MonoBehaviour
 {
-  // Shot 
+  // Shot
+  public int RifleDamage;
+  public int PistolDamage;
   public ParticleSystem AimHit;
 
   // Shoot
@@ -45,14 +47,33 @@ public class PlayerAim : MonoBehaviour
     transform.position = hitPoint;
   }
 
-  public void HitEffect()
+  public void HitEffectRifle()
   {
     if (Surface)
     {
       AimHit.transform.position = hitPoint;
       AimHit.transform.forward = hitDirection;
       AimHit.Emit(1);
-      hitInfo.collider.gameObject.GetComponent<EnemyController>().DamageEnemy();
+      if (hitInfo.collider.tag == "Enemy")
+      {
+        Debug.Log("RifleDamage");
+        hitInfo.collider.gameObject.GetComponent<EnemyController>().DamageEnemy(RifleDamage);
+      }
+    }
+  }
+
+  public void HitEffectPistol()
+  {
+    if (Surface)
+    {
+      AimHit.transform.position = hitPoint;
+      AimHit.transform.forward = hitDirection;
+      AimHit.Emit(1);
+      if (hitInfo.collider.tag == "Enemy")
+      {
+        Debug.Log("PistolDamage");
+        hitInfo.collider.gameObject.GetComponent<EnemyController>().DamageEnemy(PistolDamage);
+      }
     }
   }
 }
