@@ -33,6 +33,9 @@ public class Timer : MonoBehaviour
         }
 
         DisplayTime(_timeRemaining);
+
+        if (_timeRemaining <= 0.0f)
+            GameManager.instance.LoseGame();
     }
 
     // Display in minutes and secconds

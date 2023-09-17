@@ -260,6 +260,14 @@ public class PlayerAction : MonoBehaviour
         PlayerStatus.currentHp = Mathf.Clamp(PlayerStatus.currentHp - amount, 0, PlayerStatus.maxHp);
 
         UIManager.instance.UpdateHealthBar(PlayerStatus.currentHp, PlayerStatus.maxHp);
+
+        if (PlayerStatus.currentHp <= 0)
+            Die();
+    }
+
+    private void Die()
+    {
+        GameManager.instance.LoseGame();
     }
 }
 
