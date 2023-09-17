@@ -52,7 +52,10 @@ public class PlayerAim : MonoBehaviour
       AimHit.transform.position = hitPoint;
       AimHit.transform.forward = hitDirection;
       AimHit.Emit(1);
-      hitInfo.collider.gameObject.GetComponent<EnemyController>().DamageEnemy();
+      if (hitInfo.collider.tag == "Enemy")
+      {
+        hitInfo.collider.gameObject.GetComponent<EnemyController>().DamageEnemy();
+      }
     }
   }
 }
