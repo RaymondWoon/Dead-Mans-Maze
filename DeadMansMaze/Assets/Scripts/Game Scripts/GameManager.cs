@@ -42,4 +42,24 @@ public class GameManager : MonoBehaviour
         // toggle the pause menu
         UIManager.instance.TogglePauseMenu(_gamePaused);
     }
+
+    public void WinGame()
+    {
+        // set the end game screen
+        UIManager.instance.SetEndGameScreen(true);
+        // pause the game
+        Time.timeScale = 0.0f;
+        // unlock the cursor
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void LoseGame()
+    {
+        // set the end game screen
+        UIManager.instance.SetEndGameScreen(false);
+        // pause the game
+        Time.timeScale = 0.0f;
+        // unlock the cursor
+        Cursor.lockState = CursorLockMode.None;
+    }
 }

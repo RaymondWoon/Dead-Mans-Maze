@@ -13,8 +13,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text _map;
     
 
-    [Header("Paused Menu")]
+    [Header("Menu")]
     [SerializeField] private GameObject _pauseMenu;
+    [SerializeField] private GameObject _wonMenu;
+    [SerializeField] private GameObject _loseMenu;
 
     [HideInInspector]
     public static UIManager instance;
@@ -75,6 +77,18 @@ public class UIManager : MonoBehaviour
     {
         // return a value between 0 and 1
         _healthBarFill.fillAmount = (float)currentHP / (float)maxHP;
+    }
+
+    public void SetEndGameScreen(bool won)
+    {
+        if (won)
+        {
+            _wonMenu.SetActive(true);
+        }
+        else
+        {
+            _loseMenu.SetActive(true);
+        }
     }
 
 }
