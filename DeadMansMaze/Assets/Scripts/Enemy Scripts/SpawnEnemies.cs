@@ -25,26 +25,32 @@ public class SpawnEnemies : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _numOfEnemies = MainManager.Instance.NumberOfEnemies;
-        _isBossActive = false;
-
-        _player = GameObject.FindWithTag("Player");
-
-        for (int i = 0; i < _numOfEnemies; i++)
+        if (MainManager.Instance)
         {
-            MAZE_PIECE mp = Extensions.RandomEnumValue<MAZE_PIECE>();
+            _numOfEnemies = MainManager.Instance.NumberOfEnemies;
+            _isBossActive = false;
 
-            InstantiateEnemy(mp);
+            _player = GameObject.FindWithTag("Player");
+
+            for (int i = 0; i < _numOfEnemies; i++)
+            {
+                MAZE_PIECE mp = Extensions.RandomEnumValue<MAZE_PIECE>();
+
+                InstantiateEnemy(mp);
+            }
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!_isBossActive && _player.transform.position.z > 24)
+        if (MainManager.Instance)
         {
-            InstantiateEnemyBoss((int)MainManager.Instance.MazeWidth / 2, 1);
-            _isBossActive = true;
+            if (!_isBossActive && _player.transform.position.z > 24)
+            {
+                InstantiateEnemyBoss((int)MainManager.Instance.MazeWidth / 2, 1);
+                _isBossActive = true;
+            }
         }
     }
 

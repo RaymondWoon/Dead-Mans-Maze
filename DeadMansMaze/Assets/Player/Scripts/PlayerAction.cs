@@ -33,8 +33,8 @@ public class PlayerAction : MonoBehaviour
   // Move values
   float xMove;
   float yMove;
-    private float xSensitivity = MainManager.Instance.MouseSensitivity;
-    private float ySensitivity = MainManager.Instance.MouseSensitivity;
+    private float xSensitivity = 0.1f;
+    private float ySensitivity = 0.1f;
 
     // Variables for player footsteps
     private PlayerFootsteps _playerFootsteps;
@@ -58,6 +58,12 @@ public class PlayerAction : MonoBehaviour
     {
         // access the PlayerFootsteps component (script)
         _playerFootsteps = GetComponentInChildren<PlayerFootsteps>();
+
+        if (MainManager.Instance)
+        {
+            xSensitivity = MainManager.Instance.MouseSensitivity;
+            ySensitivity = MainManager.Instance.MouseSensitivity;
+        }
     }
 
     // Start is called before the first frame update

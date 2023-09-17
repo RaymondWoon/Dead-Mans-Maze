@@ -8,13 +8,16 @@ public class Timer : MonoBehaviour
     [SerializeField] private Text _textTime;
 
     // Variables
-    private float _timeRemaining;
+    private float _timeRemaining = 0.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        // Time to complete is seconds
-        _timeRemaining = (float)MainManager.Instance.TimeToComplete * 60.0f;
+        if (MainManager.Instance)
+        {
+            // Time to complete is seconds
+            _timeRemaining = (float)MainManager.Instance.TimeToComplete * 60.0f;
+        }
     }
 
     // Update is called once per frame

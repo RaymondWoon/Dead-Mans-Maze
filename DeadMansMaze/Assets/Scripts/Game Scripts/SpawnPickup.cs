@@ -22,22 +22,25 @@ public class SpawnPickup : MonoBehaviour
         _keyLoaded = false;
         _athelasLoaded = false;
 
-        // pistol ammo pickup
-        LoadPistolAmmo(Extensions.RandomEnumValue<MAZE_PIECE>());
+        if (MainManager.Instance)
+        {
+            // pistol ammo pickup
+            LoadPistolAmmo(Extensions.RandomEnumValue<MAZE_PIECE>());
 
-        // rifle ammo pickup
-        LoadRifleAmmo(Extensions.RandomEnumValue<MAZE_PIECE>());
+            // rifle ammo pickup
+            LoadRifleAmmo(Extensions.RandomEnumValue<MAZE_PIECE>());
 
-        // health pickup
-        LoadHealth(Extensions.RandomEnumValue<MAZE_PIECE>());
+            // health pickup
+            LoadHealth(Extensions.RandomEnumValue<MAZE_PIECE>());
 
-        // key pickup
-        // no parameter required. Will always load in a deadend.
-        LoadKey();
+            // key pickup
+            // no parameter required. Will always load in a deadend.
+            LoadKey();
 
-        // Athelas pickup
-        // no parameter required. Will always load in a deadend.
-        LoadAthelas();
+            // Athelas pickup
+            // no parameter required. Will always load in a deadend.
+            LoadAthelas();
+        }
     }
 
     private void LoadPistolAmmo(MAZE_PIECE mp)
