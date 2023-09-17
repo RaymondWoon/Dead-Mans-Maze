@@ -25,13 +25,17 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private AudioClip _walking;
     [SerializeField] private AudioClip _running;
     [SerializeField] private AudioClip _attack;
+    [SerializeField] private AudioClip[] _strikes;
     [SerializeField] private AudioClip _pain;
     [SerializeField] private AudioClip _die;
+
+    
 
     // Components
     private GameObject _player;
     private Animator _anim;
     private NavMeshAgent _agent;
+    private AudioSource _audioSource;
 
     // Enemy states
     private enum STATE
@@ -48,9 +52,11 @@ public class EnemyController : MonoBehaviour
 
     private void Awake()
     {
+        // Initialize components
         _player = GameObject.FindWithTag("Player");
         _anim = GetComponent<Animator>();
         _agent = GetComponent<NavMeshAgent>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
      // Update is called once per frame
@@ -75,7 +81,6 @@ public class EnemyController : MonoBehaviour
                 {
                     float newX = transform.position.x + Random.Range(-12, 12);
                     float newZ = transform.position.z + Random.Range(-12, 12);
-                    //float newY = Terrain.activeTerrain.SampleHeight(new Vector3(newX, -0.1f, newZ));
 
                     Vector3 dest = new Vector3(newX, 0.0f, newZ);
                     _agent.SetDestination(dest);
@@ -105,7 +110,7 @@ public class EnemyController : MonoBehaviour
                 _agent.speed = _runningSpeed;
                 _anim.SetBool("isRunning", true);
                 
-                if (_agent.remainingDistance <= _agent.stoppingDistance && !_agent.pathPending)
+                if (_agent.remainingDistance <= _agent.stoppingDistance + 1 && !_agent.pathPending)
                 {
                     _state = STATE.ATTACK;
                 }
@@ -123,6 +128,9 @@ public class EnemyController : MonoBehaviour
 
                 // Set enemy to look at player
                 transform.LookAt(_player.transform.position);
+
+                //_audioSource.clip = _attack;
+                //_audioSource.Play();
 
                 if (DistanceToPlayer() > _agent.stoppingDistance + 1)
                     _state = STATE.CHASE;
@@ -165,4 +173,20 @@ public class EnemyController : MonoBehaviour
 
         return false;
     }
+
+    // apply damage to player
+    private void DamagePlayer()
+    {
+        if (_state == STATE.ATTACK)
+        {
+            _player.GetComponent<PlayerAction>().TakeHit(_damage);
+            //PlayStrikeAudio();
+        }
+    }
+
+    //private void PlayStrikeAudio()
+    //{
+    //    _audioSource.clip = _strikes[Random.Range(0, _strikes.Length - 1)];
+    //    _audioSource.Play();
+    //}
 }

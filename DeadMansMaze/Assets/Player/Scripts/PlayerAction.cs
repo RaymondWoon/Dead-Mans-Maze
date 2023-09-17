@@ -248,5 +248,12 @@ public class PlayerAction : MonoBehaviour
 
         UIManager.instance.UpdateHealthBar(PlayerStatus.currentHp, PlayerStatus.maxHp);
     }
+
+    public void TakeHit(int amount)
+    {
+        PlayerStatus.currentHp = Mathf.Clamp(PlayerStatus.currentHp - amount, 0, PlayerStatus.maxHp);
+
+        UIManager.instance.UpdateHealthBar(PlayerStatus.currentHp, PlayerStatus.maxHp);
+    }
 }
 

@@ -163,8 +163,8 @@ public class SpawnPickup : MonoBehaviour
         _keyPt = new MapCoordinate(0, 0);
         _keyPt = MazeGenerator.deadendPieces[Random.Range(0, MazeGenerator.deadendPieces.Count - 1)];
 
-        if (_keyPt.z < MainManager.Instance.MazeDepth * 0.4)
-            LoadKey();
+        //if (_keyPt.z < MainManager.Instance.MazeDepth * 0.4)
+        //    LoadKey();
 
         Vector3 pos = new Vector3((_keyPt.x - MainManager.Instance.MazeWidth / 2) * MainManager.Instance.MazeScale, 1f, _keyPt.z * MainManager.Instance.MazeScale + 3.0f);
 
@@ -173,10 +173,13 @@ public class SpawnPickup : MonoBehaviour
         _keyLoaded = true;
     }
 
-    private void LoadAthelas()
+    private void XLoadAthelas()
     {
-        MapCoordinate mapPt = new MapCoordinate(0, 0);
-        mapPt = MazeGenerator.deadendPieces[Random.Range(0, MazeGenerator.deadendPieces.Count - 1)];
+        if (_athelasLoaded)
+            return;
+        
+        _ = new MapCoordinate(0, 0);
+        MapCoordinate mapPt = MazeGenerator.deadendPieces[Random.Range(0, MazeGenerator.deadendPieces.Count - 1)];
 
         Vector3 pos = new Vector3(0, 0, 0);
 
@@ -189,8 +192,25 @@ public class SpawnPickup : MonoBehaviour
             LoadAthelas();
         }
 
-        if (pos != Vector3.zero)
+        if (mapPt.z != 0)
+        {
             Instantiate(_athelas, pos, Quaternion.identity);
+            _athelasLoaded = true;
+        }
+            
+    }
+
+    private void LoadAthelas()
+    {
+        MapCoordinate mapPt = new MapCoordinate(0, 0);
+
+        mapPt = MazeGenerator.deadendPieces[Random.Range(0, MazeGenerator.deadendPieces.Count - 1)];
+
+        Vector3 pos = new Vector3((mapPt.x - MainManager.Instance.MazeWidth / 2) * MainManager.Instance.MazeScale, 1f, mapPt.z * MainManager.Instance.MazeScale + 3.0f);
+
+        Instantiate(_athelas, pos, Quaternion.identity);
+
+        _athelasLoaded = true;
     }
 
 }
