@@ -11,6 +11,7 @@ public class PlayerAim : MonoBehaviour
   // Shoot
   Vector3 hitPoint;
   Vector3 hitDirection;
+  RaycastHit hitInfo;
   bool Surface = false;
 
   // Start is called before the first frame update
@@ -28,7 +29,6 @@ public class PlayerAim : MonoBehaviour
     Ray mouseRay = cam.ScreenPointToRay(screenCenterPoint);
 
     // Raycast to aim at colliders or maximum distance from origin
-    RaycastHit hitInfo;
     if (Physics.Raycast(mouseRay, out hitInfo, 10f))
     {
       hitPoint = hitInfo.point;
@@ -52,6 +52,7 @@ public class PlayerAim : MonoBehaviour
       AimHit.transform.position = hitPoint;
       AimHit.transform.forward = hitDirection;
       AimHit.Emit(1);
+      hitInfo.collider.gameObject.GetComponent<EnemyController>().DamageEnemy();
     }
   }
 }
