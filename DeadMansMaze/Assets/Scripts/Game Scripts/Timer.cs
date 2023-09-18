@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour
     [SerializeField] private Text _textTime;
 
     // Variables
-    private float _timeRemaining = 0.0f;
+    private float _timeRemaining = 300.0f;
 
     // Start is called before the first frame update
     void Start()
