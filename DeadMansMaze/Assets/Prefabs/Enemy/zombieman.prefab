@@ -1718,12 +1718,13 @@ GameObject:
   m_Component:
   - component: {fileID: 8182110007186639411}
   - component: {fileID: 4858005932450810756}
+  - component: {fileID: 3636726749299001586}
   - component: {fileID: 2071754718}
   - component: {fileID: 4167667453136312640}
   - component: {fileID: 1755168929}
   m_Layer: 0
   m_Name: zombieman
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1763,6 +1764,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &3636726749299001586
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5176861845160572960}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.29
+  m_Height: 1.8
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!195 &2071754718
 NavMeshAgent:
   m_ObjectHideFlags: 0

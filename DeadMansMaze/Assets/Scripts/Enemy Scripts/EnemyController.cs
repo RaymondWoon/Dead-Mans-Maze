@@ -60,6 +60,9 @@ public class EnemyController : MonoBehaviour
      // Update is called once per frame
     void Update()
     {
+        if (_state == STATE.DEAD)
+            return;
+
         switch (_state)
         {
             case STATE.IDLE:
@@ -135,7 +138,16 @@ public class EnemyController : MonoBehaviour
                 break;
 
             case STATE.DEAD:
+                //_anim.SetBool("isDead", true);
+                _anim.SetTrigger("die");
 
+                _agent.isStopped = true;
+
+                // disable the collider
+                GetComponent<Collider>().enabled = false;
+
+                // destroy after 7s
+                Destroy(gameObject, 7.0f);
                 break;
         }
     }
@@ -186,9 +198,23 @@ public class EnemyController : MonoBehaviour
     {
         _health = _health - Damage;
 
+        _audioSource.PlayOneShot(_pain);
+
         if (_health <= 0)
         {
-            _anim.SetBool("isDead", true);
+            
+            _state = STATE.DEAD;
+
+            //_anim.SetBool("isDead", true);
+            _anim.SetTrigger("die");
+
+            _agent.isStopped = true;
+
+            // disable the collider
+            GetComponent<Collider>().enabled = false;
+
+            // destroy after 7s
+            Destroy(gameObject, 7.0f);
         }
     }
 
