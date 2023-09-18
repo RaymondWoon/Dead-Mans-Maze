@@ -24,6 +24,9 @@ public class Pickup : MonoBehaviour
     [SerializeField] private float _bobSpeed;
     [SerializeField] private float _bobHeight;
 
+    [Header("Door")]
+    [SerializeField] private GameObject _door;
+
     private Vector3 _startPos;
     private bool _isBobbingUp;
 
@@ -68,6 +71,7 @@ public class Pickup : MonoBehaviour
 
                 case PickupType.Key:
                     MainManager.Instance.MazeKeyFound = true;
+                    //_door.SetActive(false);
                     break;
 
                 case PickupType.Athelas:

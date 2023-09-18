@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerAction : MonoBehaviour
 {
@@ -11,13 +12,12 @@ public class PlayerAction : MonoBehaviour
   [SerializeField] GameObject cam;
   [SerializeField] GameObject cam3rd;
   [SerializeField] Transform pos;
+    //[SerializeField] GameObject _door;
 
   // Look sensitivity
   // Moved to be a user option in the MainMenu
   //[SerializeField] float xSensitivity;
   //[SerializeField] float ySensitivity;
-
-    
 
   // Look values
   float xLook;
@@ -104,6 +104,14 @@ public class PlayerAction : MonoBehaviour
     // Move transition
     anim.SetFloat("x", xMove, 0.25f, Time.deltaTime);
     anim.SetFloat("y", yMove, 0.25f, Time.deltaTime);
+
+    if (MainManager.Instance && MainManager.Instance.MazeKeyFound)
+    {
+            Debug.Log(MainManager.Instance.MazeKeyFound);
+            Debug.Log(MainManager.Instance.AthelasFound);
+            //_door.SetActive(false);
+            CheckWin();
+    }
   }
 
   // OnLook is called on every value change and release (clamped rotation velocity)
@@ -269,5 +277,13 @@ public class PlayerAction : MonoBehaviour
     {
         GameManager.instance.LoseGame();
     }
+
+    private void CheckWin()
+    {
+        if (MainManager.Instance.AthelasFound && gameObject.transform.position.z < -5)
+        {
+            GameManager.WinGame();
+        }
+    }    
 }
 

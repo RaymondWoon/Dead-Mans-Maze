@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 4501763174698355884}
   - component: {fileID: 530046479}
   - component: {fileID: 530046478}
+  - component: {fileID: 6213085476963003878}
   m_Layer: 0
   m_Name: Floating_Key
   m_TagString: Untagged
@@ -182,6 +183,20 @@ MonoBehaviour:
   _rotateSpeed: 10
   _bobSpeed: 0.5
   _bobHeight: 0.5
+  _door: {fileID: 0}
+--- !u!65 &6213085476963003878
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4501763174698355885}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.31392345, y: 0.81597155, z: 0.08911811}
+  m_Center: {x: -0.044758916, y: -0.09201424, z: 0.015968373}
 --- !u!1 &4501763175772304957
 GameObject:
   m_ObjectHideFlags: 0

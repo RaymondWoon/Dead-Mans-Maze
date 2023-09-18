@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         UIManager.instance.TogglePauseMenu(_gamePaused);
     }
 
-    public void WinGame()
+    public static void WinGame()
     {
         // set the end game screen
         UIManager.instance.SetEndGameScreen(true);

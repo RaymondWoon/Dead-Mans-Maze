@@ -8,6 +8,7 @@ TagManager:
   - Key
   - Enemy
   - Pause Menu
+  - Door
   layers:
   - Default
   - TransparentFX
