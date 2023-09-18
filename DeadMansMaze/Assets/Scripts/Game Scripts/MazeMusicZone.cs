@@ -6,6 +6,7 @@ public class MazeMusicZone : MonoBehaviour
 {
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private float _fadeTime;
+    [SerializeField] private GameObject _door;
     
     // Variables
     private float _targetVolume;
@@ -27,6 +28,7 @@ public class MazeMusicZone : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             _targetVolume = 1.0f;
+            //_door.SetActive(true);
         }
     }
 
