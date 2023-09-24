@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
             GunPlay._gameIsPaused = !GunPlay._gameIsPaused;
             TogglePauseGame();
         }
+
+
     }
 
     public void TogglePauseGame()
@@ -56,7 +58,7 @@ public class GameManager : MonoBehaviour
     public void LoseGame()
     {
         // set the end game screen
-        UIManager.instance.SetEndGameScreen(false);
+        //UIManager.instance.SetEndGameScreen(false);
         // pause the game
         Time.timeScale = 0.0f;
         // unlock the cursor

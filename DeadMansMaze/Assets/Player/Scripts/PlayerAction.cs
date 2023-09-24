@@ -260,14 +260,16 @@ public class PlayerAction : MonoBehaviour
     {
         PlayerStatus.currentHp = Mathf.Clamp(PlayerStatus.currentHp + amount, 0, PlayerStatus.maxHp);
 
-        UIManager.instance.UpdateHealthBar(PlayerStatus.currentHp, PlayerStatus.maxHp);
+        //UIManager.instance.UpdateHealthBar(PlayerStatus.currentHp, PlayerStatus.maxHp);
+        GameUI_Manager.instance.UpdateHealthBar(PlayerStatus.currentHp, PlayerStatus.maxHp);
     }
 
     public void TakeHit(int amount)
     {
         PlayerStatus.currentHp = Mathf.Clamp(PlayerStatus.currentHp - amount, 0, PlayerStatus.maxHp);
 
-        UIManager.instance.UpdateHealthBar(PlayerStatus.currentHp, PlayerStatus.maxHp);
+        //UIManager.instance.UpdateHealthBar(PlayerStatus.currentHp, PlayerStatus.maxHp);
+        GameUI_Manager.instance.UpdateHealthBar(PlayerStatus.currentHp, PlayerStatus.maxHp);
 
         if (PlayerStatus.currentHp <= 0)
             Die();
@@ -275,7 +277,8 @@ public class PlayerAction : MonoBehaviour
 
     private void Die()
     {
-        GameManager.instance.LoseGame();
+        //GameManager.instance.LoseGame();
+        GameManager2.instance.LoseGame();
     }
 
     private void CheckWin()
