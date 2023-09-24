@@ -43,23 +43,21 @@ public class GunPlay : MonoBehaviour
   RigBuilder rig;
   AudioSource aud;
 
-    // Weapon state
-    [HideInInspector]
-    public static int RifleBulletLeft;
-    public static int PistolBulletLeft;
-    public static int WeaponID;
-    public static int PistolBulletStock = 30;
-    public static int RifleBulletStock = 60;
+  // Weapon state
+  [HideInInspector]
+  public static int RifleBulletLeft;
+  public static int PistolBulletLeft;
+  public static int WeaponID;
+  public static int PistolBulletStock = 30;
+  public static int RifleBulletStock = 60;
   bool isReloading;
   bool isFiring = false;
   bool doneFiring = true;
 
-    
-    public static bool _gameIsPaused;
+  public static bool _gameIsPaused;
 
- 
-    // Start is called before the first frame update
-    void Start()
+  // Start is called before the first frame update
+  void Start()
   {
     anim = GetComponent<Animator>();
     rig = GetComponent<RigBuilder>();
@@ -70,7 +68,7 @@ public class GunPlay : MonoBehaviour
     RifleBulletLeft = RifleMagCap;
     PistolBulletLeft = PistolMagCap;
 
-        _gameIsPaused = false;
+    _gameIsPaused = false;
   }
 
   // Update is called once per frame
@@ -169,22 +167,8 @@ public class GunPlay : MonoBehaviour
   void OnReload()
   {
     // Reload only if not already reloading or mag is not full
-    //if(!isReloading & RifleBulletLeft != RifleMagCap | PistolBulletLeft != PistolMagCap)
-    //{
-    //  anim.SetBool("isReloading", true);
-
-    //  if (WeaponID == 1)
-    //  {
-    //    aud.PlayOneShot(RifleReload, 0.5f);
-    //  }
-    //  else if (WeaponID == 2)
-    //  {
-    //    aud.PlayOneShot(PistolReload, 0.5f);
-    //  }
-    //}
-
     // Revised by Raymond - only allow reload if there are magazine clips available
-    if (!isReloading)
+    if (!isReloading & RifleBulletLeft != RifleMagCap | !isReloading & PistolBulletLeft != PistolMagCap)
     {
         if (WeaponID == 1 && RifleBulletStock > 0)
         {
