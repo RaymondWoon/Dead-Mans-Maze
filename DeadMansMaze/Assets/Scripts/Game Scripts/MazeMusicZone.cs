@@ -29,6 +29,7 @@ public class MazeMusicZone : MonoBehaviour
         {
             _targetVolume = 1.0f;
             //_door.SetActive(true);
+            _door.transform.position = new Vector3(0.0f, 3.0f, -0.25f);
         }
     }
 
