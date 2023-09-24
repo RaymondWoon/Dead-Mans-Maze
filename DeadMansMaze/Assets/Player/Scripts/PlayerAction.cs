@@ -73,7 +73,7 @@ public class PlayerAction : MonoBehaviour
     HideCursor();
 
         // Health bar
-        UIManager.instance.UpdateHealthBar(PlayerStatus.currentHp, PlayerStatus.maxHp);
+        //UIManager.instance.UpdateHealthBar(PlayerStatus.currentHp, PlayerStatus.maxHp);
 
         // default volume setting to walk
         _playerFootsteps._volumeMin = _walkVolumeMin;

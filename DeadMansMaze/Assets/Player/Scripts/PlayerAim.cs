@@ -19,12 +19,15 @@ public class PlayerAim : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
-
+        //_game_ui
   }
 
   // Update is called once per frame
   void Update()
   {
+        if (GameUI_Manager.instance._currentState == GameUI_Manager.GameUI_State.Pause)
+            return;
+
     // Raycast from middle of the screen
     Camera cam = Camera.main;
     Vector2 screenCenterPoint = new Vector2(Screen.width / 2f, Screen.height / 2f);
