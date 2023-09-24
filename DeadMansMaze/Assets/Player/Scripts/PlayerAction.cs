@@ -278,7 +278,8 @@ public class PlayerAction : MonoBehaviour
     private void Die()
     {
         //GameManager.instance.LoseGame();
-        GameManager2.instance.LoseGame();
+        //GameManager2.instance.LoseGame();
+        GameUI_Manager.instance._currentState = GameUI_Manager.GameUI_State.GameOver;
     }
 
     private void CheckWin()
