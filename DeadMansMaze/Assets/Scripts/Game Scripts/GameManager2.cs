@@ -26,8 +26,8 @@ public class GameManager2 : MonoBehaviour
             return;
 
         // ESC toggles the pause menu
-        if (Input.GetKeyDown(KeyCode.Escape))
-            _gameUI_Manager.TogglePauseUI();
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //    _gameUI_Manager.TogglePauseUI();
     }
 
     public void GameOver()
@@ -50,4 +50,25 @@ public class GameManager2 : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public static void WinGame()
+    {
+        // set the end game screen
+        UIManager.instance.SetEndGameScreen(true);
+        // pause the game
+        Time.timeScale = 0.0f;
+        // unlock the cursor
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void LoseGame()
+    {
+        // set the end game screen
+        UIManager.instance.SetEndGameScreen(false);
+        // pause the game
+        Time.timeScale = 0.0f;
+        // unlock the cursor
+        Cursor.lockState = CursorLockMode.None;
+    }
+
 }

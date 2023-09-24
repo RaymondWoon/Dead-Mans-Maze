@@ -25,7 +25,8 @@ public class PlayerAim : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-        if (GameUI_Manager.instance._currentState == GameUI_Manager.GameUI_State.Pause)
+        if (GameUI_Manager.instance._currentState == GameUI_Manager.GameUI_State.Pause
+            || GameUI_Manager.instance._currentState == GameUI_Manager.GameUI_State.GameOver)
             return;
 
     // Raycast from middle of the screen

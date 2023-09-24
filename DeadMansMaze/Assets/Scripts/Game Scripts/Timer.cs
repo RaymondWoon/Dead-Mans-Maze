@@ -35,7 +35,9 @@ public class Timer : MonoBehaviour
         DisplayTime(_timeRemaining);
 
         if (_timeRemaining <= 0.0f)
-            GameManager.instance.LoseGame();
+            GameUI_Manager.instance._currentState = GameUI_Manager.GameUI_State.GameOver;
+                
+        //GameManager2.instance.LoseGame();
     }
 
     // Display in minutes and secconds

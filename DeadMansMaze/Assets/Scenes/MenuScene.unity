@@ -7051,7 +7051,7 @@ MonoBehaviour:
   MaxMazeDepth: 20
   MinNumEnemies: 4
   MaxNumEnemies: 20
-  MinTimeToComplete: 3
+  MinTimeToComplete: 1
   MaxTimeToComplete: 60
   MinMouseSensitivity: 0.1
   MaxMouseSensitivity: 1
@@ -10894,7 +10894,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 2032305670}
   m_HandleRect: {fileID: 363154474}
   m_Direction: 0
-  m_MinValue: 3
+  m_MinValue: 1
   m_MaxValue: 60
   m_WholeNumbers: 1
   m_Value: 10
