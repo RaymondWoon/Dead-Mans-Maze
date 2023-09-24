@@ -15,7 +15,7 @@ public class GameUI_Manager : MonoBehaviour
     [Header("Menu")]
     [SerializeField] private GameObject _pause_ui;
     [SerializeField] private GameObject _won_ui;
-    [SerializeField] private GameObject _lose_ui;
+    [SerializeField] private GameObject _loss_ui;
 
     [Header("Miscellaneous")]
     [SerializeField] private GameManager2 _gameManager;
@@ -63,8 +63,15 @@ public class GameUI_Manager : MonoBehaviour
             ToggleMapDisplay();
         }
 
+        // ESC toggles the pause menu
+        if (Input.GetKeyDown(KeyCode.Escape))
+            TogglePauseUI();
+
         if (_currentState == GameUI_State.GamePlay)
             UpdateHealthBar(PlayerStatus.currentHp, PlayerStatus.maxHp);
+
+        if (_currentState == GameUI_State.GameOver)
+            SwitchUIState(GameUI_State.GameOver);
     }
 
     private void SwitchUIState(GameUI_State state)
@@ -90,6 +97,16 @@ public class GameUI_Manager : MonoBehaviour
                 _auxCam.enabled = true;
                 _auxCam.GetComponent<AudioListener>().enabled = true;
                 _pause_ui.SetActive(true);
+                break;
+
+            case GameUI_State.GameOver:
+                Time.timeScale = 0;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                _player.SetActive(false);
+                _auxCam.enabled = true;
+                _auxCam.GetComponent<AudioListener>().enabled = true;
+                _loss_ui.SetActive(true);
                 break;
         }
 
