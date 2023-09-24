@@ -122,8 +122,8 @@ public class PlayerAction : MonoBehaviour
         //xLook = Mathf.Clamp(xyInput.x, -10f, 10f);
         //yLook = Mathf.Clamp(xyInput.y, -10f, 10f);
 
-        xLook = Mathf.Clamp(xyInput.x, -5f, 5f);
-        yLook = Mathf.Clamp(xyInput.y, -5f, 5f);
+        xLook = Mathf.Clamp(xyInput.x, -10f, 10f);
+        yLook = Mathf.Clamp(xyInput.y, -10f, 10f);
 
         //if (xyInput.x != 0)
         //{
