@@ -6252,9 +6252,9 @@ MonoBehaviour:
   m_text: "\n<pos=2%><b>Pickups:</b>\n\n<pos=4%>1. Pistol ammo - adds 30 rounds or
     3 clips\n<pos=4%>2. Rifle Ammo - adds 90 rounds or 3 magazines\n<pos=4%>3. Health
     - adds 50% to the player's health with a max. of 100%.\n<pos=4%>4. Key - key
-    to deactivate the force field preventing anything from \n<pos=6%> leaving the
-    maze\n<pos=4%>5. Athelas - a plant, whose medicinal properties are required to
-    find\n<pos=6%>  the cure of the virus\n\n"
+    to open the door preventing the player from exiting the \n<pos=6%>  maze\n<pos=4%>5.
+    Athelas - a plant, whose medicinal properties are required to find\n<pos=6%> 
+    the cure of the virus\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
