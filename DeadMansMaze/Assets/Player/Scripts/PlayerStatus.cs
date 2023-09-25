@@ -7,8 +7,6 @@ public class PlayerStatus
     //[SerializeField]
     public static int currentHp = 100;
     public static int maxHp = 100;
-    [SerializeField]
-    public Inventory inventory = new Inventory();
 
     public int GetCurrentHp()
     {

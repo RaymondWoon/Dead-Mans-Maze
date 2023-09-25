@@ -24,8 +24,11 @@ public class Pickup : MonoBehaviour
     [SerializeField] private float _bobSpeed;
     [SerializeField] private float _bobHeight;
 
-    [Header("Door")]
-    [SerializeField] private GameObject _door;
+    //[Header("Door")]
+    //[SerializeField] private GameObject _door;
+
+    //[Header("Inventory")]
+    //[SerializeField] private PlayerInventory _inventory;
 
     private Vector3 _startPos;
     private bool _isBobbingUp;
@@ -62,23 +65,28 @@ public class Pickup : MonoBehaviour
             switch (_type)
             {
                 case PickupType.Pistol_Ammo:
+                    AddItemToInventory("pistol", new Dictionary<string, int> { { "ammo", _value } });
                     GunPlay.PistolBulletStock += _value;
                     break;
 
                 case PickupType.Rifle_Ammo:
+                    AddItemToInventory("rifle", new Dictionary<string, int> { { "ammo", _value } });
                     GunPlay.RifleBulletStock += _value;
                     break;
 
                 case PickupType.Key:
                     MainManager.Instance.MazeKeyFound = true;
-                    //_door.SetActive(false);
+                    AddItemToInventory("key");
                     break;
 
                 case PickupType.Athelas:
+                    Debug.Log("Pickup athelas");
                     MainManager.Instance.AthelasFound = true;
+                    AddItemToInventory("athelas");
                     break;
 
                 case PickupType.Health:
+                    Debug.Log("Pickup health");
                     PlayerAction.GetHealth(_value);
                     break;
             }
@@ -90,4 +98,26 @@ public class Pickup : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void AddItemToInventory(string itemToAdd)
+    {
+        GameObject _player = GameObject.FindGameObjectWithTag("Player");
+        PlayerInventory _inventory = _player.GetComponent<PlayerInventory>();
+        _inventory.AddItem(itemToAdd);
+    }
+    //AddItem("pistol", new Dictionary<string, int> { { "ammo", 30 } });
+    private void AddItemToInventory(string itemToAdd, Dictionary<string, int> context)
+    {
+        GameObject _player = GameObject.FindGameObjectWithTag("Player");
+        PlayerInventory _inventory = _player.GetComponent<PlayerInventory>();
+        _inventory.AddItem(itemToAdd, context);
+    }
+
+    //private void AddItemToInventory(int id, Dictionary<string, int> context)
+    //{
+    //    GameObject _player = GameObject.FindGameObjectWithTag("Player");
+    //    PlayerInventory _inventory = _player.GetComponent<PlayerInventory>();
+    //    _inventory.AddItem(id, context);
+    //}
 }
+
