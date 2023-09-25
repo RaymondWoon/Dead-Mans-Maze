@@ -105,13 +105,13 @@ public class PlayerAction : MonoBehaviour
     anim.SetFloat("x", xMove, 0.25f, Time.deltaTime);
     anim.SetFloat("y", yMove, 0.25f, Time.deltaTime);
 
-    if (MainManager.Instance && MainManager.Instance.MazeKeyFound)
-    {
-            Debug.Log(MainManager.Instance.MazeKeyFound);
-            Debug.Log(MainManager.Instance.AthelasFound);
-            //_door.SetActive(false);
-            CheckWin();
-    }
+    //if (MainManager.Instance && MainManager.Instance.MazeKeyFound)
+    //{
+    //        Debug.Log(MainManager.Instance.MazeKeyFound);
+    //        Debug.Log(MainManager.Instance.AthelasFound);
+    //        //_door.SetActive(false);
+    //        CheckWin();
+    //}
   }
 
   // OnLook is called on every value change and release (clamped rotation velocity)
@@ -119,11 +119,11 @@ public class PlayerAction : MonoBehaviour
   {
     Vector2 xyInput = input.Get<Vector2>();
 
-        //xLook = Mathf.Clamp(xyInput.x, -10f, 10f);
-        //yLook = Mathf.Clamp(xyInput.y, -10f, 10f);
+        xLook = Mathf.Clamp(xyInput.x, -10f, 10f);
+        yLook = Mathf.Clamp(xyInput.y, -10f, 10f);
 
-        xLook = Mathf.Clamp(xyInput.x, -5f, 5f);
-        yLook = Mathf.Clamp(xyInput.y, -5f, 5f);
+        //xLook = Mathf.Clamp(xyInput.x, -5f, 5f);
+        //yLook = Mathf.Clamp(xyInput.y, -5f, 5f);
 
         //if (xyInput.x != 0)
         //{
@@ -234,7 +234,7 @@ public class PlayerAction : MonoBehaviour
     // GetKey
     if (collision.gameObject.tag.ToLower() == "key")
     {
-      status.inventory.AddItem(collision.gameObject.tag.ToLower());
+      //status.inventory.AddItem(collision.gameObject.tag.ToLower());
       Destroy(collision.gameObject);
       // Debug.Log("Number of Keys: " + status.inventory.GetNumberOfKeyItem("key").ToString());
     }

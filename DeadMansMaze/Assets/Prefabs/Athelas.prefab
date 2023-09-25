@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b18560c67c09a5b4eb216d9bb4cc9e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 0
+  _type: 4
   _value: 1
   _pickupSFX: {fileID: 8300000, guid: f8aac9d421a87aa4aa3679d1ba10f702, type: 3}
   _rotateSpeed: 0

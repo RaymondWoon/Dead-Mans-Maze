@@ -168,35 +168,44 @@ public class GunPlay : MonoBehaviour
   // OnReload is called once on trigger or when mag is empty
   void OnReload()
   {
-    // Reload only if not already reloading or mag is not full
-    //if(!isReloading & RifleBulletLeft != RifleMagCap | PistolBulletLeft != PistolMagCap)
-    //{
-    //  anim.SetBool("isReloading", true);
+        // Reload only if not already reloading or mag is not full
+        //if(!isReloading & RifleBulletLeft != RifleMagCap | PistolBulletLeft != PistolMagCap)
+        //{
+        //  anim.SetBool("isReloading", true);
 
-    //  if (WeaponID == 1)
-    //  {
-    //    aud.PlayOneShot(RifleReload, 0.5f);
-    //  }
-    //  else if (WeaponID == 2)
-    //  {
-    //    aud.PlayOneShot(PistolReload, 0.5f);
-    //  }
-    //}
+        //  if (WeaponID == 1)
+        //  {
+        //    aud.PlayOneShot(RifleReload, 0.5f);
+        //  }
+        //  else if (WeaponID == 2)
+        //  {
+        //    aud.PlayOneShot(PistolReload, 0.5f);
+        //  }
+        //}
 
-    // Revised by Raymond - only allow reload if there are magazine clips available
-    if (!isReloading)
-    {
-        if (WeaponID == 1 && RifleBulletStock > 0)
+        // Revised by Raymond - only allow reload if there are magazine clips available
+        // if (!isReloading & RifleBulletLeft != RifleMagCap | !isReloading & PistolBulletLeft != PistolMagCap)
+        if (!isReloading)
         {
-            anim.SetBool("isReloading", true);
-            aud.PlayOneShot(RifleReload, 0.5f);
+            if (WeaponID == 1 && RifleBulletStock > 0)
+            {
+                anim.SetBool("isReloading", true);
+                aud.PlayOneShot(RifleReload, 0.5f);
+
+                    GameObject _player = GameObject.FindGameObjectWithTag("Player");
+                    PlayerInventory _inventory = _player.GetComponent<PlayerInventory>();
+                    _inventory.AddItem("rifle", new Dictionary<string, int> { { "ammo", RifleMagCap * -1 } });
+                }
+            else if (WeaponID == 2 && PistolBulletStock > 0)
+            {
+                anim.SetBool("isReloading", true);
+                aud.PlayOneShot(PistolReload, 0.5f);
+
+                    GameObject _player = GameObject.FindGameObjectWithTag("Player");
+                    PlayerInventory _inventory = _player.GetComponent<PlayerInventory>();
+                    _inventory.AddItem("pistol", new Dictionary<string, int> { { "ammo", PistolMagCap * -1 } });
+                }
         }
-        else if (WeaponID == 2 && PistolBulletStock > 0)
-        {
-            anim.SetBool("isReloading", true);
-            aud.PlayOneShot(PistolReload, 0.5f);
-        }
-    }
   }
 
   // OnSwitch is called once on trigger (stops reloading)
